@@ -20,7 +20,7 @@
 #define STICK_LEFT  0x12
 #define STICK_RIGHT  0x13
 
-//#define MULTIPLAYER
+#define MULTIPLAYER
 #define DEBUG
 
 #define pos_x 0.10

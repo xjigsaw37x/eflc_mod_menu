@@ -47,8 +47,8 @@ void submenu_setup(void){ //third level
 	if(submenu_id == 1){
 		if(item_select == 1){
 			third_level_id = 1;//you need to have seperate ids with the more of these you make
-			menu[1].item_name = "Test third level function";
-			menu[2].item_name = "debug test";
+			menu[1].item_name = "test 1";
+			menu[2].item_name = "test 2";
 			
 			item_count = 2;
 		}

@@ -52,7 +52,7 @@ void draw_menu(void){
 		draw_text("STRING",pos_x,0.06,"XMC Menu v1.0");
 		#if defined DEBUG
 			set_up_draw(0,0.4000,0.4000,255,255,255,255);
-			draw_text("STRING",pos_x,0.10,"DEBUG VERSION (ENGINE: 2.0b)");		
+			draw_text("STRING",pos_x,0.10,"TEST VERSION (ENGINE: 1.0a)");		
 		#endif		
 		int i = 1;
 		for(i;i <= item_count;i++){

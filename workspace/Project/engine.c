@@ -1,7 +1,8 @@
 /**
 	Menu engine code
-	by: Herr Muskelprotze
-
+	Orig. by: Herr Muskelprotze
+	Currently by: Emmanuel Utomi
+	
 **/
 
 
@@ -48,7 +49,7 @@ void draw_menu(void){
 		float pos_y = start_y;
 		HIDE_HUD_AND_RADAR_THIS_FRAME();
 		set_up_draw(0,0.4000,0.4000,menu[1].r,menu[1].g,menu[1].b,255);
-		draw_text("STRING",pos_x,0.06,"This menu was created by Herr Muskelprotze");
+		draw_text("STRING",pos_x,0.06,"XMC Menu v1.0");
 		#if defined DEBUG
 			set_up_draw(0,0.4000,0.4000,255,255,255,255);
 			draw_text("STRING",pos_x,0.10,"DEBUG VERSION (ENGINE: 2.0b)");		

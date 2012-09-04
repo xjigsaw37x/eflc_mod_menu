@@ -1,7 +1,7 @@
 /**
 	Menu functions
-	by: Herr Muskelprotze
-	
+	Orig. by: Herr Muskelprotze
+	Currently by: Emmanuel Utomi
 	
 	*** IMPORTANT NOTE: PUT ALL FUNCTIONS FIRST, THEN CALL THEM AT BOTTOM OTHER WISE YOU GET A VARARG ERROR ***
 **/

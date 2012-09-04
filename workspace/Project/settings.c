@@ -36,5 +36,6 @@ typedef struct _menu_engine{
 
 menu_engine menu[20];
 int item_count = 0,item_select = 1,submenu_id = 0,third_level_id = 0,submenu_level = 0;
+int prev_select = 1;
 bool show_menu = false;
 uint r,g,b,a;

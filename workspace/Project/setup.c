@@ -1,6 +1,7 @@
 /**
 	Menu setup config
-	by: Herr Muskelprotze
+	Orig. by: Herr Muskelprotze
+	Currently by: Emmanuel Utomi
 	
 **/
 

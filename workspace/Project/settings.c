@@ -1,7 +1,8 @@
 /**
 	Settings, Keybinds, and Structure for engine
-	by: Herr Muskelprotze
-
+	Orig. by: Herr Muskelprotze
+	Currently by: Emmanuel Utomi
+	
 **/
 #define BUTTON_SELECT  0xD
 #define BUTTON_START  0xC

@@ -158,7 +158,7 @@ void draw_menu(void){
 		}
 	
 	}
-	else if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_JUST_PRESSED(0,DPAD_UP)){
+	else if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_JUST_PRESSED(0,BUTTON_RB)){
 		show_menu = true;
 		CLEAR_PRINTS();
 		CLEAR_HELP();

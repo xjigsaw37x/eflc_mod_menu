@@ -8,6 +8,7 @@
 #include "setup.c"
 #include "menu_functions.c"
 #include "engine.c"
+#include "functions.c"
 
 
 void main(void){

@@ -49,10 +49,14 @@ void draw_menu(void){
 		float pos_y = start_y;
 		HIDE_HUD_AND_RADAR_THIS_FRAME();
 		set_up_draw(0,0.4000,0.4000,menu[1].r,menu[1].g,menu[1].b,255);
-		draw_text("STRING",pos_x,0.06,"XMC Menu v1.0");
 		#if defined DEBUG
+			draw_text("STRING",pos_x,0.06,"XMC Mod menu");
 			set_up_draw(0,0.4000,0.4000,255,255,255,255);
-			draw_text("STRING",pos_x,0.10,"TEST VERSION (ENGINE: 1.0a)");		
+			draw_text("STRING",pos_x,0.10,"TEST VERSION v1.0a");	
+		#else
+			draw_text("STRING",pos_x,0.06,"XMC Mod menu Public");
+			set_up_draw(0,0.4000,0.4000,255,255,255,255);
+			draw_text("STRING",pos_x,0.10,"by Emmanuel Utomi AKA Xmc wildchild22");	
 		#endif		
 		int i = 1;
 		for(i;i <= item_count;i++){

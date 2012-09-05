@@ -22,6 +22,7 @@
 #define STICK_RIGHT  0x13
 
 #define MULTIPLAYER
+//Leave DEBUG defined until public release
 #define DEBUG
 
 #define pos_x 0.10

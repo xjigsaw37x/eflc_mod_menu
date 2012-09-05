@@ -53,7 +53,7 @@ void submenu_setup(void){ //third level
 			item_count = 2;
 		}
 	}
-		else if(submenu_id == 2){
+		 if(submenu_id == 2){
 		if(item_select == 1){
 			third_level_id = 2;
 			menu[1].item_name = "test 1";
@@ -64,7 +64,7 @@ void submenu_setup(void){ //third level
 		}
 		
 	}
-	else if(submenu_id == 3){
+		if(submenu_id == 3){
 		if(item_select == 1){
 			third_level_id = 3;
 			menu[1].item_name = "Green (default)";

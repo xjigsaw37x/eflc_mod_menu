@@ -17,6 +17,9 @@ echo Compiling menu.sco ...
 echo.
 ..\..\bin\scocl_old.exe TBOGT "menu.c" "..\Project/" -fnested-functions
 if not exist *.sco goto err_build
+set "outsco=menu.sco"
+echo.
+for %%A in (%outsco%) do echo.Size of "%%A" is %%~zA bytes
 pause
 exit 1
 

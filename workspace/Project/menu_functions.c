@@ -12,7 +12,7 @@ void prints(char* text){
 
 void second_level_functions(void){ 
 	if(submenu_id == 1){
-		if(item_select == 1){
+		if(item_select == 1){ //Godmode toggle
 			xmcgodmode_toggle();
 		}
 	else if(item_select == 2){

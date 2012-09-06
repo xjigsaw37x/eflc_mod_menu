@@ -1,12 +1,21 @@
 @echo off
 if not exist *.c goto nofile
-if exist *.sco (
-echo Cleaning prior scripts ...
-del -f *.sco
+if not exist ../../out_sco (
+cd ../../
+mkdir out_sco
+cd workspace/Project/
 )
-if exist *.s (
+if exist ../../out_sco/*.sco (
 echo Cleaning prior scripts ...
+cd ../../out_sco/
+del -f *.sco
+cd ../workspace/Project/
+)
+if exist ../../out_sco/*.s (
+echo Cleaning prior failed scripts ...
+cd ../../out_sco/
 del -f *.s
+cd ../workspace/Project/
 )
 if not defined %%1 goto compile_menu
 goto compile_custom
@@ -15,9 +24,9 @@ goto compile_custom
 echo.
 echo Compiling menu.sco ...
 echo.
-..\..\bin\scocl_old.exe TBOGT "menu.c" "..\Project/" -fnested-functions
-if not exist *.sco goto err_build
-set "outsco=menu.sco"
+..\..\bin\scocl_old.exe TBOGT "menu.c" "..\..\out_sco/"
+if not exist ../../out_sco/*.sco goto err_build
+set "outsco=../../out_sco/*.sco"
 echo.
 for %%A in (%outsco%) do echo.Size of "%%A" is %%~zA bytes
 pause
@@ -27,7 +36,7 @@ exit 1
 echo.
 if %%1 NEQ *.c goto err_custom
 echo Compiling %%1 ...
-..\..\bin\scocl_old.exe TBOGT "%%1" "..\Project/" -fnested-functions
+..\..\bin\scocl_old.exe TBOGT "%%1" "..\..\out_sco/" -fnested-functions
 if not exist *.sco goto err_build
 pause
 exit 1

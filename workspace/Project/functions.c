@@ -17,6 +17,7 @@ PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Gave player XMC's weapons", 2500
 }
 
 void xmcgodmode(void){
+Player pid = GetPlayerIndex();
 SET_PLAYER_INVINCIBLE(pid, TRUE);
 SET_PLAYER_NEVER_GETS_TIRED(pid, TRUE);
 }

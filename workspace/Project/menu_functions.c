@@ -5,6 +5,7 @@
 	
 	*** IMPORTANT NOTE: PUT ALL FUNCTIONS FIRST, THEN CALL THEM AT BOTTOM OTHER WISE YOU GET A VARARG ERROR ***
 **/
+#include "xmc_functions.c"
 
 void prints(char* text){
 	PRINT_STRING_WITH_LITERAL_STRING("STRING",text,1500,1);

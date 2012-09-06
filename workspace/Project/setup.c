@@ -20,7 +20,7 @@ void main_menu_setup(void){ //main level (you need to specify menu[x].submenu he
 void main_submenu_setup(void){ //second level
 	if(item_select == 1){
 		submenu_id = 1;
-		menu[1].item_name = "Player Placeholder 1";
+		menu[1].item_name = "Toggle Invincibility";
 		
 		menu[2].item_name = "Player Placeholder 2";
 		item_count = 2;
@@ -29,20 +29,21 @@ void main_submenu_setup(void){ //second level
 		submenu_id = 2;
 		menu[1].item_name = "Vehicle Placeholder 1";
 		
-		menu[2].item_name = "Vehicle Placeholder 1";
+		menu[2].item_name = "Vehicle Placeholder 2";
 		item_count = 2;
 	}
 	else if(item_select == 3){
 		submenu_id = 3;
-		menu[1].item_name = "Menu colors";
+		menu[1].item_name = "Misc Placeholder 2";
 		
-		menu[2].item_name = "Other options (Does nothing)";
+		menu[2].item_name = "Misc Placeholder 2";
 		
 		item_count = 2;
 	}
 	
 }
 
+/** Disable third level
 void submenu_setup(void){ //third level
 	if(submenu_id == 1){
 		if(item_select == 1){
@@ -77,3 +78,4 @@ void submenu_setup(void){ //third level
 		
 	}
 }
+**/

@@ -16,12 +16,6 @@ void second_level_functions(void){
 			prints("Second level function test.");
 		}
 	}
-	else if(submenu_id == 3){
-		if(item_select == 2){
-			prints("Told you it didn't do anything.");
-		}
-	}
-
 }
 
 void third_level_functions(void){ //these functions have there own sub id as aposed to the standard sub menus
@@ -32,28 +26,6 @@ void third_level_functions(void){ //these functions have there own sub id as apo
 		}
 	
 	}
-	else if(third_level_id == 2){
-		if(item_select == 1){//green
-			menu[1].r = 0;
-			menu[1].g = 255;
-			menu[1].b = 0;
-			prints("Item selection now green!");
-		}
-		else if(item_select == 2){//blue
-			menu[1].r = 0;
-			menu[1].g = 0;
-			menu[1].b = 255;
-			prints("Item selection now blue!");
-		}
-		else if(item_select == 3){//red
-			menu[1].r = 255;
-			menu[1].g = 0;
-			menu[1].b = 0;
-			prints("Item selection now red!");
-		}
-	
-	}
-
 }
 
 void menu_functions(void){
@@ -72,4 +44,3 @@ void menu_functions(void){
 	}
 
 }
-

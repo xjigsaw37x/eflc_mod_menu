@@ -22,7 +22,6 @@ void menu_functions(void){
 	if(submenu_level == 1){
 		second_level_functions();
 	}
-	}
 	else{ //main level functions go below
 		if(item_select == 2){
 			prints("Main level function test.");

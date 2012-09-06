@@ -30,6 +30,19 @@ SET_PLAYER_NEVER_GETS_TIRED(pid, FALSE);
 xmcgodmode = false;
 }
 }
+
+void xmcTeleportForward(void)
+{
+    if ( IS_PLAYER_PLAYING(GetPlayerIndex()) )
+    {
+        float x, y, z, ch;
+        GET_CHAR_HEADING(GetPlayerPed(), &ch);
+        GET_CHAR_COORDINATES(GetPlayerPed(), &x, &y, &z);
+        SET_CHAR_COORDINATES(GetPlayerPed(), x+(10*SIN((-1*ch))), y+(10*COS((-1*ch))), z);
+    }
+}
+
+
 /**
 void xmctelewaypoint(void){ // credit goes to Cosy
 Blip wpblip;

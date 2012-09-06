@@ -5,14 +5,15 @@ if (ped > 0)
 Player pid = GetPlayerIndex();
 SET_PLAYER_FAST_RELOAD(pid, TRUE);
 ENABLE_MAX_AMMO_CAP(FALSE);
-UpdateWeaponOfPed(ped, WEAPON_RLAUNCHER);
-UpdateWeaponOfPed(ped, WEAPON_KNIFE);
-UpdateWeaponOfPed(ped, WEAPON_MOLOTOV);
-UpdateWeaponOfPed(ped, WEAPON_DEAGLE);
-UpdateWeaponOfPed(ped, WEAPON_SHOTGUN);
-UpdateWeaponOfPed(ped, WEAPON_MP5);
-UpdateWeaponOfPed(ped, WEAPON_M4);
-PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Gave player XMC's weapons", 2500, 1);
+GIVE_WEAPON_TO_CHAR(GetPlayerPed(),WEAPON_SNIPERRIFLE, AMMO_MAX, false);
+GIVE_WEAPON_TO_CHAR(GetPlayerPed(), WEAPON_M40A1, AMMO_MAX, false);
+GIVE_WEAPON_TO_CHAR(GetPlayerPed(), WEAPON_RLAUNCHER, AMMO_MAX, false);
+GIVE_WEAPON_TO_CHAR(GetPlayerPed(), WEAPON_MP5, AMMO_MAX, false);
+GIVE_WEAPON_TO_CHAR(GetPlayerPed(), WEAPON_DEAGLE, AMMO_MAX, false);
+GIVE_WEAPON_TO_CHAR(GetPlayerPed(), WEAPON_GRENADE, AMMO_MAX, false);
+GIVE_WEAPON_TO_CHAR(GetPlayerPed(), WEAPON_BASEBALLBAT, AMMO_MAX, false);
+GIVE_WEAPON_TO_CHAR(GetPlayerPed(), WEAPON_UNARMED, AMMO_MAX, false);
+PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Gave player XMC's weapons w/ Max ammo & Fast reload", 2500, 1);
 }
 }
 

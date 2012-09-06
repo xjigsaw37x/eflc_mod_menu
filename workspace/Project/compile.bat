@@ -15,7 +15,7 @@ goto compile_custom
 echo.
 echo Compiling menu.sco ...
 echo.
-..\..\bin\scocl_old.exe GTAIV "menu.c" "..\Project/"
+..\..\bin\scocl_old.exe TBOGT "menu.c" "..\Project/" -fnested-functions
 if not exist *.sco goto err_build
 pause
 exit 1
@@ -24,7 +24,7 @@ exit 1
 echo.
 if %%1 NEQ *.c goto err_custom
 echo Compiling %%1 ...
-..\..\bin\scocl_old.exe GTAIV "%%1" "..\Project/"
+..\..\bin\scocl_old.exe TBOGT "%%1" "..\Project/" -fnested-functions
 if not exist *.sco goto err_build
 pause
 exit 1

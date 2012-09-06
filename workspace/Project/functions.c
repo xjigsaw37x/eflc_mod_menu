@@ -30,7 +30,7 @@ SET_PLAYER_NEVER_GETS_TIRED(pid, FALSE);
 xmcgodmode = false;
 }
 }
-
+/**
 void xmctelewaypoint(void){ // credit goes to Cosy
 Blip wpblip;
 Vector3 wpcoords;
@@ -60,3 +60,4 @@ void TeleportToWaypoint(void)
     else PrintText("No waypoint set");
 }
 }
+**/

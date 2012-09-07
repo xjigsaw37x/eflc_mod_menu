@@ -12,7 +12,7 @@ void main_menu_setup(void){ //main level (you need to specify menu[x].submenu he
 	menu[2].item_name = "Vehicle";
 	menu[2].submenu = true;
 	
-	menu[3].item_name = "Misc";
+	menu[3].item_name = "Placeholder";
 	menu[3].submenu = true;
 	item_count = 3; //how many rows/items you have (VERY IMPORTANT)
 }
@@ -34,9 +34,9 @@ void main_submenu_setup(void){ //second level
 	}
 	else if(item_select == 3){
 		submenu_id = 3;
-		menu[1].item_name = "Misc Placeholder 2";
+		menu[1].item_name = "Placeholder 1";
 		
-		menu[2].item_name = "Misc Placeholder 2";
+		menu[2].item_name = "Placeholder 2";
 		
 		item_count = 2;
 	}

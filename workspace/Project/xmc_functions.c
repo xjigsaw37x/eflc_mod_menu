@@ -1,3 +1,16 @@
+void xmccarjump(void){ // Credit: Chrome & JDMalex
+    Vehicle PlayerVehicle;
+    if(IS_BUTTON_JUST_PRESSED(0,BUTTON_X))
+    {
+        if (IS_CHAR_IN_ANY_CAR(GetPlayerPed()))
+        {
+            GET_CAR_CHAR_IS_USING(GetPlayerPed(), &PlayerVehicle);   
+            APPLY_FORCE_TO_CAR(PlayerVehicle, 0.0f, 0.0f, 0.0f, 433.0f , 0.0f,0.0f,0.0f, 0, 1, 1, 1 );
+            //APPLY_FORCE_TO_CAR(PlayerVehicle, 0, x,y, z, spinX,  spinY,  spinZ,  0, 1, 1, 1);   
+        }
+    }
+}
+
 void xmcsuperjump(void){ // Credit: Chrome & JDMalex
 float J_X , J_Y , J_Z , J_V ,J_W , J_U;
 int count = 0;

@@ -25,7 +25,7 @@ void main_submenu_setup(void){ //second level
 		submenu_id = 1;
 		menu[1].item_name = "Toggle Invincibility";
 		
-		menu[2].item_name = "Player Placeholder 2";
+		menu[2].item_name = "Give Custom Weapons";
 		item_count = 2;
 	}
 	else if(item_select == 2){

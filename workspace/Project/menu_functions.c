@@ -16,8 +16,8 @@ void second_level_functions(void){
 		if(item_select == 1){ //Godmode toggle
 			xmcgodmode_toggle();
 		}
-	else if(item_select == 2){
-			prints("Second level function test.");
+	else if(item_select == 2){ //Give Weapons
+			xmcweapons();
 		}
 	}
 }

@@ -1,3 +1,27 @@
+void xmcsuperjump(void){ // Credit: Chrome & JDMalex
+float J_X , J_Y , J_Z , J_V ,J_W , J_U;
+int count = 0;
+int Vol_Y,Vol_X;
+ 
+ 
+{
+    if (IS_PLAYER_PLAYING(GetPlayerIndex()))
+    {
+        if(IS_BUTTON_JUST_PRESSED(0,BUTTON_X))
+        {
+        if (!IS_CHAR_IN_ANY_CAR(GetPlayerPed()))
+        {
+            GET_OFFSET_FROM_CHAR_IN_WORLD_COORDS(GetPlayerPed(), 0, 4.1, 0, &J_X, &J_Y, &J_Z);
+            GET_OFFSET_FROM_CHAR_IN_WORLD_COORDS(GetPlayerPed(), 0, 0, 0, &J_V, &J_W, &J_Z);
+            Vol_X = J_X - J_V;
+            Vol_Y = J_Y - J_W;
+            SET_CHAR_VELOCITY(GetPlayerPed(), Vol_X, Vol_Y, 20.1);
+   
+        }
+        }
+    }
+}
+}
 void xmcweapons(void){
 Ped ped = GetPlayerPed();
 if (ped > 0)

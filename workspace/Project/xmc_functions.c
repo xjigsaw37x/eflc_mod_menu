@@ -1,3 +1,18 @@
+void xmcunlimammo_toggle(void){
+bool xmcunlimammo;
+if (xmcunlimammo != true){
+	SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), true);
+	ENABLE_MAX_AMMO_CAP(false);
+	xmcunlimammo = true;
+	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Unlimited Ammo Enabled", 1000, 1);
+}
+else if (xmcunlimammo == true){
+	SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), false);
+	ENABLE_MAX_AMMO_CAP(true);
+	xmcunlimammo = false;
+	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Unlimited Ammo Disabled", 1000, 1);
+}
+}
 void xmccarjump(void){ // Credit: Chrome & JDMalex
     Vehicle PlayerVehicle;
     if(IS_BUTTON_JUST_PRESSED(0,BUTTON_X))

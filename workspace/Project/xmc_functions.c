@@ -143,20 +143,11 @@ void xmcTeleportForward(void)
     }
 }
 
-
-/**
-void xmctelewaypoint(void){ // credit goes to Cosy
+void xmctelewaypoint(void){
 Blip wpblip;
 Vector3 wpcoords;
 float groundz;
  
-void PrintText(char *text)
-{
-    PRINT_STRING_WITH_LITERAL_STRING_NOW("string", text, 5000, true);
-}
- 
-void TeleportToWaypoint(void)
-{
     wpblip = GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT);
     if( DOES_BLIP_EXIST(wpblip) )
     {
@@ -169,9 +160,7 @@ void TeleportToWaypoint(void)
         GET_GROUND_Z_FOR_3D_COORD(wpcoords.x, wpcoords.y, 1000, &groundz);
         SET_CHAR_COORDINATES(GetPlayerPed(), wpcoords.x, wpcoords.y, groundz);
         SET_GAME_CAM_HEADING(0.0);
-        PrintText("Successfully teleported to waypoint");
+        prints("Successfully teleported to waypoint");
     }
-    else PrintText("No waypoint set");
+    else prints("No waypoint set");
 }
-}
-**/

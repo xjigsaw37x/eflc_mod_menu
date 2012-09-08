@@ -68,7 +68,7 @@ void second_level_functions(void)
 				{ //Tele-waypoint
 					xmctelewaypoint();
 				}
-		else if(item_select == 2)
+			else if(item_select == 2)
 			{ //Tele-10ft
 				xmcTeleportForward();
 			}

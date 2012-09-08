@@ -48,14 +48,14 @@ void xmccarlock_toggle(void)
  
 void xmcunlimammo_toggle(void)
 	{
-		if (xmcunlimammo == false)
+		if (xmcunlimammo)
 			{
 				SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), true);
 				ENABLE_MAX_AMMO_CAP(false);
 				xmcunlimammo = true;
 				prints("Unlimited Ammo Enabled");
 			}
-		else if (xmcunlimammo == true)
+		else if (xmcunlimammo)
 			{
 				SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), false);
 				ENABLE_MAX_AMMO_CAP(true);
@@ -127,14 +127,14 @@ void xmcweapons(void)
 void xmcgodmode_toggle(void)
 	{
 		Player pid = GetPlayerIndex();
-		if (xmcgodmode == false)
+		if (xmcgodmode)
 			{
 				SET_PLAYER_INVINCIBLE(pid, TRUE);
 				SET_PLAYER_NEVER_GETS_TIRED(pid, TRUE);
 				xmcgodmode = true;
 				prints("Invincibilty Enabled");
 			}
-		else if (xmcgodmode == true)
+		else
 			{
 				SET_PLAYER_INVINCIBLE(pid, FALSE);
 				SET_PLAYER_NEVER_GETS_TIRED(pid, FALSE);

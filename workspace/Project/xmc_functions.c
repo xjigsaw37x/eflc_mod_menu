@@ -50,14 +50,14 @@ if (xmcunlimammo != true){
 	SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), true);
 	ENABLE_MAX_AMMO_CAP(false);
 	xmcunlimammo = true;
-	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Unlimited Ammo Enabled", 1000, 1);
+	prints("Unlimited Ammo Enabled");
 }
 else if (xmcunlimammo == true){
 	SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), false);
 	ENABLE_MAX_AMMO_CAP(true);
 	xmcunlimammo = false;
-	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Unlimited Ammo Disabled", 1000, 1);
-}
+	prints("Unlimited Ammo Disabled");
+	}
 }
 void xmccarjump(void){ // Credit: Chrome & JDMalex
     Vehicle PlayerVehicle;
@@ -111,7 +111,7 @@ GIVE_WEAPON_TO_CHAR(GetPlayerPed(), WEAPON_DEAGLE, AMMO_MAX, false);
 GIVE_WEAPON_TO_CHAR(GetPlayerPed(), WEAPON_GRENADE, AMMO_MAX, false);
 GIVE_WEAPON_TO_CHAR(GetPlayerPed(), WEAPON_BASEBALLBAT, AMMO_MAX, false);
 GIVE_WEAPON_TO_CHAR(GetPlayerPed(), WEAPON_UNARMED, AMMO_MAX, false);
-PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Gave player XMC's weapons w/ Max ammo & Fast reload", 2500, 1);
+prints("Gave player XMC's weapons w/ Max ammo & Fast reload");
 }
 }
 
@@ -122,11 +122,13 @@ if (xmcgodmode != true){
 SET_PLAYER_INVINCIBLE(pid, TRUE);
 SET_PLAYER_NEVER_GETS_TIRED(pid, TRUE);
 xmcgodmode = true;
+prints("Invincibilty Enabled");
 }
 else if (xmcgodmode == true){
 SET_PLAYER_INVINCIBLE(pid, FALSE);
 SET_PLAYER_NEVER_GETS_TIRED(pid, FALSE);
 xmcgodmode = false;
+prints("Invincibility Disabled");
 }
 }
 

@@ -10,35 +10,35 @@ bool superjump = false;
 bool carjump = false;
 
 void second_level_functions(void)
-{ 
-	if(submenu_id == 1)
-	{
-		if(item_select == 1)
-			{ //Godmode toggle
-				xmcgodmode_toggle();
-			}
-		else if(item_select == 2)
-			{ //Give Weapons
-				xmcweapons();
-			}
-		else if(item_select == 3)
-			{ //Super jump
-				while (true) 
-					{
-						if (superjump) 
+	{ 
+		if(submenu_id == 1)
+			{
+				if(item_select == 1)
+					{ //Godmode toggle
+						xmcgodmode_toggle();
+					}
+				else if(item_select == 2)
+					{ //Give Weapons
+						xmcweapons();
+					}
+				else if(item_select == 3)
+					{ //Super jump
+						while (true) 
 							{
-								superjump = true;
-								WAIT(0);
-								xmcsuperjump();
-							}
-						else 
-							{
-								xmcsuperjump();
-								superjump = false;
+								if (superjump) 
+									{
+										superjump = true;
+										WAIT(0);
+										xmcsuperjump();
+									}
+								else 
+									{
+										xmcsuperjump();
+										superjump = false;
+									}
 							}
 					}
 			}
-	}
 	if(submenu_id == 2)
 		{
 		if(item_select == 1)

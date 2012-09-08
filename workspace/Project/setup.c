@@ -7,24 +7,27 @@
 
 void main_menu_setup(void)
 	{ //main level (you need to specify menu[x].submenu here no matter if its true or false)
-		menu[1].item_name = "Player";
-		menu[1].submenu = true;
-	
-		menu[2].item_name = "Vehicle";
+		menu[1].item_name = "Made by Emmanuel Utomi AKA XmcWildchild22";
+		menu[1].submenu = false;
+		
+		menu[2].item_name = "Player";
 		menu[2].submenu = true;
 	
-		menu[3].item_name = "Teleport";
+		menu[3].item_name = "Vehicle";
 		menu[3].submenu = true;
 	
-		menu[4].item_name = "Placeholder";
+		menu[4].item_name = "Teleport";
 		menu[4].submenu = true;
+	
+		menu[5].item_name = "Placeholder";
+		menu[5].submenu = true;
 		
-		item_count = 4; //how many rows/items you have (VERY IMPORTANT)
+		item_count = 5; //how many rows/items you have (VERY IMPORTANT)
 	}
 
 void main_submenu_setup(void)
 	{ //second level
-	if(item_select == 1)
+	if(item_select == 2)
 		{
 			submenu_id = 1;
 			menu[1].item_name = "Toggle Invincibility";
@@ -35,7 +38,7 @@ void main_submenu_setup(void)
 			
 			item_count = 3;
 		}
-	else if(item_select == 2)
+	else if(item_select == 3)
 		{
 			submenu_id = 2;
 			menu[1].item_name = "Lock/Unlock Car doors";
@@ -44,7 +47,7 @@ void main_submenu_setup(void)
 			
 			item_count = 2;
 		}
-	else if(item_select == 3)
+	else if(item_select == 4)
 		{
 			submenu_id = 3;
 			menu[1].item_name = "Teleport to Waypoint";
@@ -53,7 +56,7 @@ void main_submenu_setup(void)
 		
 		item_count = 2;
 		}
-		else if(item_select == 4)
+		else if(item_select == 5)
 			{
 				submenu_id = 4;
 				menu[1].item_name = "Placeholder 1";

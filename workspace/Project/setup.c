@@ -12,7 +12,7 @@ void main_menu_setup(void){ //main level (you need to specify menu[x].submenu he
 	menu[2].item_name = "Vehicle";
 	menu[2].submenu = true;
 	
-	menu[3].item_name = "Placeholder";
+	menu[3].item_name = "Teleport";
 	menu[3].submenu = true;
 	
 	menu[4].item_name = "Placeholder";
@@ -26,20 +26,24 @@ void main_submenu_setup(void){ //second level
 		menu[1].item_name = "Toggle Invincibility";
 		
 		menu[2].item_name = "Give Custom Weapons";
-		item_count = 2;
+		
+		menu[3].item_name = "Toggle Super jump";
+		
+		item_count = 3;
 	}
 	else if(item_select == 2){
 		submenu_id = 2;
-		menu[1].item_name = "Vehicle Placeholder 1";
+		menu[1].item_name = "Lock/Unlock Car doors";
 		
-		menu[2].item_name = "Vehicle Placeholder 2";
+		menu[2].item_name = "Toggle Car Jump";
+		
 		item_count = 2;
 	}
 	else if(item_select == 3){
 		submenu_id = 3;
-		menu[1].item_name = "Placeholder 1";
+		menu[1].item_name = "Teleport to Waypoint";
 		
-		menu[2].item_name = "Placeholder 2";
+		menu[2].item_name = "Teleport 10ft in front of you";
 		
 		item_count = 2;
 	}

@@ -12,6 +12,8 @@ uint weapon;
 char *name;
 float offset_y;
 uint doors;
+bool xmcunlimammo = false;
+bool xmcgodmode = false;
 
 void prints(char* text){
 	PRINT_STRING_WITH_LITERAL_STRING("STRING",text,1500,1);
@@ -45,8 +47,7 @@ void xmccarlock_toggle(void){ //Credit to xx69GHOSTxx
  }
  
 void xmcunlimammo_toggle(void){
-bool xmcunlimammo;
-if (xmcunlimammo != true){
+if (xmcunlimammo == false){
 	SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), true);
 	ENABLE_MAX_AMMO_CAP(false);
 	xmcunlimammo = true;
@@ -117,8 +118,7 @@ prints("Gave player XMC's weapons w/ Max ammo & Fast reload");
 
 void xmcgodmode_toggle(void){
 Player pid = GetPlayerIndex();
-bool xmcgodmode;
-if (xmcgodmode != true){
+if (xmcgodmode == false){
 SET_PLAYER_INVINCIBLE(pid, TRUE);
 SET_PLAYER_NEVER_GETS_TIRED(pid, TRUE);
 xmcgodmode = true;

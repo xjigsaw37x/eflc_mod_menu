@@ -1,3 +1,49 @@
+uint iDoorLockValue;
+bool spawndude=0;
+bool GroupSet=0;
+float BGx,BGy,BGz;
+Group Bgroup;
+Ped gameped;
+uint model;
+uint Rcol;
+uint Gcol;
+uint Bcol;
+uint weapon;
+char *name;
+float offset_y;
+uint doors;
+
+void prints(char* text){
+	PRINT_STRING_WITH_LITERAL_STRING("STRING",text,1500,1);
+}
+
+void xmccarlock_toggle(void){ //Credit to xx69GHOSTxx
+{
+   if(!doors)
+ {
+  if(IS_CHAR_IN_ANY_CAR(GetPlayerPed()))
+  {
+    Vehicle lock_car;
+    iDoorLockValue = VEHICLE_DOOR_LOCKED_BOTH_SIDES;
+    LOCK_CAR_DOORS(lock_car, iDoorLockValue);
+    prints(" Car Doors has been Locked");
+    doors = true;
+   }
+  }
+   else
+   {
+    if(IS_CHAR_IN_ANY_CAR(GetPlayerPed()))
+    {
+    Vehicle lock_car;
+    iDoorLockValue = VEHICLE_DOOR_UNLOCKED;
+    LOCK_CAR_DOORS(lock_car, iDoorLockValue);
+    prints(" Car Doors has been Unlocked");
+    doors = true;
+   }
+  }
+  }
+ }
+ 
 void xmcunlimammo_toggle(void){
 bool xmcunlimammo;
 if (xmcunlimammo != true){

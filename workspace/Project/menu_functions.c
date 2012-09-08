@@ -7,10 +7,6 @@
 **/
 #include "xmc_functions.c"
 
-void prints(char* text){
-	PRINT_STRING_WITH_LITERAL_STRING("STRING",text,1500,1);
-}
-
 void second_level_functions(void){ 
 	if(submenu_id == 1){
 		if(item_select == 1){ //Godmode toggle

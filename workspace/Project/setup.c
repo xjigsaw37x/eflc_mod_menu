@@ -41,11 +41,14 @@ void main_submenu_setup(void)
 	else if(item_select == 3)
 		{
 			submenu_id = 2;
-			menu[1].item_name = "Lock/Unlock Car doors";
-		
-			menu[2].item_name = "Toggle Car Jump";
+			menu[2].item_name = "Vehicle Spawner";
+			menu[2].submenu = true;
 			
-			item_count = 2;
+			menu[2].item_name = "Lock/Unlock Car doors";
+		
+			menu[3].item_name = "Toggle Car Jump";
+			
+			item_count = 3;
 		}
 	else if(item_select == 4)
 		{
@@ -68,39 +71,16 @@ void main_submenu_setup(void)
 	
 	}
 
-/** Disable third level
 void submenu_setup(void){ //third level
-	if(submenu_id == 1){
+	if(submenu_id == 2){
 		if(item_select == 1){
 			third_level_id = 1;//you need to have seperate ids with the more of these you make
-			menu[1].item_name = "test 1";
-			menu[2].item_name = "test 2";
+			menu[1].item_name = "Infernus";
+			menu[2].item_name = "Sultan RS";
+			menu[3].item_name = "APC Tank";
+			menu[4].item_name = "Sabre GT";
 			
-			item_count = 2;
+			item_count = 4;
 		}
-	}
-		 if(submenu_id == 2){
-		if(item_select == 1){
-			third_level_id = 2;
-			menu[1].item_name = "test 1";
-			menu[2].item_name = "test 2";
-			
-			item_count = 2;
-			
-		}
-		
-	}
-		if(submenu_id == 3){
-		if(item_select == 1){
-			third_level_id = 3;
-			menu[1].item_name = "Green (default)";
-			menu[2].item_name = "Blue";
-			menu[3].item_name = "Red";
-			
-			item_count = 3;
-			
-		}
-		
 	}
 }
-**/

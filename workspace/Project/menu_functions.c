@@ -6,8 +6,43 @@
 	*** IMPORTANT NOTE: PUT ALL FUNCTIONS FIRST, THEN CALL THEM AT BOTTOM OTHER WISE YOU GET A VARARG ERROR ***
 **/
 #include "xmc_functions.c"
+
 bool superjump = false;
 bool carjump = false;
+
+void third_level_functions(void)
+	{
+		if(third_level_id == 1)
+			{
+				if(third_level_id == 1)
+					{
+						if(item_select == 1) 
+							{
+								prints("Spawn an Infernus.");
+								uint vehicle_model = MODEL_INFERNUS;
+								xmcspawncar();
+							}
+						else if(item_select == 2)
+							{
+								prints("Spawn an Sultan RS.");
+								uint vehicle_model = MODEL_SULTANRS;
+								xmcspawncar();
+							}
+						else if(item_select == 3)
+							{
+								prints("Spawn an APC Tank.");
+								uint vehicle_model = MODEL_APC;
+								xmcspawncar();
+							}
+						else if(item_select == 4)
+							{
+								prints("Spawn an Sabre GT.");
+								uint vehicle_model = MODEL_SABREGT;
+								xmcspawncar();
+							}
+					}
+			}	
+	}
 
 void second_level_functions(void)
 	{ 
@@ -41,11 +76,11 @@ void second_level_functions(void)
 			}
 	if(submenu_id == 2)
 		{
-		if(item_select == 1)
+		if(item_select == 2)
 			{ //Lock/Unlock Doors
 				xmccarlock_toggle();
 			}
-		else if(item_select == 2)
+		else if(item_select == 3)
 			{ //Car jump
 				while (true) 
 					{
@@ -83,11 +118,8 @@ void menu_functions(void)
 	{
 		second_level_functions();
 	}
-	else
-		{ //main level functions go below
-			if(item_select == 2)
-				{
-					prints("Main level function test.");
-				}
+	else if(submenu_level == 2)
+		{ 	
+			third_level_functions();
 		}
 }

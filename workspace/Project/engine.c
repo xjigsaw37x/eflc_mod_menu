@@ -100,6 +100,19 @@ void draw_menu(void){
 				item_select = 1;
 			
 			}
+			 else if(submenu_level == 1 && menu[item_select].submenu)
+				{	  	
+					int i = 1;
+					for(i;i <= item_count;i++)
+					{	  	
+						menu[i].submenu = false;
+					} 	
+	  	
+					submenu_level = 2;
+					submenu_setup();
+	  	
+					item_select = 1;
+					}
 			else menu_functions();
 		}
 		else if(IS_BUTTON_JUST_PRESSED(0,BUTTON_B)){

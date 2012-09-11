@@ -28,6 +28,9 @@ echo.
 if not exist ../../out_sco/*.sco goto err_build
 set "outsco=../../out_sco/*.sco"
 echo.
+cd ../../out_sco/
+ren "menu.sco" "xmc_modmenu.sco"
+cd ../workspace/Project/
 for %%A in (%outsco%) do echo.Size of "%%A" is %%~zA bytes
 pause
 exit 1

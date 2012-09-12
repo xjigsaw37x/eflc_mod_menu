@@ -1,5 +1,7 @@
 @echo off
-if not exist *.c goto nofile
+if not exist *.c (
+if not exist *.cpp goto nofile
+)
 if not exist ../../out_sco (
 cd ../../
 mkdir out_sco
@@ -24,12 +26,12 @@ goto compile_custom
 echo.
 echo Compiling menu.sco ...
 echo.
-..\..\bin\scocl_old.exe TBOGT "menu.c" "..\..\out_sco/"
+..\..\bin\scocl_old.exe TBOGT "main.cpp" "..\..\out_sco/"
 if not exist ../../out_sco/*.sco goto err_build
 set "outsco=../../out_sco/*.sco"
 echo.
 cd ../../out_sco/
-ren "menu.sco" "xmc_modmenu.sco"
+ren "main.sco" "xmc_modmenu.sco"
 cd ../workspace/Project/
 for %%A in (%outsco%) do echo.Size of "%%A" is %%~zA bytes
 pause

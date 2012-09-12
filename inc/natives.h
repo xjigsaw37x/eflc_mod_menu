@@ -15,6 +15,19 @@
 #include "types.h"
 #include "consts.h"
 
+//Begin Muskel's natives
+extern uint GET_HOST_ID(void);
+extern bool REQUEST_CONTROL_OF_NETWORK_ID(int netid);
+extern void GET_NETWORK_ID_FROM_VEHICLE(Vehicle vehicle, int *netid);
+extern bool HAS_CONTROL_OF_NETWORK_ID(int netid);
+extern void SET_NETWORK_ID_CAN_MIGRATE(int netid, bool value);
+extern bool IS_NETWORK_SESSION(void);
+extern void SHUTDOWN_AND_LAUNCH_NETWORK_GAME(ScriptAny);
+extern void SHUTDOWN_AND_LAUNCH_SINGLE_PLAYER_GAME(void);
+extern bool NETWORK_IS_PLAYER_TALKING(int playerid);
+extern bool NETWORK_IS_PLAYER_MUTED_BY_ME(int playerid);
+extern void NETWORK_KICK_PLAYER(int playerid,bool value);
+//End Muskel's natives
 extern void SET_LOCAL_PLAYER_VOICE(char *name);
 extern void SET_LOCAL_PLAYER_PAIN_VOICE(char *name);
 extern void SET_PLAYER_PAIN_ROOT_BANK_NAME(char *name);

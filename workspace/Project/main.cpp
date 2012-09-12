@@ -5,7 +5,7 @@
 #include <strings.h>
 
 #define VERSION "Private"
-#define MENU_TITLE "Muskelprotze's Stash"
+#define MENU_TITLE "XMC ModMenu"
 
 #include "vars.h"
 #include "setup.cpp"

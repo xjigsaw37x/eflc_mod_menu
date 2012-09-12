@@ -17,8 +17,8 @@ void main(void){
 	THIS_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();
 	show_menu = false;
 	menu_setup();
-	s_r = 255;
-	s_g = 0;
+	s_r = 0;
+	s_g = 191;
 	s_b = 255;
 	
 	Vehicle tmp,tmp2;

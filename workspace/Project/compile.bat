@@ -28,12 +28,12 @@ echo Compiling menu.sco ...
 echo.
 ..\..\bin\scocl_old.exe TBOGT "main.cpp" "..\..\out_sco/"
 if not exist ../../out_sco/*.sco goto err_build
-set "outsco=../../out_sco/*.sco"
+set "outsco=*.sco"
 echo.
 cd ../../out_sco/
 ren "main.sco" "xmc_modmenu.sco"
+for %%A in (%outsco%) do echo.Size of "xmc_modmenu.sco" is %%~zA bytes
 cd ../workspace/Project/
-for %%A in (%outsco%) do echo.Size of "%%A" is %%~zA bytes
 pause
 exit 1
 

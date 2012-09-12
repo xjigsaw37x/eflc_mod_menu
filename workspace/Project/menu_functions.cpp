@@ -1,6 +1,8 @@
 /**
 	Menu functions
-	by: Herr Muskelprotze
+	Orig. by: Herr Muskelprotze
+	by: Emmanuel Utomi
+	
 **/
 
 #define do_toggle(x) \

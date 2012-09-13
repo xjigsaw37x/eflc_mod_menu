@@ -103,6 +103,7 @@ void menu_setup(void){
 			add_item("Construction Site",true);
 			add_item("Subway",true);
 			add_item("Sprunk Factory",true);
+			add_item("10ft in front of you",true);
 			return;
 		}
 		if(last_selected[0] == 5){

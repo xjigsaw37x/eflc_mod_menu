@@ -413,6 +413,10 @@ void menu_functions(void){
 			if(item_select == 17){
 				teleport_char(pPlayer,-1539.8414,163.2967,9.9000);
 				return;
+			}
+			if(item_select == 18){
+				xmc_teleportinfront();
+				return;
 			}			
 		}
 		if(last_selected[0] == 5){

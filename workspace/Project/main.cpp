@@ -8,6 +8,7 @@
 #define MENU_TITLE "XMC ModMenu"
 
 #include "vars.h"
+#include "xmc_functions.cpp"
 #include "setup.cpp"
 #include "menu_functions.cpp"
 #include "core.cpp"

@@ -46,7 +46,11 @@ void menu_setup(void){
 		add_item("Weapon Options",false);
 		add_item("Teleports",false);
 		add_item("Misc",false);
+/**
+Disable menu for now
 		add_item("Addons",false);
+
+**/
 		return;
 	}
 	
@@ -118,17 +122,7 @@ void menu_setup(void){
 			add_item("Get Host",true);
 			add_item("Freeze Game",true);
 			return;
-		}
-		if(last_selected[0] == 6){
-			footer = "Addons";
-			add_item(" ",true);
-			REQUEST_SCRIPT("addon_loader");
-			while(!HAS_SCRIPT_LOADED("addon_loader")) WAIT(0);
-			START_NEW_SCRIPT("addon_loader",1024);
-			MARK_SCRIPT_AS_NO_LONGER_NEEDED("addon_loader");
-			return;
-		}
-		
+		}		
 	}
 	if(menu_level == 2){
 		if(last_selected[0] == 1){

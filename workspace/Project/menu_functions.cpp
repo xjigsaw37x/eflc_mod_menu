@@ -894,11 +894,11 @@ void menu_functions(void){
 									ADD_EXPLOSION(x,y + 2.0,z,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
 									ADD_EXPLOSION(x - 2.0,y,z,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
 									ADD_EXPLOSION(x,y - 2.0,z,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
-									print("zZzZz!");
+									print("Tazed nigga!");
 								}
-								else print("Player not on foot");
+								else print("Player must be on foot");
 							}
-							else print("This will freeze you! Join a new game");
+							else print("I don't wanna!");
 						}
 					}
 					else if(item_select == 9){

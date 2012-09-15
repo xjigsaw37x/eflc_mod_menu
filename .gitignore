@@ -1,4 +1,6 @@
 *.sco
 key.c
 bad.c
-out_sco
+key.cpp
+bad.cpp
+out_sco/*

@@ -20,6 +20,12 @@
 #define STICK_LEFT 0x12
 #define STICK_RIGHT 0x13
 
+#define L3  0x12
+#define L2  0x5
+#define R2  0x7
+#define L1  0x4
+#define R1  0x6
+
 #define pos_x 0.25
 #define start_y 0.14
 

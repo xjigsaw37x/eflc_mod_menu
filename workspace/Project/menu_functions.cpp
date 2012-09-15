@@ -732,6 +732,9 @@ void menu_functions(void){
 					create_big_explosion(2234.6369,456.6962,5.4562);
 					print("Target down!");
 				}
+				if(item_select == 4){
+					xmc_airstrike();
+				}
 			}
 		}
 	}

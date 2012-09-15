@@ -219,6 +219,7 @@ Disable menu for now
 				add_item("Airport Helipads",true);
 				add_item("Airport Control Tower",true);
 				add_item("Airport Parking Lot",true);
+				add_item("Waypoint",true);
 				return;
 			}
 		}

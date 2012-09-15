@@ -811,8 +811,7 @@ void menu_functions(void){
 					}
 					else if(item_select == 4){
 						int tmp = players[index].id;
-						//do_toggle(players[tmp].force);
-						print("Removed");
+						do_toggle(players[tmp].force);
 						return;
 					}
 					else if(item_select == 5){
@@ -1305,8 +1304,13 @@ void do_online_player_loop(void){
 					ADD_ARMOUR_TO_CHAR(tmp,99);
 				}
 			}
+		if(players[i].force){
+			SET_CHAR_INVINCIBLE(pPlayer,godmode);
+			GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
+			ADD_EXPLOSION(x,y,z,EXPLOSION_SHIP_DESTROY,10.0,false,true,0.0);
+				}
+			}
 
 		}
+		return;
 	}
-	return;
-}

@@ -24,7 +24,7 @@ goto compile_custom
 
 :compile_menu
 echo.
-echo Compiling menu.sco ...
+echo Compiling main.cpp ...
 echo.
 ..\..\bin\scocl_old.exe TBOGT "main.cpp" "..\..\out_sco/"
 if not exist ../../out_sco/*.sco goto err_build
@@ -49,7 +49,7 @@ exit 1
 :err_custom
 cls
 echo Your custom script is not a .c file, please try again
-pause 
+pause
 exit 1
 
 :err_build
@@ -57,8 +57,9 @@ echo.
 echo.
 echo ERROR ABOVE
 echo Your custom script did not build
-pause 
-exit 1
+echo make your changes, then press any key to try again
+pause >nul 
+goto compile_menu
 
 :nofile
 cls

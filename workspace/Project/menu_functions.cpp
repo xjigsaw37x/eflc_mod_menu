@@ -201,6 +201,8 @@ void spawn_car(uint model){
 	}
 	CREATE_CAR(model,x,y,z,&pveh,true);
 	MARK_MODEL_AS_NO_LONGER_NEEDED(model);
+    SET_VEHICLE_DIRT_LEVEL(pveh, 0);
+    WASH_VEHICLE_TEXTURES(pveh, 255);
 	SET_CAR_ENGINE_ON(pveh,true,true);
 	WARP_CHAR_INTO_CAR(pPlayer,pveh);
 	SET_CAR_HEADING(pveh,h);
@@ -749,7 +751,7 @@ void menu_functions(void){
 		if(last_selected[0] == 1){
 			if(last_selected[1] == 1){ //Online players
 				if(last_selected[2] == 1){ //All players
-					print("Removed");
+					print("Placeholder");
 				}
 				else{
 					uint index = (last_selected[2] - 2);

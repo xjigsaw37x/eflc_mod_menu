@@ -69,12 +69,11 @@ WAIT(20);
 void USE_WP_FOR_HELLFIRE(void)
 {
 	Blip WayBlip = GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT);
-		Print("Requesting AGM-114 Hellfire at waypoint!", 1000);
 		WAIT(1000);
  		 		
 		if(DOES_BLIP_EXIST(WayBlip))
 		{//GET_GROUND_Z_FOR_3D_COORD(float x, float y, float z, float *pGroundZ);
-			Print("Position confirmed... Firing now! ", 1000);
+			Print("Launching strike at Aiport parking!", 1000);
 			WAIT(500);
 			GET_BLIP_COORDS(WayBlip, &v); //GET_BLIP_COORDS
 			GET_GROUND_Z_FOR_3D_COORD(v.x, v.y, v.z, &coord); 

@@ -456,10 +456,8 @@ void menu_functions(void){
 			if(item_select == 8){
 				print(GET_PLAYER_NAME(GET_HOST_ID()));
 			}
-			if(item_select == 9){
-					
-				
-				print("Removed");
+			if(item_select == 9){	
+				print("I said it was a placeholder!");
 			}
 		}
 		if(last_selected[0] == 6){
@@ -723,12 +721,12 @@ void menu_functions(void){
 					WAIT(500);
 					create_big_explosion(2214.0000,718.9000,5.83);
 					WAIT(500);
-					print("Target down!");				
+					print("Launching strike at Aiport helipads!");				
 					return;
 				}
 				if(item_select == 2){
 					create_big_explosion(2621.6484,445.9162,5.35);
-					print("Target down!");
+					print("Launching strike at Aiport Tower!");
 					return;
 				}
 				if(item_select == 3){
@@ -739,7 +737,7 @@ void menu_functions(void){
 					create_big_explosion(2221.8818,484.9935,5.4562);
 					WAIT(500);
 					create_big_explosion(2234.6369,456.6962,5.4562);
-					print("Target down!");
+					print("Launching strike at Aiport parking!");
 				}
 				if(item_select == 4){
 					xmc_airstrike();

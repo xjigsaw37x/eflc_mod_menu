@@ -122,7 +122,7 @@ Disable menu for now
 			add_item("Start New Freemode",true);
 			add_item("Return to Single Player",true);
 			add_item("Get Host",true);
-			add_item("Freeze Game",true);
+			add_item("Placeholder",true);
 			return;
 		}		
 	}
@@ -145,7 +145,7 @@ Disable menu for now
 				}
 				
 				if(player_count > 0){
-					add_item("All Players",false);
+					add_item("Placeholder",false);
 					for(i = 0;i <= player_count;i++){
 						if(players[i].connected)
 							add_item(players[i].gamertag,false);

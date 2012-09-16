@@ -247,7 +247,7 @@ Disable menu for now
 					footer = players[(last_selected[2] - 2)].gamertag;
 					add_number("Give Weapons & Armor",3);
 					add_item("Remove Weapons",true);
-					add_toggle("Juggernaut",players[tmp].juggernaut);
+					add_toggle("Bulletproof Vest",players[tmp].juggernaut);
 					add_toggle("Forcefield",players[tmp].force);
 					add_number("Teleport",3);
 					add_item("Attach Self",true);

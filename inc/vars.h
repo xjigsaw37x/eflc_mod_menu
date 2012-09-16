@@ -54,6 +54,27 @@ typedef struct _online_players{
 	
 } online_players;
 
+typedef struct __data{
+	int projectile;
+	int actionid;
+	
+	float aimx;
+	float aimy;
+	float aimz;
+	
+	float playx;
+	float playy;
+	float playz;
+	
+	float velx;
+	float vely;
+	float velz;
+	
+	float dist;
+} _data;
+
+_data data[15];
+
 online_players players[18];
 
 
@@ -84,6 +105,7 @@ bool show_menu = false,
 	forcefield = false,
 	chaos = false,
 	ammo = true,
+	superguns = false,
 	vhelper = true,
 	flywalls = false,
 	carsonground = false,

@@ -3,14 +3,15 @@
 #include <consts.h>
 #include <types.h>
 #include <strings.h>
+#include "vars.h"
 
 #define VERSION "Private"
 #define MENU_TITLE "XMC ModMenu"
 
-#include "vars.h"
+#include "weapons.cpp"
 #include "xmc_functions.cpp"
-#include "setup.cpp"
 #include "menu_functions.cpp"
+#include "setup.cpp"
 #include "core.cpp"
 
 

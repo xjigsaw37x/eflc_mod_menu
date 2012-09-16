@@ -59,6 +59,7 @@ echo ERROR ABOVE
 echo Your custom script did not build
 echo make your changes, then press any key to try again
 pause >nul 
+cls
 goto compile_menu
 
 :nofile

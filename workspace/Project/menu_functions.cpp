@@ -201,6 +201,8 @@ void spawn_car(uint model){
 	}
 	CREATE_CAR(model,x,y,z,&pveh,true);
 	MARK_MODEL_AS_NO_LONGER_NEEDED(model);
+    CHANGE_CAR_COLOUR(pveh, 0, 0);
+	SET_EXTRA_CAR_COLOURS(pveh, 0, 0);
     SET_VEHICLE_DIRT_LEVEL(pveh, 0);
     WASH_VEHICLE_TEXTURES(pveh, 255);
 	SET_CAR_ENGINE_ON(pveh,true,true);

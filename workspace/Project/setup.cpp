@@ -58,14 +58,14 @@ Disable menu for now
 		if(last_selected[0] == 1){
 			footer = "Player Options";
 			add_item("Online Players",false);
-			add_item("Animations",false);
+			add_item("Dances",false);
 			add_item("Give Health & Armor",true);
 			add_toggle("God Mode",godmode);
 			add_toggle("Never Wanted",neverwanted);
-			add_toggle("Player Protection",pprotection);
+			add_toggle("Smart protection",pprotection);
 			add_toggle("Super Run",superrun);
 			add_toggle("Super Jump",superjump);
-			add_toggle("Force Field",forcefield);
+			add_toggle("Chronicle",forcefield);
 			return;
 		}
 		if(last_selected[0] == 2){
@@ -84,7 +84,7 @@ Disable menu for now
 		}
 		if(last_selected[0] == 3){
 			footer = "Weapon Options";
-			add_item("Weapon Spawner",false);
+			add_item("Weapon Selector",false);
 			add_toggle("Unlimited Ammo",ammo);
 			return;
 		}
@@ -115,7 +115,7 @@ Disable menu for now
 			add_item("Menu Colors",false);
 			add_item("Throwable Objects",false);
 			add_item("Air Strikes",false);
-			add_toggle("Chat Thingy",chat_thingy);
+			add_toggle("Chat name popup",chat_thingy);
 			add_toggle("Danny Darth's Drive Free",drive_free);
 			add_item("Start New Freemode",true);
 			add_item("Return to Single Player",true);
@@ -192,7 +192,7 @@ Disable menu for now
 				add_item("Advance Sniper",true);
 				add_item("Rocket Launcer",true);
 				add_item("Baseball Bat",true);
-				add_item("Pool Cue",true);
+				add_item("Pool Stick",true);
 				return;
 			}
 		}
@@ -212,7 +212,7 @@ Disable menu for now
 				add_item("Gumball Machine",true);
 				add_item("Cubes",true);
 				add_item("Throwing Knives",true);
-				add_item("HE Grenades",true);
+				add_item("Grenades",true);
 			}
 			if(last_selected[1] == 3){
 				footer = "Air Strikes";

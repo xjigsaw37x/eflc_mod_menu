@@ -10,10 +10,7 @@
 	else x=true;\
 	reset_menu();
 
-void print(char *text)
-{
-PRINT_STRING_WITH_LITERAL_STRING_NOW("string", text, 2500, 1);
-}
+#define print(x) PRINT_STRING_WITH_LITERAL_STRING("string",x,2000,true)
 
 void draw_title(float x, float y, float width, float height, uint r, uint g, uint b, uint a, char *val){
 #ifdef PC

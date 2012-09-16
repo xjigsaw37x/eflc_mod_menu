@@ -10,8 +10,8 @@
 
 #include "weapons.cpp"
 #include "xmc_functions.cpp"
-#include "menu_functions.cpp"
 #include "setup.cpp"
+#include "menu_functions.cpp"
 #include "core.cpp"
 
 

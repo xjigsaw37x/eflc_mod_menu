@@ -2,6 +2,9 @@ bool SearchOn =0;
 Vector3 v;
 int HIGHT, WIDTH;
 float coord;
+float dX,dY,dZ;
+Ped gameped , driver;
+Vehicle ClosestCar , PlayerVehicle;
 
 void Print(char *string,uint Time)
 {PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", string, Time, 1);}
@@ -16,7 +19,6 @@ void xmc_teleportinfront(void)
         SET_CHAR_COORDINATES(GetPlayerPed(), x+(10*SIN((-1*ch))), y+(10*COS((-1*ch))), z);
     }
 }
-
 
 void HELLFIRE(float Pos_x, float Pos_y, float Pos_z, int Width_var, int Hight_var, int Spacing)
 {

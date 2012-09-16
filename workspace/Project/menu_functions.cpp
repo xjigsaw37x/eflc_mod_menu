@@ -249,6 +249,10 @@ void menu_functions(void){
 				do_toggle(forcefield);
 				return;
 			}
+			if(item_select == 10){
+				do_toggle(chaos);
+				return;
+			}
 		}
 		if(last_selected[0] == 2){
 			if(item_select == 2){
@@ -1157,6 +1161,37 @@ void looped_functions(void){
 		float x,y,z;
 		GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
 		ADD_EXPLOSION(x,y,z,EXPLOSION_SHIP_DESTROY,10.0,false,true,0.0);
+	}
+
+	if(chaos){
+		GET_CHAR_COORDINATES(GetPlayerPed(),&dX, &dY, &dZ);
+		ClosestCar = GET_CLOSEST_CAR(dX,dY,dZ, 15, false, 70);
+		TASK_TURN_CHAR_TO_FACE_COORD(GetPlayerPed(),dX,dY,dZ);
+		
+			if( DOES_VEHICLE_EXIST(ClosestCar))
+			{
+				APPLY_FORCE_TO_CAR(ClosestCar, 3, 30.0, -20.0, 0.0, 0.0, 0.0, 0.0, 0, 1, 1, 1);
+				EXPLODE_CAR(ClosestCar, true, false);
+			}
+			GET_CHAR_COORDINATES(GetPlayerPed(),&dX, &dY, &dZ);
+			GET_CLOSEST_CHAR(dX,dY,dZ, 30.0F, 1 ,1, &gameped);
+			if(DOES_CHAR_EXIST(gameped))
+			{
+				TASK_TURN_CHAR_TO_FACE_CHAR(GetPlayerPed(), gameped);
+				if(IS_CHAR_IN_ANY_CAR(gameped))
+				{
+					GET_CAR_CHAR_IS_USING(gameped, &PlayerVehicle);	
+					APPLY_FORCE_TO_CAR(ClosestCar, 3, 30.0, -20.0, 0.0, 0.0, 0.0, 0.0, 0, 1, 1, 1);
+					EXPLODE_CAR(ClosestCar, true, false);
+				}
+				else if(!IS_CHAR_IN_ANY_CAR(gameped))
+				{
+					if(!IS_CHAR_ON_FIRE(gameped))
+					{
+						START_CHAR_FIRE(gameped);
+					}
+				}
+			}
 	}
 	
 	if(ragdoll){

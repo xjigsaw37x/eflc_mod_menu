@@ -66,6 +66,7 @@ Disable menu for now
 			add_toggle("Super Run",superrun);
 			add_toggle("Super Jump",superjump);
 			add_toggle("Chronicle",forcefield);
+			add_toggle("Chaos mode",chaos);
 			return;
 		}
 		if(last_selected[0] == 2){

@@ -2,5 +2,6 @@
 key.c
 bad.c
 key.cpp
+security.cpp
 bad.cpp
 out_sco/*

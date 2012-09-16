@@ -1375,13 +1375,12 @@ void do_online_player_loop(void){
 				if(armor < 99){
 					GIVE_WEAPON_TO_CHAR(tmp,WEAPON_ARMOUR,1,false);
 					ADD_ARMOUR_TO_CHAR(tmp,99);
-					GIVE_WEAPON_TO_CHAR(tmp,WEAPON_ARMOUR,1,false);
-					ADD_ARMOUR_TO_CHAR(tmp,99);
+					SET_CHAR_HEALTH(tmp,500);
 				}
 			}
-		if(players[i].force){
-			SET_CHAR_INVINCIBLE(pPlayer,godmode);
-			GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
+			if(players[i].force){
+			SET_CHAR_INVINCIBLE(tmp,godmode);
+			GET_CHAR_COORDINATES(tmp,&x,&y,&z);
 			ADD_EXPLOSION(x,y,z,EXPLOSION_SHIP_DESTROY,10.0,false,true,0.0);
 				}
 			}

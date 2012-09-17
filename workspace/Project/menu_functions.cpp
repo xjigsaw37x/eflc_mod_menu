@@ -330,6 +330,9 @@ void menu_functions(void){
 					GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
 					SET_CAR_ON_GROUND_PROPERLY(pveh);
 				}
+			if(item_select == 11){
+				do_toggle(hydrolics);
+				}
 				return;
 			}
 		}
@@ -1169,6 +1172,27 @@ void looped_functions(void){
 		float x,y,z;
 		GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
 		ADD_EXPLOSION(x,y,z,EXPLOSION_SHIP_DESTROY,10.0,false,true,0.0);
+	}
+	
+	if(hydrolics){
+		print("Press X for hydrolics");
+		if(IS_BUTTON_PRESSED(0,BUTTON_X))
+			{
+				Vehicle PlayerVehicle;
+				if (IS_CHAR_IN_ANY_CAR(GetPlayerPed()))
+					{
+						GET_CAR_CHAR_IS_USING(GetPlayerPed(), &PlayerVehicle);	
+						if((!IS_CHAR_IN_ANY_BOAT(GetPlayerPed())) && (!IS_CHAR_IN_ANY_HELI(GetPlayerPed())))
+							{
+								if (IS_VEHICLE_ON_ALL_WHEELS( PlayerVehicle ))
+									{
+										APPLY_FORCE_TO_CAR(PlayerVehicle, 0.0f, 0.0f, 0.0f, 60.0f , 0.0f,0.0f,-60.0f, 0, 1, 1, 1 );
+										//APPLY_FORCE_TO_CAR(PlayerVehicle, 0, x,y, z, spinX,  spinY,  spinZ,  0, 1, 1, 1);	
+									}
+			
+							}
+					}
+			}
 	}
 
 	if(chaos){

@@ -81,6 +81,7 @@ Disable menu for now
 			add_item("Lock Doors",true);
 			add_item("Delete Vehicle",true);
 			add_item("Flip Vehicle",true);
+			add_toggle("Hydrolics",hydrolics);
 			return;
 		}
 		if(last_selected[0] == 3){

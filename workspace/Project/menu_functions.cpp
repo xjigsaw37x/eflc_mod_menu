@@ -1310,8 +1310,7 @@ void looped_functions(void){
 			fire_projectile(wWeapon);
 		}
 		projectile_action();
-		WAIT(0);
-	} while(true);
+	}
 }
 	
 	//misc

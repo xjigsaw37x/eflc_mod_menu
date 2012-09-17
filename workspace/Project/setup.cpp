@@ -115,14 +115,14 @@ Disable menu for now
 		}
 		if(last_selected[0] == 5){
 			footer = "Misc";
-			add_item("Menu Colors",false);
+			add_item("Change Menu Colors",false);
 			add_item("Throwable Objects",false);
 			add_item("Air Strikes",false);
 			add_toggle("Chat name popup",chat_thingy);
 			add_toggle("Danny Darth's Drive Free",drive_free);
 			add_item("Start New Freemode",true);
 			add_item("Return to Single Player",true);
-			add_item("Get Host",true);
+			add_item("Get name of host",true);
 			add_item("Placeholder",true);
 			return;
 		}		

@@ -232,7 +232,7 @@ Disable menu for now
 		if(last_selected[0] == 1){
 			if(last_selected[1] == 1){
 				if(last_selected[2] == 1){
-					footer = "All Players";
+					footer = "Nothing works here for now";
 					add_item("Give Weapons & Armor",true);
 					add_item("Remove Weapons",true);
 					add_item("Explode",true);

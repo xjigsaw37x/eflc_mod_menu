@@ -1,5 +1,5 @@
 //Leave undefined unless you have security.cpp and your GT is registered
-#define PRIVATE
+//#define PRIVATE
 
 #ifdef PRIVATE
 #define MENU_TITLE "XMC ModMenu Private"
@@ -14,11 +14,9 @@
 #include <strings.h>
 #include "vars.h"
 
-/**
 #ifdef PRIVATE
 #include "security.cpp"
 #endif
-**/
 
 #include "weapons.cpp"
 #include "xmc_functions.cpp"

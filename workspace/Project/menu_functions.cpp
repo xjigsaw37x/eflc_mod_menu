@@ -762,14 +762,15 @@ void menu_functions(void){
 							if(menu[item_select].value == 1){
 								REMOVE_ALL_CHAR_WEAPONS(players[index].ped);
 								WAIT(10);
+								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_POOLCUE,1,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_DEAGLE,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_GRENADE,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_RLAUNCHER,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_MP5,AMMO_MAX,false);
-								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_M4,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_BARETTA,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_SNIPERRIFLE,AMMO_MAX,false);
-								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_BASEBALLBAT,1,false);
+								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_M4,AMMO_MAX,false);
+								
 							}
 							else if(menu[item_select].value == 2){
 								REMOVE_ALL_CHAR_WEAPONS(players[index].ped);
@@ -781,7 +782,7 @@ void menu_functions(void){
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_AK47,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_SHOTGUN,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_M40A1,AMMO_MAX,false);
-								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_BASEBALLBAT,1,false);						
+								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_POOLCUE,1,false);					
 							}
 							else if(menu[item_select].value == 3){
 								uint episode = GET_CURRENT_EPISODE();
@@ -795,7 +796,7 @@ void menu_functions(void){
 									GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_EPISODIC_15,AMMO_MAX,false);
 									GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_EPISODIC_1,AMMO_MAX,false);
 									GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_EPISODIC_16,AMMO_MAX,false);
-									GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_BASEBALLBAT,1,false);
+									GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_POOLCUE,1,false);
 								}
 								else{
 									print("You must be on The Ballad of Gay Tony to use this option");

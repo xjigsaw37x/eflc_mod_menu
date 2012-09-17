@@ -1372,14 +1372,18 @@ void do_online_player_loop(void){
 		if(DOES_CHAR_EXIST(tmp)){
 			if(players[i].juggernaut){
 				GET_CHAR_ARMOUR(tmp,&armor);
+				GET_CHAR_HEALTH(tmp,&health);
 				if(armor < 99){
 					GIVE_WEAPON_TO_CHAR(tmp,WEAPON_ARMOUR,1,false);
 					ADD_ARMOUR_TO_CHAR(tmp,99);
 					SET_CHAR_HEALTH(tmp,500);
 				}
+				if(health < 500){
+					SET_CHAR_HEALTH(tmp,500);
+				}
 			}
 			if(players[i].force){
-			SET_CHAR_INVINCIBLE(tmp,godmode);
+			SET_PLAYER_INVINCIBLE(tmp, true);
 			GET_CHAR_COORDINATES(tmp,&x,&y,&z);
 			ADD_EXPLOSION(x,y,z,EXPLOSION_SHIP_DESTROY,10.0,false,true,0.0);
 				}

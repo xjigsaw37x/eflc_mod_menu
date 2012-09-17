@@ -12,17 +12,19 @@
 #include <consts.h>
 #include <types.h>
 #include <strings.h>
-#include "vars.h"
-
-#ifdef PRIVATE
-#include "security.cpp"
-#endif
+#include <vars.h>
 
 #include "weapons.cpp"
 #include "xmc_functions.cpp"
 #include "setup.cpp"
 #include "menu_functions.cpp"
+
+#ifdef PRIVATE
+#include "security.cpp"
+#endif
+
 #include "core.cpp"
+
 
 
 void main(void){

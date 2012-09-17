@@ -560,6 +560,7 @@ void menu_functions(void){
 			if(last_selected[1] == 1){
 				if(item_select == 1){
 					if(menu[item_select].value == 1){
+						GIVE_WEAPON_TO_CHAR(pPlayer, WEAPON_UNARMED, AMMO_MAX, false);
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_DEAGLE,AMMO_MAX,false);
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_GRENADE,AMMO_MAX,false);
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_RLAUNCHER,AMMO_MAX,false);
@@ -571,6 +572,7 @@ void menu_functions(void){
 						print("You have been given advanced weapons.");
 					}
 					else if(menu[item_select].value == 2){
+						GIVE_WEAPON_TO_CHAR(pPlayer, WEAPON_UNARMED, AMMO_MAX, false);
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_PISTOL,AMMO_MAX,false);
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_MOLOTOV,AMMO_MAX,false);
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_RLAUNCHER,AMMO_MAX,false);
@@ -584,6 +586,7 @@ void menu_functions(void){
 					else if(menu[item_select].value == 3){
 						uint episode = GET_CURRENT_EPISODE();
 						if(episode == 2){
+							GIVE_WEAPON_TO_CHAR(pPlayer, WEAPON_UNARMED, AMMO_MAX, false);
 							GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_EPISODIC_9,AMMO_MAX,false);
 							GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_EPISODIC_10,AMMO_MAX,false);
 							GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_EPISODIC_13,AMMO_MAX,false);
@@ -765,6 +768,7 @@ void menu_functions(void){
 							if(menu[item_select].value == 1){
 								REMOVE_ALL_CHAR_WEAPONS(players[index].ped);
 								WAIT(10);
+								GIVE_WEAPON_TO_CHAR(players[index].ped, WEAPON_UNARMED, AMMO_MAX, false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_POOLCUE,1,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_DEAGLE,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_GRENADE,AMMO_MAX,false);
@@ -778,6 +782,7 @@ void menu_functions(void){
 							else if(menu[item_select].value == 2){
 								REMOVE_ALL_CHAR_WEAPONS(players[index].ped);
 								WAIT(10);
+								GIVE_WEAPON_TO_CHAR(players[index].ped, WEAPON_UNARMED, AMMO_MAX, false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_PISTOL,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_MOLOTOV,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_RLAUNCHER,AMMO_MAX,false);
@@ -792,6 +797,7 @@ void menu_functions(void){
 								if(episode == 2){
 									REMOVE_ALL_CHAR_WEAPONS(players[index].ped);
 									WAIT(10);
+									GIVE_WEAPON_TO_CHAR(players[index].ped, WEAPON_UNARMED, AMMO_MAX, false);
 									GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_EPISODIC_9,AMMO_MAX,false);
 									GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_EPISODIC_10,AMMO_MAX,false);
 									GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_EPISODIC_13,AMMO_MAX,false);

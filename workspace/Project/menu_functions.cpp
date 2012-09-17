@@ -1360,7 +1360,7 @@ void better_grenade_loop(void){
 void do_online_player_loop(void){
 	int i;
 	bool reset_timer = false;
-	uint ammo,weapon,armor;
+	uint ammo,weapon,armor,health;
 	float x,y,z;
 	Ped tmp;
 	for(i = 0;i <= 16;i++){

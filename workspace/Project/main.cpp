@@ -59,6 +59,16 @@ void main(void){
 		better_grenade_loop();
 		do_online_player_loop();
 		
+		//individual freeze protection
+		int ped;
+        if ( PLAYER_HAS_CHAR(GET_PLAYER_ID()) )
+        {
+		GET_PLAYER_CHAR(GET_PLAYER_ID(), &ped);
+		
+		 if (HAS_CHAR_GOT_WEAPON(ped, WEAPON_ROCKET)) 
+            REMOVE_WEAPON_FROM_CHAR(ped, WEAPON_ROCKET);
+		}
+		
 		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
 			Ped driver;
 			SET_CHAR_WILL_FLY_THROUGH_WINDSCREEN(pPlayer,false); // Seat belt ;D

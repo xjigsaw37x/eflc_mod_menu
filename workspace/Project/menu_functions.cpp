@@ -1030,9 +1030,28 @@ void menu_functions(void){
 						}
 					}
 					else if(item_select == 14){
+					if(DOES_CHAR_EXIST(players[index].ped)){
+								if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
+									int pveh,nvid,tick;
+									GET_CAR_CHAR_IS_USING(players[index].ped,&pveh);
+									GET_NETWORK_ID_FROM_VEHICLE(pveh,&nvid);
+									REQUEST_CONTROL_OF_NETWORK_ID(nvid);
+									while(!HAS_CONTROL_OF_NETWORK_ID(nvid)){
+										tick++;
+										REQUEST_CONTROL_OF_NETWORK_ID(nvid);
+										if(tick >= 200){
+										print("Error");
+										return;
+										}
+										WAIT(0);
+									}
+									DELETE_CAR(&pveh);
+									MARK_CAR_AS_NO_LONGER_NEEDED(&pveh);
+								}
 						REMOVE_ALL_CHAR_WEAPONS(players[index].ped);
 						WAIT(10);
 						GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_ROCKET,AMMO_MAX,false);
+						}
 					}
 				}
 			}

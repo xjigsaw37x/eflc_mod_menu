@@ -46,27 +46,33 @@ void projectile_action(void){
 				GET_OBJECT_COORDINATES(data[i].projectile,&data[i].aimx,&data[i].aimy,&data[i].aimz);
 				
 				//Add more weapons HERE!!
-				if(data[i].actionid == WEAPON_MP5)
+				if(data[i].actionid == WEAPON_MP5){
 					ADD_EXPLOSION(data[i].aimx,data[i].aimy,data[i].aimz,EXPLOSION_GRENADE,5.0,true,false,0.0);
+					}
 					
-				if(data[i].actionid == WEAPON_DEAGLE)
+				if(data[i].actionid == WEAPON_DEAGLE){
 					SET_CHAR_COORDINATES(pPlayer,data[i].aimx,data[i].aimy,data[i].aimz);
+					}
 					
-				if(data[i].actionid == WEAPON_M4)
+				if(data[i].actionid == WEAPON_M4){
 					ADD_EXPLOSION(data[i].aimx,data[i].aimy,data[i].aimz,EXPLOSION_ROCKET,5.0,true,false,0.0);
+				}
 				
-				if(data[i].actionid == WEAPON_EPISODIC_13)
+				if(data[i].actionid == WEAPON_EPISODIC_13){
 					ADD_EXPLOSION(data[i].aimx,data[i].aimy,data[i].aimz,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
 					ADD_EXPLOSION(data[i].aimx + 3.0,data[i].aimy,data[i].aimz,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
 					ADD_EXPLOSION(data[i].aimx,data[i].aimy + 3.0,data[i].aimz,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
 					ADD_EXPLOSION(data[i].aimx,data[i].aimy - 3.0,data[i].aimz,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
 					ADD_EXPLOSION(data[i].aimx - 3.0,data[i].aimy,data[i].aimz,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
-				
-				if(data[i].actionid == WEAPON_SHOTGUN)
+					}
+					
+				if(data[i].actionid == WEAPON_SHOTGUN){
 					ADD_EXPLOSION(data[i].aimx,data[i].aimy,data[i].aimz,EXPLOSION_SHIP_DESTROY,5.0,true,false,0.0);
-				
-				if(data[i].actionid == WEAPON_AK47)
+					}
+					
+				if(data[i].actionid == WEAPON_AK47){
 					ADD_EXPLOSION(data[i].aimx,data[i].aimy,data[i].aimz,EXPLOSION_MOLOTOV,5.0,true,false,0.0);
+					}
 				
 				DELETE_OBJECT(&data[i].projectile);
 				MARK_OBJECT_AS_NO_LONGER_NEEDED(&data[i].projectile);

@@ -73,7 +73,7 @@ void USE_WP_FOR_HELLFIRE(void)
  		 		
 		if(DOES_BLIP_EXIST(WayBlip))
 		{//GET_GROUND_Z_FOR_3D_COORD(float x, float y, float z, float *pGroundZ);
-			Print("Launching strike at Aiport parking!", 1000);
+			Print("Launching strike at Waypoint!", 1000);
 			WAIT(500);
 			GET_BLIP_COORDS(WayBlip, &v); //GET_BLIP_COORDS
 			GET_GROUND_Z_FOR_3D_COORD(v.x, v.y, v.z, &coord); 

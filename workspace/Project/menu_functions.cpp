@@ -568,7 +568,7 @@ void menu_functions(void){
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_M4,AMMO_MAX,false);
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_BARETTA,AMMO_MAX,false);
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_SNIPERRIFLE,AMMO_MAX,false);
-						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_BASEBALLBAT,1,false);
+						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_POOLCUE,1,false);
 						print("You have been given advanced weapons.");
 					}
 					else if(menu[item_select].value == 2){
@@ -580,7 +580,7 @@ void menu_functions(void){
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_AK47,AMMO_MAX,false);
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_SHOTGUN,AMMO_MAX,false);
 						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_M40A1,AMMO_MAX,false);
-						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_BASEBALLBAT,1,false);
+						GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_POOLCUE,1,false);
 						print("You have been given poor weapons.");						
 					}
 					else if(menu[item_select].value == 3){
@@ -594,7 +594,7 @@ void menu_functions(void){
 							GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_EPISODIC_15,AMMO_MAX,false);
 							GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_EPISODIC_1,AMMO_MAX,false);
 							GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_EPISODIC_16,AMMO_MAX,false);
-							GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_BASEBALLBAT,1,false);
+							GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_POOLCUE,1,false);
 							print("You have been given TBOGT weapons.");
 							return;
 						}
@@ -1239,7 +1239,6 @@ void looped_functions(void){
 			GET_CLOSEST_CHAR(dX,dY,dZ, 30.0F, 1 ,1, &gameped);
 			if(DOES_CHAR_EXIST(gameped))
 			{
-				TASK_TURN_CHAR_TO_FACE_CHAR(GetPlayerPed(), gameped);
 				if(IS_CHAR_IN_ANY_CAR(gameped))
 				{
 					GET_CAR_CHAR_IS_USING(gameped, &PlayerVehicle);	
@@ -1431,16 +1430,13 @@ void do_online_player_loop(void){
 				if(armor < 99){
 					GIVE_WEAPON_TO_CHAR(tmp,WEAPON_ARMOUR,1,false);
 					ADD_ARMOUR_TO_CHAR(tmp,99);
-					SET_CHAR_HEALTH(tmp,500);
-				}
-				if(health < 500){
-					SET_CHAR_HEALTH(tmp,500);
+					if(health < 500){
+						SET_CHAR_HEALTH(tmp,500);
+					}
 				}
 			}
 			if(players[i].force){
-			SET_PLAYER_INVINCIBLE(tmp, true);
-			GET_CHAR_COORDINATES(tmp,&x,&y,&z);
-			ADD_EXPLOSION(x,y,z,EXPLOSION_SHIP_DESTROY,10.0,false,true,0.0);
+				print("Disabled until fixed");
 				}
 			}
 

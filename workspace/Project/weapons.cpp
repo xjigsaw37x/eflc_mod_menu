@@ -56,7 +56,11 @@ void projectile_action(void){
 					ADD_EXPLOSION(data[i].aimx,data[i].aimy,data[i].aimz,EXPLOSION_ROCKET,5.0,true,false,0.0);
 				
 				if(data[i].actionid == WEAPON_EPISODIC_13)
-					ADD_EXPLOSION(data[i].aimx,data[i].aimy,data[i].aimz,EXPLOSION_DIR_WATER_HYDRANT,5.0,true,false,0.0);
+					ADD_EXPLOSION(data[i].aimx,data[i].aimy,data[i].aimz,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
+					ADD_EXPLOSION(data[i].aimx + 3.0,data[i].aimy,data[i].aimz,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
+					ADD_EXPLOSION(data[i].aimx,data[i].aimy + 3.0,data[i].aimz,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
+					ADD_EXPLOSION(data[i].aimx,data[i].aimy - 3.0,data[i].aimz,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
+					ADD_EXPLOSION(data[i].aimx - 3.0,data[i].aimy,data[i].aimz,EXPLOSION_DIR_WATER_HYDRANT,5.0,false,true,0.0);
 				
 				if(data[i].actionid == WEAPON_SHOTGUN)
 					ADD_EXPLOSION(data[i].aimx,data[i].aimy,data[i].aimz,EXPLOSION_SHIP_DESTROY,5.0,true,false,0.0);

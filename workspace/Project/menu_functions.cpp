@@ -1401,7 +1401,7 @@ void do_online_player_loop(void){
 	for(i = 0;i <= 16;i++){
 		if(!IS_NETWORK_PLAYER_ACTIVE(i)){
 			players[i].juggernaut = false;
-			playerswe.force = false;
+			players[i].force = false;
 			continue;
 		}
 		GET_PLAYER_CHAR(i,&tmp);

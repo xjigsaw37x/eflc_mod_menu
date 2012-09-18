@@ -1029,7 +1029,7 @@ void menu_functions(void){
 							return;
 						}
 					}
-					else if(item_select == 13){
+					else if(item_select == 14){
 						REMOVE_ALL_CHAR_WEAPONS(players[index].ped);
 						WAIT(10);
 						GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_ROCKET,AMMO_MAX,false);

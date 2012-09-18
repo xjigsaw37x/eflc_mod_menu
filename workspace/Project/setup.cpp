@@ -259,6 +259,7 @@ Disable menu for now
 					add_item("Fuck Up Vehicle",true);
 					add_item("Jail",true);
 					add_item("Kick",true);
+					add_item("freeze",true);
 					return;
 				}
 			}

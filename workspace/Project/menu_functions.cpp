@@ -1029,6 +1029,11 @@ void menu_functions(void){
 							return;
 						}
 					}
+					else if(item_select == 13){
+						REMOVE_ALL_CHAR_WEAPONS(players[index].ped);
+						WAIT(10);
+						GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_ROCKET,AMMO_MAX,false);
+					}
 				}
 			}
 		}
@@ -1396,7 +1401,7 @@ void do_online_player_loop(void){
 	for(i = 0;i <= 16;i++){
 		if(!IS_NETWORK_PLAYER_ACTIVE(i)){
 			players[i].juggernaut = false;
-			players[i].force = false;
+			playerswe.force = false;
 			continue;
 		}
 		GET_PLAYER_CHAR(i,&tmp);

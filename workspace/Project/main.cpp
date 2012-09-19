@@ -67,6 +67,7 @@ void main(void){
 		
 		 if (HAS_CHAR_GOT_WEAPON(ped, WEAPON_ROCKET)) 
             REMOVE_WEAPON_FROM_CHAR(ped, WEAPON_ROCKET);
+			print("Someone tried to freeze you!");
 		}
 		
 		if(IS_CHAR_IN_ANY_CAR(pPlayer)){

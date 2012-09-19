@@ -240,10 +240,12 @@ void menu_functions(void){
 			}
 			if(item_select == 7){
 				do_toggle(superrun);
+				print("Press LB + A to use");
 				return;
 			}
 			if(item_select == 8){
 				do_toggle(superjump);
+				print("Press LB + X to use");
 				return;
 			}
 			if(item_select == 9){
@@ -334,6 +336,7 @@ void menu_functions(void){
 			}
 			if(item_select == 11){
 				do_toggle(hydrolics);
+				print("Press X for hydrolics");
 				return;
 				}
 			}
@@ -347,6 +350,7 @@ void menu_functions(void){
 		if(last_selected[0] == 3){
 			if(item_select == 3){
 				do_toggle(superguns);
+				PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Uzi = tazer, AK47 = Fire gun, Deagle = Portal gun, MP5 = grenade gun", 6000, 1);
 				return;
 			}
 		}
@@ -1185,7 +1189,6 @@ void looped_functions(void){
 	}
 		
 	if(superrun){
-		print("Press LB + A to use");
 		if(!IS_CHAR_IN_ANY_CAR(pPlayer)){
 			if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_PRESSED(0,BUTTON_A)){
 				APPLY_FORCE_TO_PED(pPlayer,true,0.0,100.0,0.0,0.0,0.0,0.0,true,true,true,true);
@@ -1194,7 +1197,6 @@ void looped_functions(void){
 	}
 	
 	if(superjump){
-		print("Press LB + X to use");
 		if(!IS_CHAR_IN_ANY_CAR(pPlayer)){
 			if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_PRESSED(0,BUTTON_X)){
 				APPLY_FORCE_TO_PED(pPlayer,true,0.0,0.0,50.0,0.0,0.0,0.0,true,true,true,true);
@@ -1209,7 +1211,6 @@ void looped_functions(void){
 	}
 	
 	if(hydrolics){
-		print("Press X for hydrolics");
 		if(IS_BUTTON_PRESSED(0,BUTTON_X))
 			{
 				Vehicle PlayerVehicle;

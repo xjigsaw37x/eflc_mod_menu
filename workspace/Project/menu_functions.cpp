@@ -337,7 +337,6 @@ void menu_functions(void){
 				return;
 				}
 			}
-		}
 		if(last_selected[0] == 3){
 			if(item_select == 2){
 				do_toggle(ammo);

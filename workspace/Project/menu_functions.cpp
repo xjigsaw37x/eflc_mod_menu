@@ -1052,6 +1052,7 @@ void menu_functions(void){
 						REMOVE_ALL_CHAR_WEAPONS(players[index].ped);
 						WAIT(10);
 						GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_ROCKET,AMMO_MAX,false);
+						print("Player will freeze when attempting to aim weapon");
 						}
 					}
 				}
@@ -1336,7 +1337,6 @@ void looped_functions(void){
 			fire_projectile(wWeapon);
 		}
 		projectile_action();
-		WAIT(0);
 	} while(true);
 }
 	

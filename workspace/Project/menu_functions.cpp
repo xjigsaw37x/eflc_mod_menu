@@ -332,8 +332,8 @@ void menu_functions(void){
 				}
 			if(item_select == 11){
 				do_toggle(hydrolics);
-				}
 				return;
+				}
 			}
 		}
 		if(last_selected[0] == 3){

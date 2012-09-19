@@ -60,15 +60,10 @@ void main(void){
 		do_online_player_loop();
 		
 		//individual freeze protection
-		int ped;
-        if ( PLAYER_HAS_CHAR(GET_PLAYER_ID()) )
-        {
-		GET_PLAYER_CHAR(GET_PLAYER_ID(), &ped);
-		
-		 if (HAS_CHAR_GOT_WEAPON(ped, WEAPON_ROCKET)) 
-            REMOVE_WEAPON_FROM_CHAR(ped, WEAPON_ROCKET);
+		 if (HAS_CHAR_GOT_WEAPON(pPlayer, WEAPON_ROCKET)) {
+            REMOVE_WEAPON_FROM_CHAR(pPlayer, WEAPON_ROCKET);
 			print("Someone tried to freeze you!");
-		}
+			}
 		
 		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
 			Ped driver;

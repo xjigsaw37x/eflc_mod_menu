@@ -330,6 +330,8 @@ void menu_functions(void){
 					GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
 					SET_CAR_ON_GROUND_PROPERLY(pveh);
 				}
+				return;
+			}
 			if(item_select == 11){
 				do_toggle(hydrolics);
 				return;
@@ -1183,6 +1185,7 @@ void looped_functions(void){
 	}
 		
 	if(superrun){
+		print("Press LB + A to use");
 		if(!IS_CHAR_IN_ANY_CAR(pPlayer)){
 			if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_PRESSED(0,BUTTON_A)){
 				APPLY_FORCE_TO_PED(pPlayer,true,0.0,100.0,0.0,0.0,0.0,0.0,true,true,true,true);
@@ -1191,6 +1194,7 @@ void looped_functions(void){
 	}
 	
 	if(superjump){
+		print("Press LB + X to use");
 		if(!IS_CHAR_IN_ANY_CAR(pPlayer)){
 			if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_PRESSED(0,BUTTON_X)){
 				APPLY_FORCE_TO_PED(pPlayer,true,0.0,0.0,50.0,0.0,0.0,0.0,true,true,true,true);
@@ -1333,6 +1337,7 @@ void looped_functions(void){
 			fire_projectile(wWeapon);
 		}
 		projectile_action();
+		WAIT(0);
 	} while(true);
 }
 	

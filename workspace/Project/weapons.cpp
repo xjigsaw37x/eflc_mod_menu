@@ -1,3 +1,30 @@
+typedef struct __data{
+	int projectile;
+	int actionid;
+	
+	float aimx;
+	float aimy;
+	float aimz;
+	
+	float playx;
+	float playy;
+	float playz;
+	
+	float velx;
+	float vely;
+	float velz;
+	
+	float dist;
+} _data;
+
+_data data[15];
+
+int pPlayer;
+int wWeapon;
+
+Vector3 aim_tmp;
+Vector3 play_tmp;
+
 int pPlayer;
 int wWeapon;
 

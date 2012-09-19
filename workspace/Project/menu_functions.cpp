@@ -350,7 +350,7 @@ void menu_functions(void){
 		if(last_selected[0] == 3){
 			if(item_select == 3){
 				do_toggle(superguns);
-				PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Uzi = tazer, AK47 = Fire gun, Deagle = Portal gun, MP5 = grenade gun", 6000, 1);
+				PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "AK47 = Fire gun, Deagle = Portal gun, MP5 = grenade gun, M4 = Rocket gun", 6000, 1);
 				return;
 			}
 		}

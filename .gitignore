@@ -5,3 +5,4 @@ key.cpp
 security.cpp
 bad.cpp
 out_sco/*
+*.txt

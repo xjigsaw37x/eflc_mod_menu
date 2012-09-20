@@ -232,7 +232,7 @@ Disable menu for now
 		if(last_selected[0] == 1){
 			if(last_selected[1] == 1){
 				if(last_selected[2] == 1){
-				print("I said it was a placeholder!");
+				PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "I said it was a placeholder!", 2500, 1);
 					return;
 				}
 				else{

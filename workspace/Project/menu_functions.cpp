@@ -1331,7 +1331,6 @@ void looped_functions(void){
 	if(chaos){
 		GET_CHAR_COORDINATES(GetPlayerPed(),&dX, &dY, &dZ);
 		ClosestCar = GET_CLOSEST_CAR(dX,dY,dZ, 15, false, 70);
-		TASK_TURN_CHAR_TO_FACE_COORD(GetPlayerPed(),dX,dY,dZ);
 		
 			if( DOES_VEHICLE_EXIST(ClosestCar))
 			{

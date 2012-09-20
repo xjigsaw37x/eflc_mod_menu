@@ -1282,15 +1282,17 @@ void looped_functions(void){
 	}
 	
 	if(onfire){
-	if (!IS_PED_RAGDOLL( GetPlayerPed() ))
+	if (!IS_PED_RAGDOLL(pPlayer))(!IS_CHAR_ON_FIRE(pPlayer));
             {
 			SET_CHAR_INVINCIBLE(pPlayer,false);
 			START_CHAR_FIRE(GetPlayerPed());
 			SET_CHAR_INVINCIBLE(pPlayer,true);
 			}
 	else{
-		EXTINGUISH_CHAR_FIRE(pPlayer);
-		SET_CHAR_INVINCIBLE(pPlayer,godmode);
+		if (IS_CHAR_ON_FIRE(pPlayer))
+			{
+				EXTINGUISH_CHAR_FIRE(pPlayer);
+			}
 		}
 	}
 	

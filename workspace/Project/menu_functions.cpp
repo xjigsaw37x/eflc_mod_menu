@@ -319,13 +319,13 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 7){
-				do_toggle(superrun);
 				print("Press LB + A to use");
+				do_toggle(superrun);
 				return;
 			}
 			if(item_select == 8){
-				do_toggle(superjump);
 				print("Press LB + X to use");
+				do_toggle(superjump);
 				return;
 			}
 			if(item_select == 9){
@@ -420,8 +420,8 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 11){
-				do_toggle(hydrolics);
 				print("Press X for hydrolics");
+				do_toggle(hydrolics);
 				return;
 				}
 			}
@@ -554,7 +554,7 @@ void menu_functions(void){
 				print(GET_PLAYER_NAME(GET_HOST_ID()));
 			}
 			if(item_select == 9){	
-				print("I said it was a placeholder!");
+				print("I told you it was a placeholder!");
 			}
 		}
 		if(last_selected[0] == 6){

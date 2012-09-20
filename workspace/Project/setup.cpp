@@ -67,6 +67,7 @@ Disable menu for now
 			add_toggle("Super Jump",superjump);
 			add_toggle("Chronicle",forcefield);
 			add_toggle("Chaos mode",chaos);
+			add_item("Spawn bodyguards",true);
 			return;
 		}
 		if(last_selected[0] == 2){

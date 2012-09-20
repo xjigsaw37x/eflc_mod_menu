@@ -12,6 +12,8 @@
 
 #define print(x) PRINT_STRING_WITH_LITERAL_STRING("string",x,2000,true)
 
+
+
 void draw_title(float x, float y, float width, float height, uint r, uint g, uint b, uint a, char *val){
 #ifdef PC
 	if (!IS_FONT_LOADED(7))
@@ -212,7 +214,85 @@ void spawn_car(uint model){
 		SET_CAR_FORWARD_SPEED(pveh,s);
 	return;
 }
-	
+
+float BGx,BGy,BGz;
+Group Bgroup;
+Ped gameped;
+ 
+// Sets Up your group so the gang will follow You
+void groupSet(void)
+{
+    if(GroupSet==0)
+    {
+    GET_PLAYER_GROUP(GetPlayerIndex(), &Bgroup);
+    if(!DOES_GROUP_EXIST(Bgroup))
+    {
+        CREATE_GROUP(0, Bgroup, TRUE);
+        SET_GROUP_LEADER(Bgroup, GetPlayerPed());
+        SET_GROUP_SEPARATION_RANGE(Bgroup, 9999.9);
+        GroupSet=1;
+    }
+    }
+}
+ 
+// Alows you to choose options when spawning your ped
+void SpawnPed(uint model, char *name, uint weapon ,float offset_y, uint Rcol, uint Gcol , uint Bcol)
+{
+ 
+    REQUEST_MODEL(model);
+    while (!HAS_MODEL_LOADED(model)) WAIT(0);
+   
+    Ped Pped = GetPlayerPed();
+ 
+   
+    GET_OFFSET_FROM_CHAR_IN_WORLD_COORDS(Pped, 0, offset_y , 0, &BGx, &BGy, &BGz);
+    CREATE_CHAR(26, model, BGx,BGy,BGz, &gameped, true);
+ 
+   
+    SET_GROUP_MEMBER(Bgroup, gameped); // peds as guard
+    SET_CHAR_NEVER_LEAVES_GROUP(gameped, TRUE); // keeps the group together
+   
+    SET_CHAR_ACCURACY(gameped, 100);  //
+    SET_CHAR_WILL_DO_DRIVEBYS(gameped, TRUE);
+    SET_CHAR_WILL_MOVE_WHEN_INJURED(gameped, TRUE);
+    SET_CHAR_WILL_USE_COVER(gameped, FALSE);
+    SET_PED_DONT_DO_EVASIVE_DIVES(gameped, TRUE);
+ 
+    UpdateWeaponOfPed(gameped, weapon); //uint weapon for ped
+    SET_CURRENT_CHAR_WEAPON(gameped, weapon, TRUE); // uint weapon for ped
+    SET_CHAR_IS_TARGET_PRIORITY(gameped, true);
+ 
+    GIVE_PED_FAKE_NETWORK_NAME(gameped, name, Rcol, Gcol , Bcol, 255); //  Uint RGB for color
+   
+}
+ 
+// Alows you to choose options when spawning your ped and will only spawn 3
+void Friends(void)
+{
+    //GET_GROUP_SIZE(Group group, uint *pStartIndex, uint *pCount);
+    uint amount,pCount;
+    GET_GROUP_SIZE(Bgroup, &amount, &pCount);
+    if (pCount < 3)// Checks the size and if under 3 will spawn 1 dude
+    {
+        if(spawndude==0)
+        {
+            SpawnPed(MODEL_IG_BRUCIE,"Brucie",WEAPON_MP5 ,2, 46,91,3);
+            spawndude=1;
+        }
+        else if(spawndude==1)
+        {
+            SpawnPed(MODEL_IG_BULGARIN,"Bulgarian",WEAPON_AK47 ,4, 46,91,3);
+            spawndude=2;
+        }
+        else if(spawndude==2)
+        {
+            SpawnPed(MODEL_IG_LILJACOB,"Jacob",WEAPON_AK47,5, 46,91,3);
+            spawndude=0;
+        }
+       
+    }
+}
+
 void menu_functions(void){
 	if(menu_level == 1){
 		if(last_selected[0] == 1){
@@ -254,6 +334,11 @@ void menu_functions(void){
 			}
 			if(item_select == 10){
 				do_toggle(chaos);
+				return;
+			}
+			if(item_select == 11){
+				Friends();
+				groupSet(); 
 				return;
 			}
 		}

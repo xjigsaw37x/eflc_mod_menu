@@ -75,6 +75,9 @@ bool grenade_active;
 	
 bool in_paint = false;	
 
+bool spawndude=0;
+bool GroupSet=0;
+
 bool show_menu = false,
 	godmode = true,
 	neverwanted = false,

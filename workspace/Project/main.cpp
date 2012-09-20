@@ -62,7 +62,6 @@ void main(void){
 		//individual freeze protection
 		 if (HAS_CHAR_GOT_WEAPON(pPlayer, WEAPON_ROCKET)) {
             REMOVE_WEAPON_FROM_CHAR(pPlayer, WEAPON_ROCKET);
-			print("Someone tried to freeze you!");
 			}
 		
 		if(IS_CHAR_IN_ANY_CAR(pPlayer)){

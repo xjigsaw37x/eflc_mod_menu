@@ -14,6 +14,7 @@
 #include <strings.h>
 #include <vars.h>
 
+#include "weapons.cpp"
 #include "xmc_functions.cpp"
 #include "setup.cpp"
 #include "menu_functions.cpp"

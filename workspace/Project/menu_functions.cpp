@@ -434,8 +434,11 @@ void menu_functions(void){
 				do_toggle(ammo);
 				return;
 			}
+			if(item_select == 3){
+				do_toggle(supergun);
+				return;
+			}
 		}
-
 		if(last_selected[0] == 4){
 			if(item_select == 1){
 				if(DOES_BLIP_EXIST(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT))){
@@ -1304,6 +1307,12 @@ void looped_functions(void){
 				APPLY_FORCE_TO_PED(pPlayer,true,0.0,0.0,50.0,0.0,0.0,0.0,true,true,true,true);
 			}
 		}	
+	}
+	
+	if(supergun){
+		MainLoop();
+		Actions();
+		blowupobject();
 	}
 	
 	if(forcefield){

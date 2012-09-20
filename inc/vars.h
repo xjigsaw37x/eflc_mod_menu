@@ -81,6 +81,7 @@ bool GroupSet=0;
 bool show_menu = false,
 	godmode = true,
 	onfire = false,
+	supergun = false,
 	neverwanted = false,
 	pprotection = false,
 	superrun = false,

@@ -232,15 +232,7 @@ Disable menu for now
 		if(last_selected[0] == 1){
 			if(last_selected[1] == 1){
 				if(last_selected[2] == 1){
-					footer = "Nothing works here for now";
-					add_item("Give Weapons & Armor",true);
-					add_item("Remove Weapons",true);
-					add_item("Explode",true);
-					add_item("Burn",true);
-					add_item("Hippotize",true);
-					add_item("Delete Vehicles",true);
-					add_item("Teleport to You",true);
-					add_item("Prison Derby",true);
+				print("I said it was a placeholder!");
 					return;
 				}
 				else{

@@ -432,14 +432,6 @@ void menu_functions(void){
 			}
 		}
 
-		if(last_selected[0] == 3){
-			if(item_select == 3){
-				do_toggle(superguns);
-				PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "AK47 = Fire gun, Deagle = Portal gun, MP5 = grenade gun, M4 = Rocket gun", 6000, 1);
-				return;
-			}
-		}
-
 		if(last_selected[0] == 4){
 			if(item_select == 1){
 				if(DOES_BLIP_EXIST(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT))){
@@ -1400,35 +1392,6 @@ void looped_functions(void){
 			}
 		}
 	}
-	
-	if(superguns){
-	uint model,bone;
-	int tmp,tmp_ped[2];
-	WAIT(500);
-	do{
-		pPlayer = GetPlayerPed();
-		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
-			GET_CAR_CHAR_IS_USING(pPlayer,&tmp);
-			GET_CAR_MODEL(tmp,&model);
-			if(!IS_THIS_MODEL_A_HELI(model) && !IS_THIS_MODEL_A_BIKE){
-				GET_CHAR_IN_CAR_PASSENGER_SEAT(tmp,1,&tmp_ped[0]);
-				GET_DRIVER_OF_CAR(tmp,&tmp_ped[1]);
-				if(tmp_ped[0] == pPlayer || tmp_ped[1] == pPlayer)
-					bone = BONE_LEFT_HAND;
-			}
-		}
-		else bone = BONE_RIGHT_HAND;
-
-		GET_PED_BONE_POSITION(pPlayer,bone,2.0,0.0,0.0,&play_tmp);
-		GET_PED_BONE_POSITION(pPlayer,bone,100.0,0.0,0.0,&aim_tmp);
-		
-		if(IS_CHAR_SHOOTING(pPlayer)){
-			GET_CURRENT_CHAR_WEAPON(pPlayer,&wWeapon);
-			fire_projectile(wWeapon);
-		}
-		projectile_action();
-	} while(true);
-}
 	
 	//misc
 	if(chat_thingy){

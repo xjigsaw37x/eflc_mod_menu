@@ -341,6 +341,10 @@ void menu_functions(void){
 				groupSet(); 
 				return;
 			}
+			if(item_select == 12){
+				do_toggle(onfire);
+				return;
+			}
 		}
 		if(last_selected[0] == 2){
 			if(item_select == 2){
@@ -1274,6 +1278,19 @@ void looped_functions(void){
 			if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_PRESSED(0,BUTTON_A)){
 				APPLY_FORCE_TO_PED(pPlayer,true,0.0,100.0,0.0,0.0,0.0,0.0,true,true,true,true);
 			}
+		}
+	}
+	
+	if(onfire){
+	if (!IS_PED_RAGDOLL( GetPlayerPed() ))
+            {
+			SET_CHAR_INVINCIBLE(pPlayer,false);
+			START_CHAR_FIRE(GetPlayerPed());
+			SET_CHAR_INVINCIBLE(pPlayer,true);
+			}
+	else{
+		EXTINGUISH_CHAR_FIRE(pPlayer);
+		SET_CHAR_INVINCIBLE(pPlayer,godmode);
 		}
 	}
 	

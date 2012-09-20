@@ -68,6 +68,7 @@ Disable menu for now
 			add_toggle("Chronicle",forcefield);
 			add_toggle("Chaos mode",chaos);
 			add_item("Spawn bodyguards",true);
+			add_toggle("Set yourself on fire",onfire);
 			return;
 		}
 		if(last_selected[0] == 2){

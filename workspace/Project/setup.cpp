@@ -45,7 +45,7 @@ void menu_setup(void){
 		add_item("Vehicle Options",false);
 		add_item("Weapon Options",false);
 		add_item("Teleports",false);
-		add_item("Misc",false);
+		add_item("Others",false);
 /**
 Disable menu for now
 		add_item("Addons",false);
@@ -114,7 +114,7 @@ Disable menu for now
 			return;
 		}
 		if(last_selected[0] == 5){
-			footer = "Misc";
+			footer = "Other stuff";
 			add_item("Change Menu Colors",false);
 			add_item("Throwable Objects",false);
 			add_item("Air Strikes",false);

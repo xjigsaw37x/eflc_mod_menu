@@ -125,7 +125,7 @@ void blowupobject()
 			GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz);
 			if(wep == WEAPON_MP5)
 				{
-					ADD_EXPLOSION(expx,expy,expz, EXPLOSION_SHIP_DESTROY, 7.50, 1, 0, 0.7);
+					ADD_EXPLOSION(expx,expy,expz, EXPLOSION_ROCKET, 7.50, 1, 0, 0.7);
 				}
 			//cleanup object
 			if(DOES_OBJECT_EXIST(ObjectProjectile)) { DELETE_OBJECT(&ObjectProjectile);}

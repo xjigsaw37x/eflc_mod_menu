@@ -1,4 +1,4 @@
-#define MENU_TITLE "XMC ModMenu Private"
+#define MENU_TITLE "XMC ModMenu v1 Private Edition"
 
 #include <natives.h>
 #include <common.h>

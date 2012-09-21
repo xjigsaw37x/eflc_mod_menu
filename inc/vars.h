@@ -56,6 +56,13 @@ typedef struct _online_players{
 
 online_players players[18];
 
+bool SearchOn =0;
+Vector3 v;
+int HIGHT, WIDTH;
+float coord;
+float dX,dY,dZ;
+Ped gameped , driver;
+Vehicle ClosestCar , PlayerVehicle;
 
 int item_count = 0,
 	item_select = 1,

@@ -1344,6 +1344,7 @@ void looped_functions(void){
 	}
 
 	if(chaos){
+		float dX,dY,dZ;
 		GET_CHAR_COORDINATES(GetPlayerPed(),&dX, &dY, &dZ);
 		ClosestCar = GET_CLOSEST_CAR(dX,dY,dZ, 15, false, 70);
 		

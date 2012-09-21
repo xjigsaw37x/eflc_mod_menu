@@ -75,7 +75,7 @@ Disable menu for now
 			footer = "Vehicle Options";
 			add_item("Garage",false);
 			add_toggle("Vehicle Helper",vhelper);
-			add_toggle("Fly Through Walls",flywalls);
+			add_item("Placeholder",true);
 			add_toggle("Cars Stick to Ground",carsonground);
 			add_toggle("Need for Speed",nfs);
 			add_item("Kill Passengers",true);

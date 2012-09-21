@@ -352,8 +352,7 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 3){
-				print("Removed at the request of DannyDarthTk");
-				//do_toggle(flywalls);
+				print("Placeholder");
 				return;
 			}
 			if(item_select == 4){

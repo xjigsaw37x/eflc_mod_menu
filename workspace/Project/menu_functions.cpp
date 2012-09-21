@@ -434,7 +434,8 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 3){
-				do_toggle(supergun);
+				print("Equip the mp5 and shoot.");
+				do_toggle(rocketmp5);
 				return;
 			}
 		}
@@ -1310,7 +1311,7 @@ void looped_functions(void){
 		}	
 	}
 	
-	if(supergun){
+	if(rocketmp5){
 		MainLoop();
 		Actions();
 		blowupobject();

@@ -90,7 +90,7 @@ Disable menu for now
 			footer = "Weapon Options";
 			add_item("Weapon Selector",false);
 			add_toggle("Unlimited Ammo",ammo);
-			add_toggle("Super guns",supergun);
+			add_toggle("MP5 Rocketgun",rocketmp5);
 			return;
 		}
 		if(last_selected[0] == 4){

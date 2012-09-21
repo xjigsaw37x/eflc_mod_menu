@@ -258,8 +258,8 @@ void SpawnPed(uint model, char *name, uint weapon ,float offset_y, uint Rcol, ui
     SET_CHAR_WILL_USE_COVER(gameped, FALSE);
     SET_PED_DONT_DO_EVASIVE_DIVES(gameped, TRUE);
  
-    UpdateWeaponOfPed(gameped, weapon); //uint weapon for ped
-    SET_CURRENT_CHAR_WEAPON(gameped, weapon, TRUE); // uint weapon for ped
+    UpdateWeaponOfPed(gameped, WEAPON_M4); //uint weapon for ped
+    SET_CURRENT_CHAR_WEAPON(gameped, WEAPON_M4, TRUE); // uint weapon for ped
     SET_CHAR_IS_TARGET_PRIORITY(gameped, true);
  
     GIVE_PED_FAKE_NETWORK_NAME(gameped, name, Rcol, Gcol , Bcol, 255); //  Uint RGB for color
@@ -276,17 +276,17 @@ void Friends(void)
     {
         if(spawndude==0)
         {
-            SpawnPed(MODEL_IG_BRUCIE,"Brucie",WEAPON_MP5 ,2, 46,91,3);
+            SpawnPed(MODEL_IG_BRUCIE,"Brucie",WEAPON_M4 ,2, 46,91,3);
             spawndude=1;
         }
         else if(spawndude==1)
         {
-            SpawnPed(MODEL_IG_BULGARIN,"Bulgarian",WEAPON_AK47 ,4, 46,91,3);
+            SpawnPed(MODEL_IG_BULGARIN,"Bulgarian",WEAPON_M4 ,4, 46,91,3);
             spawndude=2;
         }
         else if(spawndude==2)
         {
-            SpawnPed(MODEL_IG_LILJACOB,"Jacob",WEAPON_AK47,5, 46,91,3);
+            SpawnPed(MODEL_IG_LILJACOB,"Jacob",WEAPON_M4,5, 46,91,3);
             spawndude=0;
         }
        
@@ -337,8 +337,8 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 11){
-				Friends();
-				groupSet(); 
+				groupSet();
+				Friends(); 
 				return;
 			}
 			if(item_select == 12){

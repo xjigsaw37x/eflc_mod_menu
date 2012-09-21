@@ -88,31 +88,6 @@ void MainLoop()
 void Actions()
 {
 	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wep);
-	if((wep == WEAPON_EPISODIC_13) && (IS_CHAR_SHOOTING(GetPlayerPed())))
-	{
-		
-		REQUEST_MODEL(0x8F2A7EB3);
-		while(!HAS_MODEL_LOADED(0x8F2A7EB3))
-		{
-			WAIT(0);
-		}
-		
-		CREATE_OBJECT(0x8F2A7EB3, prjX, prjY, prjZ, &ObjectProjectile, 1);
-		SET_OBJECT_VISIBLE(ObjectProjectile, 0);
-		MARK_MODEL_AS_NO_LONGER_NEEDED(0x8F2A7EB3);
-		if(DOES_OBJECT_EXIST(ObjectProjectile))
-		{
-			SET_OBJECT_AS_STEALABLE(ObjectProjectile, 1);
-			SET_OBJECT_ROTATION(ObjectProjectile, objrotX, 0.0, objrotZ);
-			SET_OBJECT_RECORDS_COLLISIONS(ObjectProjectile, true);
-			SET_OBJECT_DYNAMIC(ObjectProjectile, 1);
-			APPLY_FORCE_TO_OBJECT(ObjectProjectile, 1, 0.0, 90.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, 1);
-			WAIT(100);
-			justshot = 1;
-
-		}
-	}
-	
 	if((wep == WEAPON_MP5) && (IS_CHAR_SHOOTING(GetPlayerPed())))
 	{
 		
@@ -151,14 +126,6 @@ void blowupobject()
 			if(wep == WEAPON_MP5)
 				{
 					ADD_EXPLOSION(expx,expy,expz, EXPLOSION_SHIP_DESTROY, 7.50, 1, 0, 0.7);
-				}
-			if(wep == WEAPON_EPISODIC_13)
-				{
-					ADD_EXPLOSION(expx,expy,expz,EXPLOSION_DIR_WATER_HYDRANT,7.50,false,true,0.0);
-					ADD_EXPLOSION(expx + 3.0,expy,expz,EXPLOSION_DIR_WATER_HYDRANT,7.50,false,true,0.0);
-					ADD_EXPLOSION(expx,expy + 3.0,expz,EXPLOSION_DIR_WATER_HYDRANT,7.50,false,true,0.0);
-					ADD_EXPLOSION(expx,expy - 3.0,expz,EXPLOSION_DIR_WATER_HYDRANT,7.50,false,true,0.0);
-					ADD_EXPLOSION(expx - 3.0,expy,expz,EXPLOSION_DIR_WATER_HYDRANT,7.50,false,true,0.0);
 				}
 			//cleanup object
 			if(DOES_OBJECT_EXIST(ObjectProjectile)) { DELETE_OBJECT(&ObjectProjectile);}

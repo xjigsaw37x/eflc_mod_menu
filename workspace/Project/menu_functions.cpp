@@ -1312,9 +1312,9 @@ void looped_functions(void){
 	}
 	
 	if(rocketmp5){
-		MainLoop();
-		Actions();
-		blowupobject();
+		mp5rocket_MainLoop();
+		mp5rocket_Actions();
+		mp5rocket_blowupobject();
 	}
 	
 	if(forcefield){

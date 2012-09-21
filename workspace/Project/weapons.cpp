@@ -6,16 +6,15 @@
 int justshot = 0;
 int wep;
 Object ObjectProjectile;
-int wepCheck;
 float prjX, prjY, prjZ, prjT, gcX, gcY, gcZ, gcrotX, gcrotY, gcrotZ, objrotX, objrotZ;
 Camera game_cam;
 float charX, charY, charZ , Object_X, Object_Y, Object_Z , dist;
 float expx,expy,expz;
 
-void MainLoop()
+void mp5rocket_MainLoop()
 {
 	
-	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wepCheck);
+	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wep);
 	if(wep == WEAPON_MP5)
 	{
 	//SET_TEXT_DROPSHADOW(1, 0, 0, 0, 255);
@@ -55,7 +54,7 @@ void MainLoop()
 	}
 }
 
-void Actions()
+void mp5rocket_Actions()
 {
 	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wep);
 	
@@ -93,7 +92,7 @@ void Actions()
 	
 }
 
-void blowupobject()
+void mp5rocket_blowupobject()
 {
 
 	if(justshot==1)

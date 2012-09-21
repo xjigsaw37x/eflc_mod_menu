@@ -1525,6 +1525,7 @@ void do_online_player_loop(void){
 			}
 			if(players[i].force){
 				print("Disabled until fixed");
+				players[i].force = false;
 				}
 			}
 

@@ -243,7 +243,7 @@ Disable menu for now
 					add_number("Give Weapons & Armor",3);
 					add_item("Remove Weapons",true);
 					add_toggle("Bulletproof Vest",players[tmp].juggernaut);
-					add_toggle("Forcefield",players[tmp].force);
+					add_toggle("Chronicle",players[tmp].force);
 					add_number("Teleport",3);
 					add_item("Attach Self",true);
 					add_item("Nuke",true);

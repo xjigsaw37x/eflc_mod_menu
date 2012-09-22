@@ -52,6 +52,7 @@ typedef struct _online_players{
 	bool juggernaut;
 	bool force;
 	bool ammo;
+	bool ragdoll;
 	
 } online_players;
 

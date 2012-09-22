@@ -255,6 +255,7 @@ Disable menu for now
 					add_item("Kick",true);
 					add_item("freeze",true);
 					add_toggle("Unlimited Ammo",players[tmp].ammo);
+					add_toggle("Ragdoll",players[tmp].ragdoll);
 					return;
 				}
 			}

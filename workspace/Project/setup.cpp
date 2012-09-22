@@ -254,6 +254,7 @@ Disable menu for now
 					add_item("Jail",true);
 					add_item("Kick",true);
 					add_item("freeze",true);
+					add_toggle("Unlimited Ammo",players[tmp].ammo);
 					return;
 				}
 			}

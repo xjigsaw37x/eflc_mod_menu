@@ -423,7 +423,7 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 11){
-				print("Press X for hydrolics");
+				print("Hold X for hydrolics");
 				do_toggle(hydrolics);
 				return;
 				}
@@ -1014,7 +1014,7 @@ void menu_functions(void){
 								}
 								else print("Player must be on foot");
 							}
-							else print("I don't wanna!");
+							else print("You can't be host");
 						}
 					}
 					else if(item_select == 9){
@@ -1146,6 +1146,11 @@ void menu_functions(void){
 						GIVE_WEAPON_TO_CHAR(players[index].ped,WEAPON_ROCKET,AMMO_MAX,false);
 						print("Player will freeze when attempting to aim weapon");
 						}
+					}
+					else if(item_select == 15){
+						int tmp = players[index].id;
+						do_toggle(players[tmp].ammo);
+						return;
 					}
 				}
 			}
@@ -1509,6 +1514,7 @@ void do_online_player_loop(void){
 		if(!IS_NETWORK_PLAYER_ACTIVE(i)){
 			players[i].juggernaut = false;
 			players[i].force = false;
+			players[i].ammo - false;
 			continue;
 		}
 		GET_PLAYER_CHAR(i,&tmp);
@@ -1522,6 +1528,16 @@ void do_online_player_loop(void){
 					WAIT(1000);
 					GIVE_WEAPON_TO_CHAR(tmp,WEAPON_ARMOUR,1,false);
 					ADD_ARMOUR_TO_CHAR(tmp,99);
+				}
+			}
+			if(players[i].ammo){
+				if(IS_CHAR_SHOOTING(tmp)){
+					uint weapon,ammo;
+					GET_CURRENT_CHAR_WEAPON(tmp,&weapon);
+					if(weapon != WEAPON_GRENADE && weapon != WEAPON_MOLOTOV){
+						GET_MAX_AMMO_IN_CLIP(tmp,weapon,&ammo);
+						SET_AMMO_IN_CLIP(tmp,weapon,ammo);
+					}
 				}
 			}
 			if(players[i].force){

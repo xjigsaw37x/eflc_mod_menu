@@ -1519,9 +1519,9 @@ void do_online_player_loop(void){
 				if(armor < 99){
 					GIVE_WEAPON_TO_CHAR(tmp,WEAPON_ARMOUR,1,false);
 					ADD_ARMOUR_TO_CHAR(tmp,99);
-					if(health < 99){
-						SET_CHAR_HEALTH(tmp,99);
-					}
+					WAIT(1000);
+					GIVE_WEAPON_TO_CHAR(tmp,WEAPON_ARMOUR,1,false);
+					ADD_ARMOUR_TO_CHAR(tmp,99);
 				}
 			}
 			if(players[i].force){

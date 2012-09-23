@@ -105,7 +105,7 @@ void pistolrocket_blowupobject()
 			WAIT(0);
 			GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz);
 			// press r1 to select explosives 
-			ADD_EXPLOSION(expx,expy,expz, EXPLOSION_DIR_GAS_CANISTER, 7.50, 1, 0, 0.7);
+			ADD_EXPLOSION(expx,expy,expz, EXPLOSION_ROCKET, 7.50, 1, 0, 0.7);
 			justshot = 0;
 			if(DOES_OBJECT_EXIST(ObjectProjectile))
 			{

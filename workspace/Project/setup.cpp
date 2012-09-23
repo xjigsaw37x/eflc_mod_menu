@@ -125,7 +125,7 @@ Disable menu for now
 			add_item("Start New Freemode",true);
 			add_item("Return to Single Player",true);
 			add_item("Get name of host",true);
-			add_item("Placeholder",true);
+			add_toggle("Freeze Gun Protection",freezeprotect);
 			return;
 		}		
 	}

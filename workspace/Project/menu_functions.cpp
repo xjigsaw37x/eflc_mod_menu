@@ -553,7 +553,8 @@ void menu_functions(void){
 				print(GET_PLAYER_NAME(GET_HOST_ID()));
 			}
 			if(item_select == 9){	
-				print("I told you it was a placeholder!");
+				do_toggle(freezeprotect);
+				return;
 			}
 		}
 		if(last_selected[0] == 6){

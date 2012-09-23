@@ -49,9 +49,11 @@ void main(void){
 		do_online_player_loop();
 		
 		//individual freeze protection
-		 if (HAS_CHAR_GOT_WEAPON(pPlayer, WEAPON_ROCKET)) {
-            REMOVE_WEAPON_FROM_CHAR(pPlayer, WEAPON_ROCKET);
+		if(freezeprotect) {
+			if (HAS_CHAR_GOT_WEAPON(pPlayer, WEAPON_ROCKET)) {
+				REMOVE_WEAPON_FROM_CHAR(pPlayer, WEAPON_ROCKET);
 			}
+		}
 		
 		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
 			Ped driver;

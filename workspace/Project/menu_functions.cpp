@@ -1329,11 +1329,9 @@ void looped_functions(void){
 	}
 	
 	if(rocketpistol){
-		WAIT(0);
 		pistolrocket_MainLoop();
 		pistolrocket_Actions();
 		pistolrocket_blowupobject();
-		WAIT(0);
 	}
 	
 	if(forcefield){

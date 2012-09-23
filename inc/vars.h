@@ -49,9 +49,8 @@ typedef struct _online_players{
 	bool connected;
 	
 	//id
-	bool juggernaut;
+	bool mprotection;
 	bool force;
-	bool ammo;
 	bool ragdoll;
 	
 } online_players;

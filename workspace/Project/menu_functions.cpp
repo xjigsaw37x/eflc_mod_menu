@@ -916,7 +916,7 @@ void menu_functions(void){
 					}
 					else if(item_select == 3){
 						int tmp = players[index].id;
-						do_toggle(players[tmp].juggernaut);
+						do_toggle(players[tmp].mprotection);
 						return;
 					}
 					else if(item_select == 4){
@@ -1148,11 +1148,6 @@ void menu_functions(void){
 						}
 					}
 					else if(item_select == 15){
-						int tmp = players[index].id;
-						do_toggle(players[tmp].ammo);
-						return;
-					}
-					else if(item_select == 16){
 					if(DOES_CHAR_EXIST(players[index].ped)){
 						if(!IS_PED_RAGDOLL(players[index].ped)){
 							SWITCH_PED_TO_RAGDOLL(players[index].ped,20000,30000,false,false,false,false);
@@ -1166,6 +1161,7 @@ void menu_functions(void){
 							print("Ragdoll OFF");
 							}
 						}
+						return;
 					}
 				}
 			}
@@ -1527,14 +1523,13 @@ void do_online_player_loop(void){
 	Ped tmp;
 	for(i = 0;i <= 16;i++){
 		if(!IS_NETWORK_PLAYER_ACTIVE(i)){
-			players[i].juggernaut = false;
+			players[i].mprotection = false;
 			players[i].force = false;
-			players[i].ammo - false;
 			continue;
 		}
 		GET_PLAYER_CHAR(i,&tmp);
 		if(DOES_CHAR_EXIST(tmp)){
-			if(players[i].juggernaut){
+			if(players[i].mprotection){
 				GET_CHAR_ARMOUR(tmp,&armor);
 				GET_CHAR_HEALTH(tmp,&health);
 				if(armor < 99){
@@ -1544,8 +1539,6 @@ void do_online_player_loop(void){
 					GIVE_WEAPON_TO_CHAR(tmp,WEAPON_ARMOUR,1,false);
 					ADD_ARMOUR_TO_CHAR(tmp,99);
 				}
-			}
-			if(players[i].ammo){
 				if(IS_CHAR_SHOOTING(tmp)){
 					uint weapon,ammo;
 					GET_CURRENT_CHAR_WEAPON(tmp,&weapon);

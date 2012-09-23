@@ -242,7 +242,7 @@ Disable menu for now
 					footer = players[(last_selected[2] - 2)].gamertag;
 					add_number("Give Weapons & Armor",3);
 					add_item("Remove Weapons",true);
-					add_toggle("Bulletproof Vest",players[tmp].juggernaut);
+					add_toggle("Moddder Protection",players[tmp].mprotection);
 					add_toggle("Chronicle",players[tmp].force);
 					add_number("Teleport",3);
 					add_item("Attach Self",true);
@@ -254,7 +254,6 @@ Disable menu for now
 					add_item("Jail",true);
 					add_item("Kick",true);
 					add_item("freeze",true);
-					add_toggle("Unlimited Ammo",players[tmp].ammo);
 					add_toggle("Ragdoll",players[tmp].ragdoll);
 					return;
 				}

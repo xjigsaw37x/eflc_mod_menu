@@ -121,6 +121,6 @@ void do_menu(void){
 		}
 	
 	}
-	else if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_PRESSED(0,BUTTON_RB))
+	else if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_JUST_PRESSED(0,BUTTON_RB))
 		menu_startup();
 }

@@ -1547,7 +1547,11 @@ void do_online_player_loop(void){
 						SET_AMMO_IN_CLIP(tmp,weapon,ammo);
 					}
 				}
+				if (HAS_CHAR_GOT_WEAPON(tmp, WEAPON_ROCKET)) {
+					REMOVE_WEAPON_FROM_CHAR(tmp, WEAPON_ROCKET);
+				}
 			}
+			
 			if(players[i].force){
 				print("Disabled until fixed");
 				players[i].force = false;

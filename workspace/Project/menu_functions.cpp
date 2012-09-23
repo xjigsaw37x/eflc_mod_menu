@@ -434,8 +434,8 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 3){
-				print("Equip the mp5 and shoot.");
-				do_toggle(rocketmp5);
+				print("Equip the regular pistol and shoot.");
+				do_toggle(rocketpistol);
 				return;
 			}
 		}
@@ -1328,10 +1328,12 @@ void looped_functions(void){
 		}	
 	}
 	
-	if(rocketmp5){
-		mp5rocket_MainLoop();
-		mp5rocket_Actions();
-		mp5rocket_blowupobject();
+	if(rocketpistol){
+		WAIT(0);
+		pistolrocket_MainLoop();
+		pistolrocket_Actions();
+		pistolrocket_blowupobject();
+		WAIT(0);
 	}
 	
 	if(forcefield){

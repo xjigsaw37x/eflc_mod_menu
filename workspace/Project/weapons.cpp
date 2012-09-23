@@ -1,4 +1,3 @@
-//Thanks to 69Ghost for help
 #define MODEL_dildo1  0x3675A6C3
 //#define MODEL_BM_drum_exp  
 #define MODEL_BM_drum_tox  0x61BBB992
@@ -6,16 +5,17 @@
 int justshot = 0;
 int wep;
 Object ObjectProjectile;
+int wepCheck;
 float prjX, prjY, prjZ, prjT, gcX, gcY, gcZ, gcrotX, gcrotY, gcrotZ, objrotX, objrotZ;
 Camera game_cam;
 float charX, charY, charZ , Object_X, Object_Y, Object_Z , dist;
 float expx,expy,expz;
 
-void mp5rocket_MainLoop()
+void pistolrocket_MainLoop()
 {
 	
-	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wep);
-	if(wep == WEAPON_MP5)
+	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wepCheck);
+	if(wep == WEAPON_PISTOL)
 	{
 	//SET_TEXT_DROPSHADOW(1, 0, 0, 0, 255);
 	//SET_TEXT_SCALE(0.2f, 0.2f);
@@ -54,11 +54,11 @@ void mp5rocket_MainLoop()
 	}
 }
 
-void mp5rocket_Actions()
+void pistolrocket_Actions()
 {
 	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wep);
 	
-	if((wep == WEAPON_MP5)) 
+	if((wep == WEAPON_PISTOL) &&  (IS_BUTTON_PRESSED(0,R2)) && (IS_BUTTON_PRESSED(0,L2)))
 	{
 		
 		REQUEST_MODEL(0x8F2A7EB3);
@@ -92,7 +92,7 @@ void mp5rocket_Actions()
 	
 }
 
-void mp5rocket_blowupobject()
+void pistolrocket_blowupobject()
 {
 
 	if(justshot==1)
@@ -105,7 +105,7 @@ void mp5rocket_blowupobject()
 			WAIT(0);
 			GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz);
 			// press r1 to select explosives 
-			ADD_EXPLOSION(expx,expy,expz, EXPLOSION_CAR, 7.50, 1, 0, 0.7);
+			ADD_EXPLOSION(expx,expy,expz, EXPLOSION_DIR_GAS_CANISTER, 7.50, 1, 0, 0.7);
 			justshot = 0;
 			if(DOES_OBJECT_EXIST(ObjectProjectile))
 			{

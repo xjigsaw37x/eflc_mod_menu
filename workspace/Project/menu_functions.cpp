@@ -1302,7 +1302,7 @@ void looped_functions(void){
 	}
 	
 	if(onfire){
-	if (!IS_PED_RAGDOLL(pPlayer))(!IS_CHAR_ON_FIRE(pPlayer));
+	if (!IS_PED_RAGDOLL(GetPlayerPed()))(!IS_CHAR_ON_FIRE(GetPlayerPed()));
 			{
 			godmode = false;
 			SET_CHAR_INVINCIBLE(pPlayer,godmode);
@@ -1314,9 +1314,9 @@ void looped_functions(void){
 
 	if(!onfire)
 	{
-		if(IS_CHAR_ON_FIRE(pPlayer))
+		if(IS_CHAR_ON_FIRE(GetPlayerPed()))
 			{
-				EXTINGUISH_CHAR_FIRE(pPlayer);
+				EXTINGUISH_CHAR_FIRE(GetPlayerPed());
 			}
 	}
 	

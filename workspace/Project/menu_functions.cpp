@@ -1148,22 +1148,6 @@ void menu_functions(void){
 						print("Player will freeze when attempting to aim weapon");
 						}
 					}
-					else if(item_select == 15){
-					if(DOES_CHAR_EXIST(players[index].ped)){
-						if(!IS_PED_RAGDOLL(players[index].ped)){
-							SWITCH_PED_TO_RAGDOLL(players[index].ped,20000,30000,false,false,false,false);
-							SWITCH_PED_TO_ANIMATED(players[index].ped,true);
-							GIVE_PLAYER_RAGDOLL_CONTROL(players[index].ped,true);
-							print("Ragdoll ON");
-						}
-						else{
-							SWITCH_PED_TO_ANIMATED(players[index].ped,false);
-							GIVE_PLAYER_RAGDOLL_CONTROL(players[index].ped,false);
-							print("Ragdoll OFF");
-							}
-						}
-						return;
-					}
 				}
 			}
 		}

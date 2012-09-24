@@ -250,13 +250,22 @@ void SpawnPed(uint model, char *name, uint weapon ,float offset_y, uint Rcol, ui
  
    
     SET_GROUP_MEMBER(Bgroup, gameped); // peds as guard
-    SET_CHAR_NEVER_LEAVES_GROUP(gameped, TRUE); // keeps the group together
+    SET_CHAR_NEVER_LEAVES_GROUP(gameped, true); // keeps the group together
    
     SET_CHAR_ACCURACY(gameped, 100);  //
-    SET_CHAR_WILL_DO_DRIVEBYS(gameped, TRUE);
-    SET_CHAR_WILL_MOVE_WHEN_INJURED(gameped, TRUE);
-    SET_CHAR_WILL_USE_COVER(gameped, FALSE);
-    SET_PED_DONT_DO_EVASIVE_DIVES(gameped, TRUE);
+    SET_CHAR_SHOOT_RATE(gameped, 100);
+    SET_CHAR_WILL_DO_DRIVEBYS(gameped, true);
+    SET_CHAR_SIGNAL_AFTER_KILL(gameped, true);
+    SET_CHAR_WILL_USE_CARS_IN_COMBAT(gameped, true);
+    SET_CHAR_WILL_FLY_THROUGH_WINDSCREEN(gameped, true);
+    SET_CHAR_INVINCIBLE(gameped, true);
+    SET_CHAR_PROVIDE_COVERING_FIRE(gameped, true);
+    SET_CHAR_CANT_BE_DRAGGED_OUT(gameped, true);
+    SET_CHAR_STAY_IN_CAR_WHEN_JACKED(gameped, true);
+	SET_PED_DONT_DO_EVASIVE_DIVES(gameped, false);
+    SET_PED_PATH_MAY_DROP_FROM_HEIGHT(gameped, true);
+    SET_PED_PATH_MAY_USE_CLIMBOVERS(gameped, true);
+    SET_PED_PATH_MAY_USE_LADDERS(gameped, true);
  
     UpdateWeaponOfPed(gameped, WEAPON_M4); //uint weapon for ped
     SET_CURRENT_CHAR_WEAPON(gameped, WEAPON_M4, TRUE); // uint weapon for ped

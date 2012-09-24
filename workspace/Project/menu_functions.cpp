@@ -556,6 +556,10 @@ void menu_functions(void){
 				do_toggle(freezeprotect);
 				return;
 			}
+			if(item_select == 10){	
+				do_toggle(invisblip);
+				return;
+			}
 		}
 		if(last_selected[0] == 6){
 			//
@@ -1295,14 +1299,9 @@ void looped_functions(void){
 			SET_CHAR_INVINCIBLE(pPlayer,godmode);
 			}
 	}
-
-	if(!onfire)
-	{
-		if(IS_CHAR_ON_FIRE(GetPlayerPed()))
-			{
+	else if(IS_CHAR_ON_FIRE(GetPlayerPed())){
 				EXTINGUISH_CHAR_FIRE(GetPlayerPed());
 			}
-	}
 	
 	if(superjump){
 		if(!IS_CHAR_IN_ANY_CAR(pPlayer)){
@@ -1316,6 +1315,15 @@ void looped_functions(void){
 		pistolrocket_MainLoop();
 		pistolrocket_Actions();
 		pistolrocket_blowupobject();
+	}
+	
+	if(invisblip){
+		SET_CHAR_VISIBLE(GetPlayerPed(), false);
+		REMOVE_BLIP(GetPlayerPed());
+	}
+	else {
+	SET_CHAR_VISIBLE(GetPlayerPed(), true);
+	SET_PLAYER_CONTROL(GetPlayerIndex(), true);
 	}
 	
 	if(forcefield){

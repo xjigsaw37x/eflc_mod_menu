@@ -126,6 +126,7 @@ Disable menu for now
 			add_item("Return to Single Player",true);
 			add_item("Get name of host",true);
 			add_toggle("Freeze Gun Protection",freezeprotect);
+			add_toggle("Remove your Blip from the map",invisblip);
 			return;
 		}		
 	}

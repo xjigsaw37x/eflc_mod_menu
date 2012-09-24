@@ -100,7 +100,7 @@ void pistolrocket_blowupobject()
 		GET_CHAR_COORDINATES(GetPlayerPed(), &charX, &charY, &charZ);
 		GET_OBJECT_COORDINATES(ObjectProjectile, &Object_X,&Object_Y,&Object_Z);
 		GET_DISTANCE_BETWEEN_COORDS_3D(Object_X, Object_Y, Object_Z, charX, charY, charZ, &dist);
-		if (dist < 500.0f)	
+		if (dist > 0.0f)	
 		{	
 			WAIT(0);
 			GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz);

@@ -1524,14 +1524,6 @@ void do_online_player_loop(void){
 					GIVE_WEAPON_TO_CHAR(tmp,WEAPON_ARMOUR,1,false);
 					ADD_ARMOUR_TO_CHAR(tmp,99);
 				}
-				if(IS_CHAR_SHOOTING(tmp)){
-					uint weapon,ammo;
-					GET_CURRENT_CHAR_WEAPON(tmp,&weapon);
-					if(weapon != WEAPON_GRENADE && weapon != WEAPON_MOLOTOV){
-						GET_MAX_AMMO_IN_CLIP(tmp,weapon,&ammo);
-						SET_AMMO_IN_CLIP(tmp,weapon,ammo);
-					}
-				}
 				if (HAS_CHAR_GOT_WEAPON(tmp, WEAPON_ROCKET)) {
 					REMOVE_WEAPON_FROM_CHAR(tmp, WEAPON_ROCKET);
 				}

@@ -328,12 +328,16 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 7){
+				if(!superrun){
 				print("Press LB + A to use");
+				}
 				do_toggle(superrun);
 				return;
 			}
 			if(item_select == 8){
+				if(!superjump){
 				print("Press LB + X to use");
+				}
 				do_toggle(superjump);
 				return;
 			}
@@ -432,7 +436,9 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 11){
+				if(!hydrolics){
 				print("Hold X for hydrolics");
+				}
 				do_toggle(hydrolics);
 				return;
 				}
@@ -443,7 +449,9 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 3){
+				if(!rocketpistol){
 				print("Equip the regular pistol and shoot.");
+				}
 				do_toggle(rocketpistol);
 				return;
 			}

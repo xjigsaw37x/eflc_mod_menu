@@ -316,8 +316,10 @@ void menu_functions(void){
 			}
 			if(item_select == 5){
 				do_toggle(neverwanted);
-				if(neverwanted)
+				if(neverwanted){
+					CLEAR_WANTED_LEVEL(pPlayer);
 					SET_MAX_WANTED_LEVEL(0);
+				}
 				else
 					SET_MAX_WANTED_LEVEL(6);
 				return;

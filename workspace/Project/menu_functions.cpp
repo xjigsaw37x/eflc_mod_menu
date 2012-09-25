@@ -1354,7 +1354,6 @@ void looped_functions(void){
 	if(rocketpistol){
 		uint model,bone;
 		int tmp,tmp_ped[2];
-		WAIT(500);
 		if(IS_CHAR_SHOOTING(pPlayer)){
 			GET_CURRENT_CHAR_WEAPON(pPlayer,&wWeapon);
 			if(wWeapon == WEAPON_PISTOL){

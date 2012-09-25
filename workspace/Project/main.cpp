@@ -49,7 +49,7 @@ void main(void){
 		do_online_player_loop();
 		
 		//individual freeze protection
-		if(freezeprotect) {
+		if(modderprotect) {
 			if (HAS_CHAR_GOT_WEAPON(pPlayer, WEAPON_ROCKET)) {
 				REMOVE_WEAPON_FROM_CHAR(pPlayer, WEAPON_ROCKET);
 			}

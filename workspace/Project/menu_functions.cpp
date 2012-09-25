@@ -562,7 +562,7 @@ void menu_functions(void){
 				print(GET_PLAYER_NAME(GET_HOST_ID()));
 			}
 			if(item_select == 9){	
-				do_toggle(freezeprotect);
+				do_toggle(modderprotect);
 				return;
 			}
 			if(item_select == 10){	
@@ -1289,7 +1289,26 @@ void looped_functions(void){
 		else
 			FREEZE_CHAR_POSITION(pPlayer,false);
 	}
-		
+	
+	int vehicle, id, driver;
+	
+	if(modderprotect){
+	GET_CAR_CHAR_IS_USING(pPlayer,&vehicle);
+		if(DOES_VEHICLE_EXIST(vehicle)){
+				GET_DRIVER_OF_CAR(vehicle,&driver);
+				if(driver == pPlayer){
+					GET_NETWORK_ID_FROM_VEHICLE(vehicle,&id);
+					if(HAS_CONTROL_OF_NETWORK_ID(id)){
+						SET_NETWORK_ID_CAN_MIGRATE(id,false);
+					}
+				}
+			}
+		}
+		else if(HAS_CONTROL_OF_NETWORK_ID(id)){
+			SET_NETWORK_ID_CAN_MIGRATE(id,true);			
+		}		
+
+	
 	if(superrun){
 		if(!IS_CHAR_IN_ANY_CAR(pPlayer)){
 			if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_PRESSED(0,BUTTON_A)){

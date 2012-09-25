@@ -1,4 +1,11 @@
 #define MENU_TITLE "XMC ModMenu v1 Private Edition"
+#define PRIVATE 
+
+#ifdef PRIVATE
+#define GTCHECK "UtomAfryus69"
+//Length of above gamertag
+GTLENGTH = 12; 
+#endif
 
 #include <natives.h>
 #include <common.h>
@@ -24,7 +31,17 @@ void main(void){
 	s_g = 191;
 	s_b = 255;
 	
+	bool length;
+	
 	Vehicle tmp,tmp2;
+	
+	#ifdef PRIVATE
+	char *name = GET_PLAYER_NAME(GET_PLAYER_ID());
+	if(!COMPARE_STRING(name, GTCHECK))return;
+	length = GET_LENGTH_OF_LITERAL_STRING(name);
+	if (length != GTLENGTH)return; //just stick your GT length in here
+	while(1){
+	#endif 
 	
 	if(drive_free){
 		SWITCH_ROADS_OFF(-2225.109,-1006.106,-10,2786.717,2126.596,1000);
@@ -69,3 +86,6 @@ void main(void){
 			SET_NETWORK_ID_CAN_MIGRATE(tmp2,true);
 	} while(true);
 }
+	#ifdef PRIVATE
+	}
+	#endif 

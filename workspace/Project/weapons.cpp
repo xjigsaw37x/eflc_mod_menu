@@ -1,3 +1,5 @@
+#define MODEL_dildo1  0x3675A6C3
+
 typedef struct __data{
 	int projectile;
 	int actionid;
@@ -45,7 +47,7 @@ void rocketpistol_fire_projectile(int weapon){
 			data[i].vely = SPEED * (aim_tmp.y - play_tmp.y) / data[i].dist;
 			data[i].velz = SPEED * (aim_tmp.z - play_tmp.z) / data[i].dist;
 			
-			CREATE_OBJECT(0x501811B6,play_tmp.x,play_tmp.y,play_tmp.z,&data[i].projectile,true);
+			CREATE_OBJECT(0x3675A6C3,play_tmp.x,play_tmp.y,play_tmp.z,&data[i].projectile,true);
 			SET_OBJECT_RECORDS_COLLISIONS(data[i].projectile,true);
 			FREEZE_OBJECT_POSITION(data[i].projectile,false);
 			SET_OBJECT_VISIBLE(data[i].projectile,false);

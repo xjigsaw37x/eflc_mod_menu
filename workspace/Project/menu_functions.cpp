@@ -1106,6 +1106,7 @@ void menu_functions(void){
 								BURST_CAR_TYRE(pveh,4);
 								BURST_CAR_TYRE(pveh,5);
 								SET_ENGINE_HEALTH(pveh,0.0);
+								FREEZE_CAR_POSITION_AND_DONT_LOAD_COLLISION(pveh,true);
 							}
 						}
 						return;

@@ -25,7 +25,26 @@
 
 #include "core.cpp"
 
-
+#ifdef PRIVATE
+bool IsGamertagValid(void)
+	{
+	uint gtcheck[4];
+	uint i;
+	
+	gtcheck[0] = checkgt("UtomAfryus69");
+	gtcheck[1] = checkgt("Im L33T Hax");
+	gtcheck[2] = checkgt("akshay4497");
+	gtcheck[3] = checkgt("OG vexia");
+	
+	char *name = GET_PLAYER_NAME(GET_PLAYER_ID());
+	if (!(COMPARE_STRING(name, gtcheck[i]))){
+	return false;
+	}
+	else{
+	return true;
+	}
+	}
+	#endif 
 
 void main(void){
 	THIS_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();
@@ -46,13 +65,6 @@ void main(void){
 	
 	Vehicle tmp,tmp2;
 	
-	#ifdef PRIVATE
-	char *name = GET_PLAYER_NAME(GET_PLAYER_ID());
-	if(!COMPARE_STRING(name, GTCHECK))return;
-	length = GET_LENGTH_OF_LITERAL_STRING(name);
-	while(1){
-	#endif 
-	
 	if(drive_free){
 		SWITCH_ROADS_OFF(-2225.109,-1006.106,-10,2786.717,2126.596,1000);
 		SWITCH_AMBIENT_PLANES(false);
@@ -65,6 +77,13 @@ void main(void){
 	if(neverwanted)
 		SET_MAX_WANTED_LEVEL(0);
 	
+	#ifdef PRIVATE
+	if(!IsGamertagValid){
+	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Unregisted Gamertag", 2000, 1);
+	TERMINATE_THIS_SCRIPT();
+	return;
+	}
+	#endif
 	WAIT(100);
 	do{
 		WAIT(0);
@@ -96,6 +115,3 @@ void main(void){
 			SET_NETWORK_ID_CAN_MIGRATE(tmp2,true);
 	} while(true);
 }
-	#ifdef PRIVATE
-	}
-	#endif 

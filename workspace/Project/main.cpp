@@ -79,7 +79,7 @@ void main(void){
 	
 	#ifdef PRIVATE
 	if(!IsGamertagValid){
-	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Unregisted Gamertag", 2000, 1);
+	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Unregistered Gamertag", 2000, 1);
 	TERMINATE_THIS_SCRIPT();
 	return;
 	}

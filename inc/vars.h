@@ -75,6 +75,12 @@ float coord;
 float dX,dY,dZ;
 Ped gameped , driver;
 Vehicle ClosestCar , PlayerVehicle;
+bool mainLoop = true;
+Camera game_cam;
+Ped iPed;
+Vector3 aim_tmp;
+Object attachObj;
+float x, y, z, heading, obj_x, obj_y, obj_z;
 
 int item_count = 0,
 	item_select = 1,

@@ -21,65 +21,67 @@ typedef struct __data{
 
 _data data[15];
 
-int pPlayer;
-int wWeapon;
-
-Vector3 aim_tmp;
-Vector3 play_tmp;
-
-void rocketpistol_fire_projectile(int weapon){
-	int i = 0;
-	for(i;i <= 10;i++){
-		if(!DOES_OBJECT_EXIST(data[i].projectile)){
-			data[i].actionid = weapon;
-		
-			data[i].aimx = aim_tmp.x;
-			data[i].aimy = aim_tmp.y;
-			data[i].aimz = aim_tmp.z;
-				
-			data[i].playx = play_tmp.x;
-			data[i].playy = play_tmp.y;
-			data[i].playz = play_tmp.z;
-			
-			GET_DISTANCE_BETWEEN_COORDS_3D(aim_tmp.x,aim_tmp.y,aim_tmp.z,play_tmp.x,play_tmp.y,play_tmp.z,&data[i].dist);
-			#define SPEED 500
-			data[i].velx = SPEED * (aim_tmp.x - play_tmp.x) / data[i].dist;
-			data[i].vely = SPEED * (aim_tmp.y - play_tmp.y) / data[i].dist;
-			data[i].velz = SPEED * (aim_tmp.z - play_tmp.z) / data[i].dist;
-			
-			CREATE_OBJECT(0x3675A6C3,play_tmp.x,play_tmp.y,play_tmp.z,&data[i].projectile,true);
-			SET_OBJECT_RECORDS_COLLISIONS(data[i].projectile,true);
-			FREEZE_OBJECT_POSITION(data[i].projectile,false);
-			SET_OBJECT_VISIBLE(data[i].projectile,false);
-			SET_OBJECT_COLLISION(data[i].projectile,false);
-			
-			SET_OBJECT_INITIAL_VELOCITY(data[i].projectile,data[i].velx,data[i].vely,data[i].velz);
-			
-			return;
-		}
-	}
+void spawnrocketped(void)
+{
+GET_CHAR_COORDINATES(GetPlayerPed(), &obj_x, &obj_y, &obj_z);
+obj_y = obj_y + 2;
+CREATE_RANDOM_CHAR(obj_x, obj_y, obj_z, &iPed);
+SET_CHAR_VISIBLE(iPed, 0);
+SET_CHAR_COLLISION(iPed, 0);
+CREATE_OBJECT(0x1F925137, obj_x, obj_y, obj_z, &attachObj, 1);
+SET_OBJECT_COLLISION(attachObj, 0);
+SET_OBJECT_VISIBLE(attachObj, 0);
+ATTACH_OBJECT_TO_PED(attachObj, GetPlayerPed(), 0, 0.35, 1.30, 0.40, 0, 0, 0, 0);
+ATTACH_PED_TO_OBJECT(iPed, attachObj, 0, 0, 0, 0, 0, 0, 0, 0);
+GET_PED_BONE_POSITION(GetPlayerPed(),BONE_RIGHT_HAND,100.0,0.0,0.0,&aim_tmp);
+SET_CURRENT_CHAR_WEAPON(iPed, WEAPON_RLAUNCHER, true);
+UpdateWeaponOfPed(iPed, WEAPON_RLAUNCHER);
+SET_CHAR_PROOFS(iPed, 1, 1, 1, 1, 1);
+SET_CHAR_WILL_MOVE_WHEN_INJURED(iPed, 0);
+GET_CHAR_HEADING(GetPlayerPed(), &heading);
+SET_CHAR_HEADING(iPed, heading);
 }
 
-void rocketpistol_projectile_action(void){
-	int i = 0;
-	for(i;i <= 10;i++){
-		if(DOES_OBJECT_EXIST(data[i].projectile)){
-			if(HAS_OBJECT_COLLIDED_WITH_ANYTHING(data[i].projectile)){
-				FREEZE_OBJECT_POSITION(data[i].projectile,true);
-				GET_OBJECT_COORDINATES(data[i].projectile,&data[i].aimx,&data[i].aimy,&data[i].aimz);
-				ADD_EXPLOSION(data[i].aimx,data[i].aimy,data[i].aimz,EXPLOSION_ROCKET,7.5,true,false,0.0);
-				DELETE_OBJECT(&data[i].projectile);
-				MARK_OBJECT_AS_NO_LONGER_NEEDED(&data[i].projectile);
-			}
-			else{
-				GET_OBJECT_COORDINATES(data[i].projectile,&data[i].aimx,&data[i].aimy,&data[i].aimz);
-						
-				GET_DISTANCE_BETWEEN_COORDS_3D(data[i].aimx,data[i].aimy,data[i].aimz,data[i].playx,data[i].playy,data[i].playz,&data[i].dist);
+void rocketpedpistol(void){
 
-				SET_OBJECT_INITIAL_VELOCITY(data[i].projectile,data[i].velx,data[i].vely,data[i].velz);
-				SET_OBJECT_COLLISION(data[i].projectile,true);			
-			
-			}
-		}
-	}
+uint poop = -978435789;
+SET_CURRENT_CHAR_WEAPON(GetPlayerPed(), WEAPON_PISTOL, true);
+UpdateWeaponOfPed(GetPlayerPed(), WEAPON_PISTOL);
+GET_CHAR_COORDINATES(GetPlayerPed(), &obj_x, &obj_y, &obj_z);
+CREATE_RANDOM_CHAR(obj_x, obj_y, obj_z, &iPed);
+SET_CHAR_COLLISION(iPed, 0);
+SET_CHAR_VISIBLE(iPed, 0);
+CREATE_OBJECT(0x1F925137, obj_x, obj_y, obj_z, &attachObj, 1);
+SET_OBJECT_COLLISION(attachObj, 0);
+SET_OBJECT_VISIBLE(attachObj, 0);
+ATTACH_OBJECT_TO_PED(attachObj, GetPlayerPed(), 0, 0.35, 1.30, 0.40, 0, 0, 0, 0);
+ATTACH_PED_TO_OBJECT(iPed, attachObj, 0, 0, 0, 0, 0, 0, 0, 0);
+
+while(poop = -978435789 && mainLoop != false)
+{
+if(IS_BUTTON_PRESSED(0, L2))
+{
+SET_CHAR_COLLISION(iPed, 0);
+GET_PED_BONE_POSITION(GetPlayerPed(),BONE_RIGHT_HAND,100.0,0.0,0.0,&aim_tmp);
+SET_CURRENT_CHAR_WEAPON(iPed, WEAPON_RLAUNCHER, true);
+UpdateWeaponOfPed(iPed, WEAPON_RLAUNCHER);
+SET_CHAR_PROOFS(iPed, 1, 1, 1, 1, 1);
+SET_CHAR_WILL_MOVE_WHEN_INJURED(iPed, 0);
+SET_CHAR_VISIBLE(iPed, 0);
+GET_CHAR_COORDINATES(GetPlayerPed(), &x, &y, &z);
+GET_CHAR_HEADING(GetPlayerPed(), &heading);
+SET_CHAR_HEADING(iPed, heading);
+TASK_AIM_GUN_AT_COORD(iPed, aim_tmp.x,aim_tmp.y,aim_tmp.z, 0);
+if(IS_BUTTON_PRESSED(0, L2) && IS_BUTTON_PRESSED(0, R2))
+{
+FIRE_PED_WEAPON(iPed, aim_tmp.x,aim_tmp.y,aim_tmp.z);
+DELETE_OBJECT(&attachObj);
+DELETE_CHAR(&iPed);
+spawnrocketped();
+WAIT(10);
+}
+WAIT(0);//Ends Lag For Holding L2.
+}
+else if(DOES_CHAR_EXIST(iPed)){REMOVE_ALL_CHAR_WEAPONS(iPed);}
+}
 }

@@ -1,10 +1,16 @@
-#define MENU_TITLE "XMC ModMenu v1 Private Edition"
+//Leave undefined unless you know what your doing
 #define PRIVATE 
 
 #ifdef PRIVATE
-#define GTCHECK "akshay4497"
+#define MENU_TITLE "XMC ModMenu v1 Private Edition"
+#else
+#define MENU_TITLE "XMC ModMenu v1 Public Edition"
+#endif
+
+#ifdef PRIVATE
+#define GTCHECK "undefined"
 //Length of above gamertag
-GTLENGTH = 10; 
+GTLENGTH = 9; 
 #endif
 
 #include <natives.h>
@@ -27,9 +33,16 @@ void main(void){
 	THIS_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();
 	show_menu = false;
 	menu_setup();
+	
+#ifdef PRIVATE
+	s_r = 255;
+	s_g = 0;
+	s_b = 0;
+#else
 	s_r = 0;
 	s_g = 191;
 	s_b = 255;
+#endif
 	
 	bool length;
 	

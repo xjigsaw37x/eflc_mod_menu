@@ -3,6 +3,8 @@
 	by: Herr Muskelprotze
 
 **/
+
+//Xbox 360 buttons
 #define BUTTON_SELECT 0xD
 #define BUTTON_START 0xC
 #define BUTTON_X 0xE
@@ -20,11 +22,20 @@
 #define STICK_LEFT 0x12
 #define STICK_RIGHT 0x13
 
+//PS3 Buttons
 #define L3  0x12
 #define L2  0x5
 #define R2  0x7
 #define L1  0x4
 #define R1  0x6
+#define START      0xC
+#define SELECT     0xD
+#define SQUARE     0xE
+#define TRIANGLE   0xF
+#define X          0x10
+#define CIRCLE     0x11
+#define STICK_L    0x12  //L3
+#define STICK_R    0x13  //R3
 
 #define pos_x 0.25
 #define start_y 0.14

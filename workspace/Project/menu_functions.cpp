@@ -1302,6 +1302,71 @@ void looped_functions(void){
 	
 	int vehicle, id, driver;
 	
+	if(flymode){
+	
+		int laX, laY, raX, raY;// analog sticks
+		float paX, paY, paZ;// player coords old
+		float pbX, pbY, pbZ;// player coords new
+		float gcrotX, gcrotY, gcrotZ;// game cam rotation (Y is not used)
+		float fincr;// distance to move (set by analog)
+		float pbT;// weird trig stuffs
+		Vehicle PlayerCar;
+		Camera game_cam;
+		
+		GET_GAME_CAM(&game_cam);
+		if (IS_CAM_ACTIVE(game_cam))
+		{
+			GET_CAM_ROT(game_cam, &gcrotX, &gcrotY, &gcrotZ);
+			if (IS_CHAR_IN_ANY_CAR(GetPlayerPed()))
+			{
+				GET_CAR_CHAR_IS_USING(GetPlayerPed(), &PlayerCar);
+				GET_CAR_COORDINATES(PlayerCar, &paX, &paY, &paZ);
+			}
+			if (!IS_CHAR_IN_ANY_CAR(GetPlayerPed()))
+			{
+				GET_CHAR_COORDINATES(GetPlayerPed(), &paX, &paY, &paZ);
+			}
+			GET_POSITION_OF_ANALOGUE_STICKS(0, &laX, &laY, &raX, &raY);
+			fincr = (laY * laY) * 0.0001;
+			if (IS_BUTTON_PRESSED(0, R1))
+			{
+				fincr = fincr * 4.0;
+				PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Boost mode.", 100, 1);
+			}
+			pbT = (fincr * COS(gcrotX));
+			if (laY < 0)
+			{
+				pbX = paX - (pbT * SIN(gcrotZ));
+				pbY = paY + (pbT * COS(gcrotZ));
+				pbZ = paZ + (fincr * SIN(gcrotX));
+			}
+			if (laY >= 0)
+			{
+				pbX = paX + (pbT * SIN(gcrotZ));
+				pbY = paY - (pbT * COS(gcrotZ));
+				pbZ = paZ - (fincr * SIN(gcrotX));
+			}
+			if (IS_BUTTON_PRESSED(0, L2))
+			{
+				pbZ = pbZ - fincr;
+			}
+			if (IS_BUTTON_PRESSED(0, R2))
+			{
+				pbZ = pbZ + fincr;
+			}
+			if (IS_CHAR_IN_ANY_CAR(GetPlayerPed()))
+			{
+				SET_CAR_COORDINATES_NO_OFFSET(PlayerCar, pbX, pbY, pbZ);
+			}
+			if (!IS_CHAR_IN_ANY_CAR(GetPlayerPed()))
+			{
+				pbZ = pbZ + 0.00450000;// no idea why a slight change in the z coord happens but this is to fix that, its still kind of screwy
+				SET_CHAR_COORDINATES_NO_OFFSET(GetPlayerPed(), pbX, pbY, pbZ);
+			}
+		}
+
+	}
+
 	if(modderprotect){
 		int vehicle, you = GetPlayerPed(), driver, netid, player;
 		GET_CAR_CHAR_IS_USING(you, &vehicle);

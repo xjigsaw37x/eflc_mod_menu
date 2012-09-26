@@ -8,9 +8,7 @@
 #endif
 
 #ifdef PRIVATE
-#define GTCHECK "undefined"
-//Length of above gamertag
-GTLENGTH = 9; 
+#define GTCHECK "UNDEFINED"
 #endif
 
 #include <natives.h>
@@ -52,7 +50,6 @@ void main(void){
 	char *name = GET_PLAYER_NAME(GET_PLAYER_ID());
 	if(!COMPARE_STRING(name, GTCHECK))return;
 	length = GET_LENGTH_OF_LITERAL_STRING(name);
-	if (length != GTLENGTH)return; //just stick your GT length in here
 	while(1){
 	#endif 
 	

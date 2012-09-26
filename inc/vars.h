@@ -70,7 +70,7 @@ online_players players[18];
 
 bool SearchOn =0;
 Vector3 v;
-int HIGHT, WIDTH;
+int HIGHT, WIDTH, wWeapon;
 float coord;
 float dX,dY,dZ;
 Ped gameped , driver;

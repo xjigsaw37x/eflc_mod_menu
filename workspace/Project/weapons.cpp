@@ -45,8 +45,8 @@ SET_CHAR_HEADING(iPed, heading);
 void rocketpedpistol(void){
 
 uint poop = -978435789;
-SET_CURRENT_CHAR_WEAPON(GetPlayerPed(), WEAPON_PISTOL, true);
-UpdateWeaponOfPed(GetPlayerPed(), WEAPON_PISTOL);
+SET_CURRENT_CHAR_WEAPON(GetPlayerPed(), WEAPON_MP5, true);
+UpdateWeaponOfPed(GetPlayerPed(), WEAPON_MP5);
 GET_CHAR_COORDINATES(GetPlayerPed(), &obj_x, &obj_y, &obj_z);
 CREATE_RANDOM_CHAR(obj_x, obj_y, obj_z, &iPed);
 SET_CHAR_COLLISION(iPed, 0);
@@ -59,6 +59,9 @@ ATTACH_PED_TO_OBJECT(iPed, attachObj, 0, 0, 0, 0, 0, 0, 0, 0);
 
 while(poop = -978435789 && mainLoop != false)
 {
+if(IS_CHAR_SHOOTING(pPlayer)){
+GET_CURRENT_CHAR_WEAPON(pPlayer,&wWeapon);
+if(wWeapon == WEAPON_MP5){
 if(IS_BUTTON_PRESSED(0, L2))
 {
 SET_CHAR_COLLISION(iPed, 0);
@@ -83,5 +86,7 @@ WAIT(10);
 WAIT(0);//Ends Lag For Holding L2.
 }
 else if(DOES_CHAR_EXIST(iPed)){REMOVE_ALL_CHAR_WEAPONS(iPed);}
+}
+}
 }
 }

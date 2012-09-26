@@ -1303,20 +1303,22 @@ void looped_functions(void){
 	int vehicle, id, driver;
 	
 	if(modderprotect){
-	GET_CAR_CHAR_IS_USING(pPlayer,&vehicle);
-		if(DOES_VEHICLE_EXIST(vehicle)){
-				GET_DRIVER_OF_CAR(vehicle,&driver);
-				if(driver == pPlayer){
-					GET_NETWORK_ID_FROM_VEHICLE(vehicle,&id);
-					if(HAS_CONTROL_OF_NETWORK_ID(id)){
-						SET_NETWORK_ID_CAN_MIGRATE(id,false);
-					}
-				}
-			}
+		int vehicle, you = GetPlayerPed(), driver, netid, player;
+		GET_CAR_CHAR_IS_USING(you, &vehicle);
+		if (!DOES_VEHICLE_EXIST(vehicle))return;
+		GET_DRIVER_OF_CAR(vehicle, &driver);
+		if (driver != you)return;
+		GET_NETWORK_ID_FROM_VEHICLE(vehicle, &netid);
+		if (HAS_CONTROL_OF_NETWORK_ID(netid))return;
+		for(player=0;player<16;player++){
+		if (!IS_NETWORK_PLAYER_ACTIVE(player))continue;
+		if (player == you)continue;
+		if (DOES_PLAYER_HAVE_CONTROL_OF_NETWORK_ID(player, netid)){
+		PRINT_STRING_WITH_TWO_LITERAL_STRINGS_NOW("STRING", GET_PLAYER_NAME(player), " has taken control of your car", 2500, 1);
+		return;
 		}
-		else if(HAS_CONTROL_OF_NETWORK_ID(id)){
-			SET_NETWORK_ID_CAN_MIGRATE(id,true);			
-		}		
+}		
+}
 
 	
 	if(superrun){

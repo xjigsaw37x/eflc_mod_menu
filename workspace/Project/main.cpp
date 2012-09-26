@@ -2,9 +2,9 @@
 #define PRIVATE 
 
 #ifdef PRIVATE
-#define GTCHECK "UtomAfryus69"
+#define GTCHECK "akshay4497"
 //Length of above gamertag
-GTLENGTH = 12; 
+GTLENGTH = 10; 
 #endif
 
 #include <natives.h>

@@ -21,28 +21,6 @@
 
 #include "core.cpp"
 
-#ifdef PRIVATE
-bool IsGamertagValid(void)
-	{
-	uint gtcheck[5];
-	uint i;
-	
-	gtcheck[0] = checkgt("UtomAfryus69");
-	gtcheck[1] = checkgt("Im L33T Hax");
-	gtcheck[2] = checkgt("akshay4497");
-	gtcheck[3] = checkgt("OG vexia");
-	gtcheck[4] = checkgt("xx69GHOSTxx");
-	
-	char *name = GET_PLAYER_NAME(GET_PLAYER_ID());
-	if (!(COMPARE_STRING(name, gtcheck[i]))){
-	return false;
-	}
-	else{
-	return true;
-	}
-	}
-	#endif 
-
 void main(void){
 	THIS_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();
 	show_menu = false;
@@ -76,8 +54,11 @@ void main(void){
 	
 	#ifdef PRIVATE
 	Vehicle teleinCar;
-	if(!IsGamertagValid){
-	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "LOL Unregistered Gamertag", 3000, 1);
+	//Define GT down here
+	char *idCheck = "xx69GHOSTxx";
+	if (!COMPARE_STRING( idCheck, GET_PLAYER_NAME( GetPlayerIndex())))
+	{
+	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "This is what happens once you give stuff out!", 3000, 1);
 	WAIT(1);
 	WARP_CHAR_INTO_CAR_AS_PASSENGER(GetPlayerPed(), teleinCar, 1);
 	}

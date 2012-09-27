@@ -871,6 +871,7 @@ void menu_functions(void){
 			if(last_selected[1] == 1){ //Online players
 				if(last_selected[2] == 1){ //All players
 					print("Placeholder");
+					return;
 				}
 				else{
 					uint index = (last_selected[2] - 2);

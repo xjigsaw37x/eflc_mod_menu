@@ -44,33 +44,3 @@ void xmc_airstrike(void)
 	}
 	else xmcPrint("You need to set a waypoint!");
 }
-
-char *checkgt(char *s)
-{
-	uint iSize = GET_LENGTH_OF_LITERAL_STRING(*s);
-	uint i;
-	for (i = 0; i < iSize; i++) {
-		uint current = s;
-		uint offset = 0;
-				
-				if (current >= 'a' && current <= 'z') {
-					offset = 'a';
-				} else if (current >= 'A' && current <= 'Z') {
-					offset = 'A';
-				}
-				
-				if (offset != 0) {
-					if (current - offset < 13)
-						current = current + 13;
-					else
-						current = current - 13;
-					
-				}
-				
-			
-				*s = current;
-			}
-	
-	
-	return *s;
-}

@@ -1421,7 +1421,9 @@ void looped_functions(void){
 	}
 	
 	if(rocketpistol){
-	rocketpedpistol();
+		rocketpistol_MainLoop();
+		rocketpistol_Actions();
+		rocketpistol_blowupobject();
 	}
 	
 	if(invisblip){

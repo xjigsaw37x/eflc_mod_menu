@@ -1311,7 +1311,6 @@ void looped_functions(void){
 		float fincr;// distance to move (set by analog)
 		float pbT;// weird trig stuffs
 		Vehicle PlayerCar;
-		Camera game_cam;
 		
 		GET_GAME_CAM(&game_cam);
 		if (IS_CAM_ACTIVE(game_cam))

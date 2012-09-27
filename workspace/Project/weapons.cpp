@@ -4,7 +4,6 @@ int justshot = 0;
 int wep;
 Object ObjectProjectile;
 float prjX, prjY, prjZ, prjT, gcX, gcY, gcZ, gcrotX, gcrotY, gcrotZ, objrotX, objrotZ;
-Camera game_cam;
 float charX, charY, charZ , Object_X, Object_Y, Object_Z , dist;
 float expx,expy,expz;
 

@@ -68,9 +68,8 @@ typedef struct _online_players{
 
 online_players players[18];
 
-bool SearchOn =0;
 Vector3 v;
-int HIGHT, WIDTH, wWeapon;
+int HIGHT, WIDTH;
 float coord;
 float dX,dY,dZ;
 Ped gameped , driver;

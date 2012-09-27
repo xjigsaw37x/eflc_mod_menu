@@ -218,7 +218,7 @@ Disable menu for now
 				add_item("Gumball Machine",true);
 				add_item("Cubes",true);
 				add_item("Throwing Knives",true);
-				add_item("Grenades",true);
+				add_item("Grenades - that explode",true);
 			}
 			if(last_selected[1] == 3){
 				footer = "Air Strikes";

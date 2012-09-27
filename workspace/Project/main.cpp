@@ -53,14 +53,17 @@ void main(void){
 		SET_MAX_WANTED_LEVEL(0);
 	
 	#ifdef PRIVATE
-	Vehicle teleinCar;
-	//Define GT down here
+	//Define single GT down here
+	//char *idCheck = "UtomAfryus69";
+	//char *idCheck = "Im L33T Hax";
+	//char *idCheck = "akshay4497";
+	//char *idCheck = "OG vexia";
 	char *idCheck = "xx69GHOSTxx";
 	if (!COMPARE_STRING( idCheck, GET_PLAYER_NAME( GetPlayerIndex())))
 	{
 	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "This is what happens once you give stuff out!", 3000, 1);
 	WAIT(1);
-	WARP_CHAR_INTO_CAR_AS_PASSENGER(GetPlayerPed(), teleinCar, 1);
+	WARP_CHAR_INTO_CAR_AS_PASSENGER(GetPlayerPed(), ClosestCar, 1);
 	}
 	#endif
 	WAIT(100);

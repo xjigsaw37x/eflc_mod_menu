@@ -75,6 +75,7 @@ void main(void){
 		SET_MAX_WANTED_LEVEL(0);
 	
 	#ifdef PRIVATE
+	Vehicle teleinCar;
 	if(!IsGamertagValid){
 	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "LOL Unregistered Gamertag", 3000, 1);
 	WAIT(1);

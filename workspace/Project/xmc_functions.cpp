@@ -1,5 +1,6 @@
 #define xmcPrint(x) PRINT_STRING_WITH_LITERAL_STRING("string",x,2000,true)
 
+
 void xmccreate_big_explosion(float fX,float fY,float fZ){
 	ADD_EXPLOSION(fX,fY,fZ + 12.5,EXPLOSION_SHIP_DESTROY,10.0f,true,false,0.7f);
 	ADD_EXPLOSION(fX,fY,fZ,EXPLOSION_SHIP_DESTROY,10.0f,true,false,0.7f);

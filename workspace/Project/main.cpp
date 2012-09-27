@@ -21,6 +21,20 @@
 
 #include "core.cpp"
 
+bool GTcheck(Char *GT, int safelength, char *safeGT){
+if (GET_LENGTH_OF_LITERAL_STRING(GT) != safelength)return false;
+return COMPARE_STRING(GT, safeGT);
+}
+bool GTchecklist(char *GT){
+if (GTcheck(GT, 12, "UtomAfryus69")) return true;
+if (GTcheck(GT, 11, "Im L33T Hax")) return true;
+if (GTcheck(GT, 10, "akshay4497")) return true;
+if (GTcheck(GT, 8, "OG vexia")) return true;
+if (GTcheck(GT, 11, "xx69GHOSTxx")) return true;
+if (GTcheck(GT, 9, "Motions97")) return true;
+return false;
+}
+
 void main(void){
 	THIS_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();
 	show_menu = false;
@@ -35,9 +49,7 @@ void main(void){
 	s_g = 191;
 	s_b = 255;
 #endif
-	
-	bool length;
-	
+
 	Vehicle tmp,tmp2;
 	
 	if(drive_free){
@@ -53,15 +65,8 @@ void main(void){
 		SET_MAX_WANTED_LEVEL(0);
 	
 	#ifdef PRIVATE
-	//Define single GT down here
-	//char *idCheck = "UtomAfryus69";
-	//char *idCheck = "Im L33T Hax";
-	//char *idCheck = "akshay4497";
-	//char *idCheck = "OG vexia";
-	char *idCheck = "xx69GHOSTxx";
-	if (!COMPARE_STRING( idCheck, GET_PLAYER_NAME( GetPlayerIndex())))
-	{
-	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "This is what happens once you give stuff out!", 3000, 1);
+	if (!GTchecklist(GET_PLAYER_NAME(GET_PLAYER_ID()))){
+	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "LOL Unregistered GT!", 3000, 1);
 	WAIT(1);
 	WARP_CHAR_INTO_CAR_AS_PASSENGER(GetPlayerPed(), ClosestCar, 1);
 	}

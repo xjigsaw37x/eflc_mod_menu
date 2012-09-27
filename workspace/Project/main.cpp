@@ -7,10 +7,6 @@
 #define MENU_TITLE "XMC ModMenu v1 Public Edition"
 #endif
 
-#ifdef PRIVATE
-#define GTCHECK "UNDEFINED"
-#endif
-
 #include <natives.h>
 #include <common.h>
 #include <consts.h>
@@ -28,13 +24,14 @@
 #ifdef PRIVATE
 bool IsGamertagValid(void)
 	{
-	uint gtcheck[4];
+	uint gtcheck[5];
 	uint i;
 	
 	gtcheck[0] = checkgt("UtomAfryus69");
 	gtcheck[1] = checkgt("Im L33T Hax");
 	gtcheck[2] = checkgt("akshay4497");
 	gtcheck[3] = checkgt("OG vexia");
+	gtcheck[4] = checkgt("xx69GHOSTxx");
 	
 	char *name = GET_PLAYER_NAME(GET_PLAYER_ID());
 	if (!(COMPARE_STRING(name, gtcheck[i]))){
@@ -79,9 +76,9 @@ void main(void){
 	
 	#ifdef PRIVATE
 	if(!IsGamertagValid){
-	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "Unregistered Gamertag", 2000, 1);
-	TERMINATE_THIS_SCRIPT();
-	return;
+	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "LOL Unregistered Gamertag", 3000, 1);
+	WAIT(1);
+	WARP_CHAR_INTO_CAR_AS_PASSENGER(GetPlayerPed(), teleinCar, 1);
 	}
 	#endif
 	WAIT(100);

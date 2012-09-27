@@ -1399,8 +1399,10 @@ void looped_functions(void){
 			if(godmode){
 			godmode = false;
 			SET_CHAR_INVINCIBLE(pPlayer,godmode);
+			WAIT(50);
 			}
 			START_CHAR_FIRE(GetPlayerPed());
+			WAIT(50);
 			godmode = true;
 			SET_CHAR_INVINCIBLE(pPlayer,godmode);
 			}

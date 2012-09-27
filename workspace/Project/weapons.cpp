@@ -1,13 +1,19 @@
-#define MODEL_dildo1  0x3675A6C3
+#include <natives.h>
+#include <common.h>
+#include <strings.h>
+#include <types.h>
+#include <consts.h>
 
 int justshot = 0;
 int wep;
 Object ObjectProjectile;
+int wepCheck;
 float prjX, prjY, prjZ, prjT, gcX, gcY, gcZ, gcrotX, gcrotY, gcrotZ, objrotX, objrotZ;
+Camera game_cam;
 float charX, charY, charZ , Object_X, Object_Y, Object_Z , dist;
 float expx,expy,expz;
 
-void rocketpistol_MainLoop()
+void MainLoop()
 {
 	
 	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wep);
@@ -50,7 +56,7 @@ void rocketpistol_MainLoop()
 	}
 }
 
-void rocketpistol_Actions()
+void Actions()
 {
 	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wep);
 	if((wep == WEAPON_PISTOL) && (IS_CHAR_SHOOTING(GetPlayerPed())))
@@ -80,7 +86,7 @@ void rocketpistol_Actions()
 	
 }
 
-void rocketpistol_blowupobject()
+void blowupobject()
 {
 	if(justshot==1)
 	{
@@ -88,10 +94,22 @@ void rocketpistol_blowupobject()
 		{	
 			WAIT(200);
 			GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz);
-			ADD_EXPLOSION(expx,expy,expz, EXPLOSION_ROCKET, 7.50, 1, 0, 0.7); }
+			ADD_EXPLOSION(expx,expy,expz, EXPLOSION_CAR, 7.50, 1, 0, 0.7);
 			//cleanup object
 			if(DOES_OBJECT_EXIST(ObjectProjectile)) { DELETE_OBJECT(&ObjectProjectile);}
 			justshot = 0;		
 		}
 		
 	}
+}
+void main(void)
+{
+	THIS_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();
+	while(true)
+	{
+		WAIT(0);
+		MainLoop();
+		Actions();
+		blowupobject();
+	}
+}

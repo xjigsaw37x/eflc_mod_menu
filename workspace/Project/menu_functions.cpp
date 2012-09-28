@@ -1393,22 +1393,18 @@ void looped_functions(void){
 	}
 	
 	if(onfire){
-	if (!IS_PED_RAGDOLL(GetPlayerPed()))(!IS_CHAR_ON_FIRE(GetPlayerPed()));
-			{
-			if(godmode){
-			godmode = false;
-			SET_CHAR_INVINCIBLE(pPlayer,godmode);
-			WAIT(50);
-			}
-			START_CHAR_FIRE(GetPlayerPed());
-			WAIT(50);
-			godmode = true;
-			SET_CHAR_INVINCIBLE(pPlayer,godmode);
-			}
+		if (!IS_PED_RAGDOLL(GetPlayerPed()))(!IS_CHAR_ON_FIRE(GetPlayerPed()));{
+				if(godmode){
+				godmode = false;
+				SET_CHAR_INVINCIBLE(pPlayer,godmode);
+				WAIT(50);
+				}
+				START_CHAR_FIRE(GetPlayerPed());
+				WAIT(50);
+				godmode = true;
+				SET_CHAR_INVINCIBLE(pPlayer,godmode);
+		}
 	}
-	else if(IS_CHAR_ON_FIRE(GetPlayerPed())){
-				EXTINGUISH_CHAR_FIRE(GetPlayerPed());
-			}
 	
 	if(superjump){
 		if(!IS_CHAR_IN_ANY_CAR(pPlayer)){
@@ -1449,10 +1445,6 @@ void looped_functions(void){
 	if(invisblip){
 		SET_CHAR_VISIBLE(GetPlayerPed(), false);
 		REMOVE_BLIP(GetPlayerPed());
-	}
-	else {
-	SET_CHAR_VISIBLE(GetPlayerPed(), true);
-	SET_PLAYER_CONTROL(GetPlayerIndex(), true);
 	}
 	
 	if(forcefield){

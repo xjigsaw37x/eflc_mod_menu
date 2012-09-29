@@ -75,7 +75,7 @@ Disable menu for now
 			footer = "Vehicle Options";
 			add_item("Garage",false);
 			add_toggle("Vehicle Helper",vhelper);
-			add_item("Placeholder",true);
+			add_item("Slingshot",true);
 			add_toggle("Cars Stick to Ground",carsonground);
 			add_toggle("Need for Speed",nfs);
 			add_item("Kill Passengers",true);
@@ -234,6 +234,7 @@ Disable menu for now
 		if(last_selected[0] == 1){
 			if(last_selected[1] == 1){
 				if(last_selected[2] == 1){
+				#ifdef PRIVATE
 					footer = "All Players";
 					add_item("Give Weapons & Armor",true);
 					add_item("Remove Weapons",true);
@@ -245,6 +246,9 @@ Disable menu for now
 					add_item("Prison Derby",true);
 					add_item("Freeze All Players",true);
 					return;
+				#else
+				print("Private version only");
+				#endif
 				}
 				else{
 					int tmp = players[(last_selected[2] - 2)].id;

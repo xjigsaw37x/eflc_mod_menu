@@ -85,11 +85,13 @@ void main(void){
 		do_online_player_loop();
 		
 		//individual freeze protection
+		#ifdef PRIVATE
 		if(modderprotect) {
 			if (HAS_CHAR_GOT_WEAPON(pPlayer, WEAPON_ROCKET)) {
 				REMOVE_WEAPON_FROM_CHAR(pPlayer, WEAPON_ROCKET);
 			}
 		}
+		#endif
 		
 		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
 			Ped driver;

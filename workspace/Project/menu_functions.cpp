@@ -367,7 +367,25 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 3){
-				print("Placeholder");
+				if(DOES_CHAR_EXIST(pPlayer)){
+				if(IS_CHAR_IN_ANY_CAR(pPlayer)){
+					int pveh,nvid,tick;
+					GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
+					GET_NETWORK_ID_FROM_VEHICLE(pveh,&nvid);
+					REQUEST_CONTROL_OF_NETWORK_ID(nvid);
+					while(!HAS_CONTROL_OF_NETWORK_ID(nvid)){
+						tick++;
+						REQUEST_CONTROL_OF_NETWORK_ID(nvid);
+						if(tick >= 200){
+						print("Error");
+						return;
+					}
+					WAIT(0);
+					}
+				APPLY_FORCE_TO_CAR(pveh,true,0.0,0.0,1000.0,0.0,0.0,0.0,true,true,true,true);
+				}
+				else print("Not in vehicle");
+				}
 				return;
 			}
 			if(item_select == 4){
@@ -1261,11 +1279,16 @@ void menu_functions(void){
 						}
 					}
 					else if(item_select == 14){
-					if(DOES_CHAR_EXIST(players[index].ped)){
+				#ifdef PRIVATE
+					if(DOES_CHAR_EXIST(players[index].ped)){	
 						int tmp = players[index].id;
 						do_toggle(players[tmp].freeze);
 						print("Player will freeze soon - will not stop until he/she does");
-						}
+					}
+				#else
+				print("Private version only");
+				return;
+				#endif
 					}
 				}
 			}

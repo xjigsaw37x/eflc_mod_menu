@@ -315,7 +315,10 @@ void menu_functions(void){
 			if(item_select == 5){
 				do_toggle(neverwanted);
 				if(neverwanted){
-					SET_MAX_WANTED_LEVEL(0);
+				SET_POLICE_IGNORE_PLAYER(pPlayer, true);
+				ALLOW_EMERGENCY_SERVICES(false);
+				SET_MAX_WANTED_LEVEL(0);
+				SET_CHAR_WANTED_BY_POLICE(pPlayer, false);
 				}
 				else
 					SET_MAX_WANTED_LEVEL(6);
@@ -447,13 +450,6 @@ void menu_functions(void){
 				do_toggle(ammo);
 				return;
 			}
-			if(item_select == 3){
-				if(!rocketpistol){
-				print("Equip an mp5.");
-				}
-				do_toggle(rocketpistol);
-				return;
-			}
 		}
 		if(last_selected[0] == 4){
 			if(item_select == 1){
@@ -577,10 +573,7 @@ void menu_functions(void){
 				return;
 			}
 		}
-		if(last_selected[0] == 6){
-			//
-			return;
-		}
+		
 	}
 	if(menu_level == 2){
 		if(last_selected[0] == 1){
@@ -766,7 +759,7 @@ void menu_functions(void){
 				}
 				else if(item_select == 16){
 					GIVE_WEAPON_TO_CHAR(pPlayer,WEAPON_POOLCUE,1,false);
-					print("You have been given a pool cue");			
+					print("You have been given a pool stick");			
 				}
 				return;
 			}
@@ -883,12 +876,12 @@ void menu_functions(void){
 								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_M4,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_BARETTA,AMMO_MAX,false);
 								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_SNIPERRIFLE,AMMO_MAX,false);
-								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_BASEBALLBAT,1,false);
+								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_POOLCUE,1,false);
 								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_ARMOUR,1,false);
 								ADD_ARMOUR_TO_CHAR(players[i].ped,99);
 							}
 						}
-						print("All players ready to start WWIII!");
+						print("Gave everyone weapons");
 					}
 					else if(item_select == 2){
 						for(i = 0;i <= player_loop;i++){
@@ -897,7 +890,7 @@ void menu_functions(void){
 								WAIT(10);
 							}
 						}
-						print("All players ready for the orgy!");
+						print("Removed everyones weapons");
 					}
 					else if(item_select == 3){
 						float x,y,z;
@@ -908,7 +901,7 @@ void menu_functions(void){
 								WAIT(10);
 							}
 						}
-						print("Kerrrbooom!");
+						print("Everyone was exploded");
 					}
 					else if(item_select == 4){
 						for(i = 0;i <= player_loop;i++){
@@ -917,7 +910,7 @@ void menu_functions(void){
 								WAIT(10);
 							}
 						}
-						print("Burn baby burn! Disco inferno!");
+						print("Everyone was set on fire");
 					}
 					else if(item_select == 5){
 						for(i = 0;i <= player_loop;i++){
@@ -929,7 +922,7 @@ void menu_functions(void){
 								WAIT(10);
 							}
 						}
-						print("Hippotized!");
+						print("Hippoed everyone");
 					}
 					else if(item_select == 6){
 						for(i = 0;i <= player_loop;i++){
@@ -955,7 +948,7 @@ void menu_functions(void){
 							}
 							WAIT(50);
 						}
-						print("I bet they're confused now!");
+						print("Deleted everyones cars");
 						return;
 					}
 					else if(item_select == 7){
@@ -980,7 +973,7 @@ void menu_functions(void){
 								}
 							}
 						}
-						print("Derby time!");
+						print("Put in derby");
 					}
 						else if(item_select == 9){
 						for(i = 0;i <= player_loop;i++){
@@ -988,7 +981,7 @@ void menu_functions(void){
 							REMOVE_ALL_CHAR_WEAPONS(players[i].ped);
 							WAIT(10);
 							GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_ROCKET,AMMO_MAX,false);
-							print("ll Player have been Frozen Have fun :)");
+							print("Everyone should freeze when aiming weapon");
 							return;
 					    }
 					}	    

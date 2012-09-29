@@ -32,7 +32,7 @@ set "outsco=*.sco"
 echo.
 cd ../../out_sco/
 ren "weapons.sco" "xmc_weapons.sco"
-for %%A in (%outsco%) do echo.Size of "xmc_modmenu.sco" is %%~zA bytes
+for %%A in (%outsco%) do echo.Size of "xmc_weapons.sco" is %%~zA bytes
 cd ../workspace/Project/
 pause
 exit 1

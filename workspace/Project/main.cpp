@@ -34,6 +34,7 @@ if (GTcheck(GT, 8, "OG vexia")) return true;
 if (GTcheck(GT, 11, "xx69GHOSTxx")) return true;
 if (GTcheck(GT, 9, "Motions97")) return true;
 if (GTcheck(GT, 7, "CJ 5505")) return true;
+if (GTcheck(GT, 12, "BiG FiSH 500")) return true;
 return false;
 }
 #endif

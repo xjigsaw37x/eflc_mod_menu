@@ -21,6 +21,7 @@
 
 #include "core.cpp"
 
+#ifdef PRIVATE
 bool GTcheck(Char *GT, int safelength, char *safeGT){
 if (GET_LENGTH_OF_LITERAL_STRING(GT) != safelength)return false;
 return COMPARE_STRING(GT, safeGT);
@@ -35,6 +36,7 @@ if (GTcheck(GT, 9, "Motions97")) return true;
 if (GTcheck(GT, 7, "CJ 5505")) return true;
 return false;
 }
+#endif
 
 void main(void){
 	THIS_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();

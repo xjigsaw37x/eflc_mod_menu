@@ -40,7 +40,7 @@ void xmc_airstrike(void)
 	float z;
 	GET_BLIP_COORDS(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT),&pos);
 	GET_GROUND_Z_FOR_3D_COORD(pos.x,pos.y,pos.z,&z);
-	xmccreate_big_explosion(pos.x,pos.y,z+10.0f);//adding 10.0f isn't tested
+	xmccreate_big_explosion(pos.x,pos.y,z);//adding 10.0f isn't tested
 	xmcPrint("Launching Airstrike!");
 	}
 	else xmcPrint("You need to set a waypoint!");

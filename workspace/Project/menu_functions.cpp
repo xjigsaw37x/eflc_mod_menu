@@ -869,8 +869,130 @@ void menu_functions(void){
 		if(last_selected[0] == 1){
 			if(last_selected[1] == 1){ //Online players
 				if(last_selected[2] == 1){ //All players
-					print("Placeholder");
-					return;
+					uint player_loop = player_count - 1;
+					uint i;
+					if(item_select == 1){
+						for(i = 0;i <= player_loop;i++){
+							if(DOES_CHAR_EXIST(players[i].ped)){
+								REMOVE_ALL_CHAR_WEAPONS(players[i].ped);
+								WAIT(10);
+								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_DEAGLE,AMMO_MAX,false);
+								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_GRENADE,AMMO_MAX,false);
+								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_RLAUNCHER,AMMO_MAX,false);
+								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_MP5,AMMO_MAX,false);
+								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_M4,AMMO_MAX,false);
+								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_BARETTA,AMMO_MAX,false);
+								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_SNIPERRIFLE,AMMO_MAX,false);
+								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_BASEBALLBAT,1,false);
+								GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_ARMOUR,1,false);
+								ADD_ARMOUR_TO_CHAR(players[i].ped,99);
+							}
+						}
+						print("All players ready to start WWIII!");
+					}
+					else if(item_select == 2){
+						for(i = 0;i <= player_loop;i++){
+							if(DOES_CHAR_EXIST(players[i].ped)){
+								REMOVE_ALL_CHAR_WEAPONS(players[i].ped);
+								WAIT(10);
+							}
+						}
+						print("All players ready for the orgy!");
+					}
+					else if(item_select == 3){
+						float x,y,z;
+						for(i = 0;i <= player_loop;i++){
+							if(DOES_CHAR_EXIST(players[i].ped)){
+								GET_CHAR_COORDINATES(players[i].ped,&x,&y,&z);
+								ADD_EXPLOSION(x,y,z,EXPLOSION_SHIP_DESTROY,10.0,true,false,0.7);
+								WAIT(10);
+							}
+						}
+						print("Kerrrbooom!");
+					}
+					else if(item_select == 4){
+						for(i = 0;i <= player_loop;i++){
+							if(DOES_CHAR_EXIST(players[i].ped)){
+								START_CHAR_FIRE(players[i].ped);
+								WAIT(10);
+							}
+						}
+						print("Burn baby burn! Disco inferno!");
+					}
+					else if(item_select == 5){
+						for(i = 0;i <= player_loop;i++){
+							if(DOES_CHAR_EXIST(players[i].ped)){
+								Object otmp;
+								CREATE_OBJECT(0x1B42315D,0.0,0.0,0.0,&otmp,true);
+								
+								ATTACH_OBJECT_TO_PED(otmp,players[i].ped,0,0.0,0.0,-0.11,0.0,0.0,3.0,false);
+								WAIT(10);
+							}
+						}
+						print("Hippotized!");
+					}
+					else if(item_select == 6){
+						for(i = 0;i <= player_loop;i++){
+							if(DOES_CHAR_EXIST(players[i].ped)){
+								int tick,nvid;
+								if(IS_CHAR_IN_ANY_CAR(players[i].ped)){
+									Vehicle pveh;
+									GET_CAR_CHAR_IS_USING(players[i].ped,&pveh);
+									GET_NETWORK_ID_FROM_VEHICLE(pveh,&nvid);
+									REQUEST_CONTROL_OF_NETWORK_ID(nvid);
+									while(!HAS_CONTROL_OF_NETWORK_ID(nvid)){
+										tick++;
+										if(tick >= 200){
+											print("Error");
+											return;
+										}
+										WAIT(0);
+									}
+									DELETE_CAR(&pveh);
+									WAIT(10);
+									MARK_CAR_AS_NO_LONGER_NEEDED(&pveh);
+								}
+							}
+							WAIT(50);
+						}
+						print("I bet they're confused now!");
+						return;
+					}
+					else if(item_select == 7){
+						float x,y,z;
+						GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
+						for(i = 0;i <= player_loop;i++){
+							if(DOES_CHAR_EXIST(players[i].ped)){
+								if(IS_CHAR_IN_ANY_CAR(players[i].ped)){
+									teleport_char(players[i].ped,x,y,z);
+									WAIT(100);
+								}
+							}
+						}
+						print("Party time!");
+					}
+					else if(item_select == 8){
+						for(i = 0;i <= player_loop;i++){
+							if(DOES_CHAR_EXIST(players[i].ped)){
+								if(IS_CHAR_IN_ANY_CAR(players[i].ped)){
+									teleport_char(players[i].ped,-1079.8,-469.7,2.62);
+									WAIT(100);
+								}
+							}
+						}
+						print("Derby time!");
+					}
+						else if(item_select == 9){
+						for(i = 0;i <= player_loop;i++){
+							if(DOES_CHAR_EXIST(players[i].ped)){
+							REMOVE_ALL_CHAR_WEAPONS(players[i].ped);
+							WAIT(10);
+							GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_ROCKET,AMMO_MAX,false);
+							print("ll Player have been Frozen Have fun :)");
+							return;
+					    }
+					}	    
+				}
 				}
 				else{
 					uint index = (last_selected[2] - 2);

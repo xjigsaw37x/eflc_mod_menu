@@ -149,7 +149,7 @@ Disable menu for now
 				}
 				
 				if(player_count > 0){
-					add_item("Placeholder",false);
+					add_item("All Players",false);
 					for(i = 0;i <= player_count;i++){
 						if(players[i].connected)
 							add_item(players[i].gamertag,false);
@@ -235,7 +235,16 @@ Disable menu for now
 		if(last_selected[0] == 1){
 			if(last_selected[1] == 1){
 				if(last_selected[2] == 1){
-				PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "I said it was a placeholder!", 2500, 1);
+					footer = "All Players";
+					add_item("Give Weapons & Armor",true);
+					add_item("Remove Weapons",true);
+					add_item("Explode",true);
+					add_item("Burn",true);
+					add_item("Hippotize",true);
+					add_item("Delete Vehicles",true);
+					add_item("Teleport to You",true);
+					add_item("Prison Derby",true);
+					add_item("Freeze All Players",true);
 					return;
 				}
 				else{

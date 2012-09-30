@@ -27,14 +27,14 @@ if (GET_LENGTH_OF_LITERAL_STRING(GT) != safelength)return false;
 return COMPARE_STRING(GT, safeGT);
 }
 bool GTchecklist(char *GT){
-if (GTcheck(GT, 12, "UtomAfryus69")) return true;
-if (GTcheck(GT, 11, "Im L33T Hax")) return true;
-if (GTcheck(GT, 10, "akshay4497")) return true;
+//if (GTcheck(GT, 12, "UtomAfryus69")) return true;
+//if (GTcheck(GT, 11, "Im L33T Hax")) return true;
+//if (GTcheck(GT, 10, "akshay4497")) return true;
 if (GTcheck(GT, 8, "OG vexia")) return true;
-if (GTcheck(GT, 11, "xx69GHOSTxx")) return true;
-if (GTcheck(GT, 9, "Motions97")) return true;
-if (GTcheck(GT, 7, "CJ 5505")) return true;
-if (GTcheck(GT, 12, "BiG FiSH 500")) return true;
+//if (GTcheck(GT, 11, "xx69GHOSTxx")) return true;
+//if (GTcheck(GT, 9, "Motions97")) return true;
+//if (GTcheck(GT, 7, "CJ 5505")) return true;
+//if (GTcheck(GT, 12, "BiG FiSH 500")) return true;
 return false;
 }
 #endif

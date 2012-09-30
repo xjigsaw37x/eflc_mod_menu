@@ -365,7 +365,7 @@ void menu_functions(void){
 						WAIT(100);
 					}
 					START_CHAR_FIRE(GetPlayerPed());
-				`}
+				}
 				return;
 			}
 		}

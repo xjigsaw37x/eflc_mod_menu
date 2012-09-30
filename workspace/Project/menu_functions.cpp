@@ -357,7 +357,15 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 12){
-				do_toggle(onfire);
+				if (!IS_PED_RAGDOLL(GetPlayerPed()))(!IS_CHAR_ON_FIRE(GetPlayerPed()));{
+					if(godmode){
+						godmode = false;
+						WAIT(50);
+						SET_CHAR_INVINCIBLE(pPlayer,godmode);
+						WAIT(100);
+					}
+					START_CHAR_FIRE(GetPlayerPed());
+				`}
 				return;
 			}
 		}
@@ -1527,20 +1535,6 @@ void looped_functions(void){
 			if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_PRESSED(0,BUTTON_A)){
 				APPLY_FORCE_TO_PED(pPlayer,true,0.0,100.0,0.0,0.0,0.0,0.0,true,true,true,true);
 			}
-		}
-	}
-	
-	if(onfire){
-		if (!IS_PED_RAGDOLL(GetPlayerPed()))(!IS_CHAR_ON_FIRE(GetPlayerPed()));{
-				if(godmode){
-				godmode = false;
-				SET_CHAR_INVINCIBLE(pPlayer,godmode);
-				WAIT(50);
-				}
-				START_CHAR_FIRE(GetPlayerPed());
-				WAIT(50);
-				godmode = true;
-				SET_CHAR_INVINCIBLE(pPlayer,godmode);
 		}
 	}
 	

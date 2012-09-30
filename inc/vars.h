@@ -62,7 +62,7 @@ typedef struct _online_players{
 	//id
 	bool mprotection;
 	bool force;
-	bool freeze;
+	bool ragdoll;
 	
 } online_players;
 

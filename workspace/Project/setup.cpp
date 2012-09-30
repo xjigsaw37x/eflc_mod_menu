@@ -125,7 +125,7 @@ Disable menu for now
 			add_item("Return to Single Player",true);
 			add_item("Get name of host",true);
 			add_toggle("Modder Protection",modderprotect);
-			add_toggle("Remove your Blip from the map",invisblip);
+			add_toggle("Remove your Blip",invisblip);
 			return;
 		}		
 	}
@@ -248,6 +248,7 @@ Disable menu for now
 					return;
 				#else
 				print("Private version only");
+				return;
 				#endif
 				}
 				else{

@@ -91,6 +91,7 @@ Disable menu for now
 			add_item("Weapon Selector",false);
 			add_toggle("Unlimited Ammo",ammo);
 			add_toggle("Fast Reload",fastreload);
+			add_toggle("Rocket Glock",rocketpistol);
 			return;
 		}
 		if(last_selected[0] == 4){

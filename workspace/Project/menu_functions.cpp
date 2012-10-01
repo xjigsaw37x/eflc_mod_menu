@@ -395,6 +395,10 @@ void menu_functions(void){
 				do_toggle(fastreload);
 				return;
 			}
+			if(item_select == 4){
+				do_toggle(rocketpistol);
+				return;
+			}
 		}
 		if(last_selected[0] == 4){
 			if(item_select == 1){
@@ -1362,6 +1366,12 @@ void looped_functions(void){
 			FREEZE_CHAR_POSITION(pPlayer,true);
 		else
 			FREEZE_CHAR_POSITION(pPlayer,false);
+	}
+	
+	if(rocketpistol){
+		rocketpistol_MainLoop();
+		rocketpistol_Actions();
+		rocketpistol_blowupobject();
 	}
 	
 	if(superrun){

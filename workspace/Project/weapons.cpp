@@ -1,19 +1,16 @@
-#include <natives.h>
-#include <common.h>
-#include <strings.h>
-#include <types.h>
-#include <consts.h>
+#define MODEL_dildo1  0x3675A6C3
+//#define MODEL_BM_drum_exp  
+#define MODEL_BM_drum_tox  0x61BBB992
 
 int justshot = 0;
 int wep;
 Object ObjectProjectile;
-int wepCheck;
 float prjX, prjY, prjZ, prjT, gcX, gcY, gcZ, gcrotX, gcrotY, gcrotZ, objrotX, objrotZ;
 Camera game_cam;
 float charX, charY, charZ , Object_X, Object_Y, Object_Z , dist;
 float expx,expy,expz;
 
-void MainLoop()
+void rocketpistol_MainLoop()
 {
 	
 	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wep);
@@ -56,10 +53,11 @@ void MainLoop()
 	}
 }
 
-void Actions()
+void rocketpistol_Actions()
 {
 	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wep);
-	if((wep == WEAPON_PISTOL) && (IS_CHAR_SHOOTING(GetPlayerPed())))
+	
+	if((wep == WEAPON_PISTOL) &&  (IS_BUTTON_PRESSED(0,R2)) && (IS_BUTTON_PRESSED(0,L2)))
 	{
 		
 		REQUEST_MODEL(0x8F2A7EB3);
@@ -73,12 +71,14 @@ void Actions()
 		MARK_MODEL_AS_NO_LONGER_NEEDED(0x8F2A7EB3);
 		if(DOES_OBJECT_EXIST(ObjectProjectile))
 		{
+			WAIT(100);
+			SET_OBJECT_VISIBLE(ObjectProjectile, 0);
 			SET_OBJECT_AS_STEALABLE(ObjectProjectile, 1);
 			SET_OBJECT_ROTATION(ObjectProjectile, objrotX, 0.0, objrotZ);
-			SET_OBJECT_RECORDS_COLLISIONS(ObjectProjectile, true);
 			SET_OBJECT_DYNAMIC(ObjectProjectile, 1);
 			APPLY_FORCE_TO_OBJECT(ObjectProjectile, 1, 0.0, 90.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, 1);
-			WAIT(100);
+			WAIT(0);
+
 			justshot = 1;
 
 		}
@@ -86,30 +86,20 @@ void Actions()
 	
 }
 
-void blowupobject()
+void rocketpistol_blowupobject()
 {
+
 	if(justshot==1)
 	{
-		if (HAS_OBJECT_COLLIDED_WITH_ANYTHING(ObjectProjectile ))	
-		{	
-			WAIT(200);
-			GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz);
-			ADD_EXPLOSION(expx,expy,expz, EXPLOSION_CAR, 7.50, 1, 0, 0.7);
-			//cleanup object
-			if(DOES_OBJECT_EXIST(ObjectProjectile)) { DELETE_OBJECT(&ObjectProjectile);}
-			justshot = 0;		
+		GET_CHAR_COORDINATES(GetPlayerPed(), &charX, &charY, &charZ);
+		GET_OBJECT_COORDINATES(ObjectProjectile, &Object_X,&Object_Y,&Object_Z);
+		GET_DISTANCE_BETWEEN_COORDS_3D(Object_X, Object_Y, Object_Z, charX, charY, charZ, &dist);	
+		GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz);
+		// press r1 to select explosives 
+		ADD_EXPLOSION(expx,expy,expz, EXPLOSION_CAR, 7.50, 1, 0, 0.7);
+		justshot = 0;
+		if(DOES_OBJECT_EXIST(ObjectProjectile)){
+			DELETE_OBJECT(&ObjectProjectile);
 		}
-		
-	}
-}
-void main(void)
-{
-	THIS_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();
-	while(true)
-	{
-		WAIT(0);
-		MainLoop();
-		Actions();
-		blowupobject();
 	}
 }

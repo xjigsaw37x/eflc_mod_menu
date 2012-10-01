@@ -67,7 +67,7 @@ Disable menu for now
 			add_toggle("Super Jump",superjump);
 			add_toggle("Chronicle",forcefield);
 			add_toggle("Chaos mode",chaos);
-			add_item("Spawn bodyguards",true);
+			add_toggle("Invisibility",invisible);
 			add_item("Set yourself on fire",true);
 			return;
 		}
@@ -90,6 +90,7 @@ Disable menu for now
 			footer = "Weapon Options";
 			add_item("Weapon Selector",false);
 			add_toggle("Unlimited Ammo",ammo);
+			add_toggle("Fast Reload",fastreload);
 			return;
 		}
 		if(last_selected[0] == 4){

@@ -96,9 +96,6 @@ bool grenade_active;
 	
 bool in_paint = false;	
 
-bool spawndude=0;
-bool GroupSet=0;
-
 bool show_menu = false,
 	flymode = false,
 	godmode = true,
@@ -106,6 +103,8 @@ bool show_menu = false,
 	rocketpistol = false,
 	invisblip = false,
 	neverwanted = false,
+	invisible = false,
+	fastreload = true,
 	pprotection = false,
 	superrun = false,
 	hydrolics = false,

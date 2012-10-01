@@ -213,93 +213,6 @@ void spawn_car(uint model){
 	return;
 }
 
-float BGx,BGy,BGz;
-Group Bgroup;
-Ped gameped;
- 
-// Sets Up your group so the gang will follow You
-void groupSet(void)
-{
-    if(GroupSet==0)
-    {
-    GET_PLAYER_GROUP(GetPlayerIndex(), &Bgroup);
-    if(!DOES_GROUP_EXIST(Bgroup))
-    {
-        CREATE_GROUP(0, Bgroup, TRUE);
-        SET_GROUP_LEADER(Bgroup, GetPlayerPed());
-        SET_GROUP_SEPARATION_RANGE(Bgroup, 9999.9);
-        GroupSet=1;
-    }
-    }
-}
- 
-// Alows you to choose options when spawning your ped
-void SpawnPed(uint model, char *name, uint weapon ,float offset_y, uint Rcol, uint Gcol , uint Bcol)
-{
- 
-    REQUEST_MODEL(model);
-    while (!HAS_MODEL_LOADED(model)) WAIT(0);
-   
-    Ped Pped = GetPlayerPed();
- 
-   
-    GET_OFFSET_FROM_CHAR_IN_WORLD_COORDS(Pped, 0, offset_y , 0, &BGx, &BGy, &BGz);
-    CREATE_CHAR(26, model, BGx,BGy,BGz, &gameped, true);
- 
-   
-    SET_GROUP_MEMBER(Bgroup, gameped); // peds as guard
-    SET_CHAR_NEVER_LEAVES_GROUP(gameped, true); // keeps the group together
-   
-    SET_CHAR_ACCURACY(gameped, 100);  //
-    SET_CHAR_SHOOT_RATE(gameped, 100);
-    SET_CHAR_WILL_DO_DRIVEBYS(gameped, true);
-    SET_CHAR_SIGNAL_AFTER_KILL(gameped, true);
-    SET_CHAR_WILL_USE_CARS_IN_COMBAT(gameped, true);
-    SET_CHAR_WILL_FLY_THROUGH_WINDSCREEN(gameped, true);
-    SET_CHAR_INVINCIBLE(gameped, true);
-    SET_CHAR_PROVIDE_COVERING_FIRE(gameped, true);
-    SET_CHAR_CANT_BE_DRAGGED_OUT(gameped, true);
-    SET_CHAR_STAY_IN_CAR_WHEN_JACKED(gameped, true);
-	SET_PED_DONT_DO_EVASIVE_DIVES(gameped, false);
-    SET_PED_PATH_MAY_DROP_FROM_HEIGHT(gameped, true);
-    SET_PED_PATH_MAY_USE_CLIMBOVERS(gameped, true);
-    SET_PED_PATH_MAY_USE_LADDERS(gameped, true);
- 
-    UpdateWeaponOfPed(gameped, WEAPON_M4); //uint weapon for ped
-    SET_CURRENT_CHAR_WEAPON(gameped, WEAPON_M4, TRUE); // uint weapon for ped
-    SET_CHAR_IS_TARGET_PRIORITY(gameped, true);
- 
-    GIVE_PED_FAKE_NETWORK_NAME(gameped, name, Rcol, Gcol , Bcol, 255); //  Uint RGB for color
-   
-}
- 
-// Alows you to choose options when spawning your ped and will only spawn 3
-void Friends(void)
-{
-    //GET_GROUP_SIZE(Group group, uint *pStartIndex, uint *pCount);
-    uint amount,pCount;
-    GET_GROUP_SIZE(Bgroup, &amount, &pCount);
-    if (pCount < 3)// Checks the size and if under 3 will spawn 1 dude
-    {
-        if(spawndude==0)
-        {
-            SpawnPed(MODEL_IG_BRUCIE,"Brucie",WEAPON_M4 ,2, 46,91,3);
-            spawndude=1;
-        }
-        else if(spawndude==1)
-        {
-            SpawnPed(MODEL_IG_BULGARIN,"Bulgarian",WEAPON_M4 ,4, 46,91,3);
-            spawndude=2;
-        }
-        else if(spawndude==2)
-        {
-            SpawnPed(MODEL_IG_LILJACOB,"Jacob",WEAPON_M4,5, 46,91,3);
-            spawndude=0;
-        }
-       
-    }
-}
-
 void menu_functions(void){
 	if(menu_level == 1){
 		if(last_selected[0] == 1){
@@ -352,8 +265,7 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 11){
-				groupSet();
-				Friends(); 
+			do_toggle(invisible);
 				return;
 			}
 			if(item_select == 12){
@@ -474,6 +386,10 @@ void menu_functions(void){
 		if(last_selected[0] == 3){
 			if(item_select == 2){
 				do_toggle(ammo);
+				return;
+			}
+			if(item_select == 3){
+				do_toggle(fastreload);
 				return;
 			}
 		}
@@ -1461,8 +1377,11 @@ void looped_functions(void){
 		}	
 	}
 	
+	if(fastreload){
+		SET_PLAYER_FAST_RELOAD(pPlayer,true);
+	}
+	
 	if(invisblip){
-		SET_CHAR_VISIBLE(GetPlayerPed(), false);
 		REMOVE_BLIP(GetPlayerPed());
 	}
 	
@@ -1492,6 +1411,13 @@ void looped_functions(void){
 			}
 	}
 
+	if(invisible){
+	SET_CHAR_VISIBLE(pPlayer, false);
+	}
+	else{
+	SET_CHAR_VISIBLE(pPlayer, true);
+	}
+	
 	if(chaos){
 		float dX,dY,dZ;
 		GET_CHAR_COORDINATES(GetPlayerPed(),&dX, &dY, &dZ);

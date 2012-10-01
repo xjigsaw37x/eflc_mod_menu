@@ -269,14 +269,17 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 12){
-				if (!IS_PED_RAGDOLL(GetPlayerPed()))(!IS_CHAR_ON_FIRE(GetPlayerPed()));{
-					if(godmode){
-						godmode = false;
-						WAIT(50);
-						SET_CHAR_INVINCIBLE(pPlayer,godmode);
-						WAIT(100);
-					}
+				if (!IS_PED_RAGDOLL( GetPlayerPed() ))
+				{
+					SWITCH_PED_TO_RAGDOLL( GetPlayerPed(), 20000, 30000, 0, 0, 0, 0 );	
+					GIVE_PLAYER_RAGDOLL_CONTROL( GetPlayerIndex(), TRUE );
 					START_CHAR_FIRE(GetPlayerPed());
+				}
+				else
+				{
+					SWITCH_PED_TO_ANIMATED( GetPlayerPed(), FALSE );
+					GIVE_PLAYER_RAGDOLL_CONTROL( GetPlayerIndex(), FALSE );
+					EXTINGUISH_CHAR_FIRE(GetPlayerPed());
 				}
 				return;
 			}

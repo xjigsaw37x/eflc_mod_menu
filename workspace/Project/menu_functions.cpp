@@ -1391,7 +1391,7 @@ void looped_functions(void){
 	}
 	
 	if(fastreload){
-		SET_PLAYER_FAST_RELOAD(pPlayer,true);
+		SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), true);
 	}
 	
 	if(invisblip){

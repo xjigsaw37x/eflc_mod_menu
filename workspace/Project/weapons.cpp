@@ -7,7 +7,6 @@ int wep;
 Object ObjectProjectile;
 float prjX, prjY, prjZ, prjT, gcX, gcY, gcZ, gcrotX, gcrotY, gcrotZ, objrotX, objrotZ;
 Camera game_cam;
-float charX, charY, charZ , Object_X, Object_Y, Object_Z , dist;
 float expx,expy,expz;
 
 void rocketpistol_MainLoop()
@@ -16,9 +15,6 @@ void rocketpistol_MainLoop()
 	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wep);
 	if(wep == WEAPON_PISTOL)
 	{
-	//SET_TEXT_DROPSHADOW(1, 0, 0, 0, 255);
-	//SET_TEXT_SCALE(0.2f, 0.2f);
-	//DISPLAY_TEXT_WITH_STRING(0.832f, 0.069f, "STRING", "SPECAL");
 	
 	GET_GAME_CAM(&game_cam);
 	if (IS_CAM_ACTIVE(game_cam))
@@ -91,11 +87,7 @@ void rocketpistol_blowupobject()
 
 	if(justshot==1)
 	{
-		GET_CHAR_COORDINATES(GetPlayerPed(), &charX, &charY, &charZ);
-		GET_OBJECT_COORDINATES(ObjectProjectile, &Object_X,&Object_Y,&Object_Z);
-		GET_DISTANCE_BETWEEN_COORDS_3D(Object_X, Object_Y, Object_Z, charX, charY, charZ, &dist);	
-		GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz);
-		// press r1 to select explosives 
+		GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz); 
 		ADD_EXPLOSION(expx,expy,expz, EXPLOSION_CAR, 7.50, 1, 0, 0.7);
 		justshot = 0;
 		if(DOES_OBJECT_EXIST(ObjectProjectile)){

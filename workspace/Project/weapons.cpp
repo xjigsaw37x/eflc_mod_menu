@@ -53,7 +53,7 @@ void rocketpistol_Actions()
 {
 	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wep);
 	
-	if((wep == WEAPON_PISTOL) &&  (IS_BUTTON_PRESSED(0,R2)) && (IS_BUTTON_PRESSED(0,L2)))
+	if((wep == WEAPON_PISTOL) && (IS_CHAR_SHOOTING(pPlayer)))
 	{
 		
 		REQUEST_MODEL(0x8F2A7EB3);
@@ -74,7 +74,6 @@ void rocketpistol_Actions()
 			SET_OBJECT_DYNAMIC(ObjectProjectile, 1);
 			APPLY_FORCE_TO_OBJECT(ObjectProjectile, 1, 0.0, 90.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, 1);
 			WAIT(0);
-
 			justshot = 1;
 
 		}

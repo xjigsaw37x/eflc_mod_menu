@@ -1486,7 +1486,7 @@ void looped_functions(void){
 		if(IS_CHAR_IN_ANY_CAR(pPlayer) && IS_BUTTON_PRESSED(0,BUTTON_R)){
 			float speed;
 			GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
-			if((!IS_CHAR_IN_ANY_BOAT(pPlayer)) && (!IS_CHAR_IN_ANY_HELI(pPlayer))){
+			if((!IS_CHAR_IN_ANY_BOAT(pPlayer)) && (!IS_CHAR_IN_ANY_HELI(pPlayer)) && (!IS_CHAR_ON_ANY_BIKE(pPlayer))){
 				SET_CAR_ON_GROUND_PROPERLY(pveh);
 				GET_CAR_SPEED(pveh,&speed);
 				SET_CAR_FORWARD_SPEED(pveh,(speed * 1.02));

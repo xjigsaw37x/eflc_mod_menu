@@ -385,17 +385,25 @@ void menu_functions(void){
 				do_toggle(hydrolics);
 				return;
 				}
-			if(item_select == 12){	
+			if(item_select == 12){
 				float x, y, z;
 				if(IS_CHAR_IN_ANY_CAR(pPlayer)){
-					GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
-					z += 1;
-					WARP_CHAR_FROM_CAR_TO_COORD(pPlayer, x, y, z);
-					APPLY_FORCE_TO_PED(pPlayer, 1 ,0.0f ,0.0f ,1000.0f ,0.0f ,0.0f ,0.0f ,1 ,1 ,1 ,1);
-					print("Ejected");
+				GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
+				z += 1;
+				WARP_CHAR_FROM_CAR_TO_COORD(pPlayer, x, y, z);
+				APPLY_FORCE_TO_PED(pPlayer, 1 ,0.0f ,0.0f ,1000.0f ,0.0f ,0.0f ,0.0f ,1 ,1 ,1 ,1);
+				print("Ejected");
+				return;
 				}
-			return;
 			}
+			if(item_select == 13){
+				if(!bikefly){
+				print("Get in a bike and it will fly");
+				}
+				do_toggle(bikefly);
+				return;
+			}
+			return;
 		}
 		if(last_selected[0] == 3){
 			if(item_select == 2){
@@ -533,7 +541,6 @@ void menu_functions(void){
 				return;
 			}
 		}
-		
 	}
 	if(menu_level == 2){
 		if(last_selected[0] == 1){
@@ -1522,13 +1529,11 @@ void looped_functions(void){
 	}
 	
 	if(bikefly){
-		if(IS_CHAR_IN_ANY_CAR(pPlayer) && IS_BUTTON_PRESSED(0,BUTTON_R)){
+		if((IS_CHAR_ON_ANY_BIKE(pPlayer)) && IS_BUTTON_PRESSED(0,BUTTON_R)){
 			float speed;
-			if(((IS_CHAR_ON_ANY_BIKE(pPlayer))){
-				GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
-				GET_CAR_SPEED(pveh,&speed);
-				SET_CAR_FORWARD_SPEED(pveh,(speed * 1.05));
-			}
+			GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
+			GET_CAR_SPEED(pveh,&speed);
+			SET_CAR_FORWARD_SPEED(pveh,(speed * 1.05));
 		}
 	}
 	

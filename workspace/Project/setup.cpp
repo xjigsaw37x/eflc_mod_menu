@@ -76,7 +76,7 @@ Disable menu for now
 			add_item("Garage",false);
 			add_toggle("Vehicle Helper",vhelper);
 			add_item("Slingshot",true);
-			add_toggle("Cars Stick to Ground",carsonground);
+			add_toggle("Car Super Glue",carsonground);
 			add_toggle("Super Speed",nfs);
 			add_item("Kill Passengers",true);
 			add_item("Fix & Wash Vehicle",true);
@@ -84,7 +84,8 @@ Disable menu for now
 			add_item("Delete Vehicle",true);
 			add_item("Flip Vehicle",true);
 			add_toggle("Hydrolics",hydrolics);
-			add_item("Eject from Vehicle",true);
+			add_item("Eject from vehicle",true);
+			add_toggle("Flying Bikes",bikefly);
 			return;
 		}
 		if(last_selected[0] == 3){

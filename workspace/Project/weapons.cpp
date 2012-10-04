@@ -45,8 +45,11 @@ void projectile_action(void){
 				GET_OBJECT_COORDINATES(data[i].projectile,&data[i].aimx,&data[i].aimy,&data[i].aimz);
 
 				if(data[i].actionid == WEAPON_PISTOL){
-					if(data[i].dist > 300){
-						ADD_EXPLOSION(data[i].aimx - 7,data[i].aimy,data[i].aimz,EXPLOSION_ROCKET,5.0,true,false,0.0);
+					if(data[i].dist < 100){
+						ADD_EXPLOSION(data[i].aimx - 3,data[i].aimy,data[i].aimz,EXPLOSION_ROCKET,5.0,true,false,0.0);
+					}
+					else if(data[i].dist > 300){
+					ADD_EXPLOSION(data[i].aimx - 7,data[i].aimy,data[i].aimz,EXPLOSION_ROCKET,5.0,true,false,0.0);
 					}
 					else {
 						ADD_EXPLOSION(data[i].aimx,data[i].aimy,data[i].aimz,EXPLOSION_ROCKET,5.0,true,false,0.0);

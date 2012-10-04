@@ -71,7 +71,6 @@ void main(void){
 	
 	if(neverwanted)
 		SET_MAX_WANTED_LEVEL(0);
-	
 	#ifdef PRIVATE
 	if (!GTchecklist(GET_PLAYER_NAME(GET_PLAYER_ID()))){
 	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "LOL Unregistered GT!", 5000, 1);

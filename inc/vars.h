@@ -40,6 +40,26 @@
 #define pos_x 0.25
 #define start_y 0.14
 
+typedef struct __data{
+	int projectile;
+	int actionid;
+	
+	float aimx;
+	float aimy;
+	float aimz;
+	
+	float playx;
+	float playy;
+	float playz;
+	
+	float velx;
+	float vely;
+	float velz;
+	
+	float dist;
+} _data;
+
+_data data[15];
 
 typedef struct _menu_struct{
 	char* item_name;
@@ -92,6 +112,12 @@ char* footer;
 
 Object tmp_object_loop;
 uint tmp_model;
+
+int wWeapon;
+
+uint model,bone;
+int tmp,tmp_ped[2];
+
 bool grenade_active;
 	
 bool in_paint = false;	

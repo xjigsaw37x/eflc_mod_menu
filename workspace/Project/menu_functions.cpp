@@ -1369,9 +1369,26 @@ void looped_functions(void){
 	}
 	
 	if(rocketpistol){
-		rocketpistol_MainLoop();
-		rocketpistol_Actions();
-		rocketpistol_blowupobject();
+		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
+			GET_CAR_CHAR_IS_USING(pPlayer,&tmp);
+			GET_CAR_MODEL(tmp,&model);
+			if(!IS_THIS_MODEL_A_HELI(model) && !IS_THIS_MODEL_A_BIKE){
+				GET_CHAR_IN_CAR_PASSENGER_SEAT(tmp,1,&tmp_ped[0]);
+				GET_DRIVER_OF_CAR(tmp,&tmp_ped[1]);
+				if(tmp_ped[0] == pPlayer || tmp_ped[1] == pPlayer)
+					bone = BONE_LEFT_HAND;
+			}
+		}
+		else bone = BONE_RIGHT_HAND;
+
+		GET_PED_BONE_POSITION(pPlayer,bone,2.0,0.0,0.0,&play_tmp);
+		GET_PED_BONE_POSITION(pPlayer,bone,100.0,0.0,0.0,&aim_tmp);
+		
+		if(IS_CHAR_SHOOTING(pPlayer)){
+			GET_CURRENT_CHAR_WEAPON(pPlayer,&wWeapon);
+			fire_projectile(wWeapon);
+		}
+		projectile_action();
 	}
 	
 	if(superrun){

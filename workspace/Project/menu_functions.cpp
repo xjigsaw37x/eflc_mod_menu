@@ -1416,11 +1416,10 @@ void looped_functions(void){
 			}
 		}
 	}
-	
 	if(superjump){
 		if(!IS_CHAR_IN_ANY_CAR(pPlayer)){
 			if(IS_BUTTON_PRESSED(0,BUTTON_LB) && IS_BUTTON_PRESSED(0,BUTTON_X)){
-				APPLY_FORCE_TO_PED(pPlayer,true,0.0,0.0,50.0,0.0,0.0,0.0,true,true,true,true);
+				APPLY_FORCE_TO_PED(pPlayer,true,0.0,0.0,20.0,0.0,0.0,0.0,true,true,true,true);
 			}
 		}	
 	}

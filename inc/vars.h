@@ -123,9 +123,7 @@ bool grenade_active;
 bool in_paint = false;	
 
 bool show_menu = false,
-	flymode = false,
 	godmode = true,
-	onfire = false,
 	bikefly = false,
 	rocketpistol = false,
 	invisblip = false,

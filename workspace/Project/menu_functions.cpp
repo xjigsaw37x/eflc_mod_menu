@@ -11,10 +11,6 @@
 	reset_menu();
 	
 //#define print(x) PRINT_STRING_WITH_LITERAL_STRING("string",x,2000,true)
-void print(char* text){
-CLEAR_PRINTS();//Clears already printed text
-PRINT_STRING_WITH_LITERAL_STRING("string",text,2000,true);
-}
 
 void draw_title(float x, float y, float width, float height, uint r, uint g, uint b, uint a, char *val){
 #ifdef PC

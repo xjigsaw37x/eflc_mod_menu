@@ -9,6 +9,11 @@
 #include "natives.h"
 #include "consts.h"
 
+void print(char* text){
+CLEAR_PRINTS();//Clears already printed text
+PRINT_STRING_WITH_LITERAL_STRING("string",text,2000,true);
+}
+
 Player GetPlayerIndex(void)
 {
 	return GET_PLAYER_ID();

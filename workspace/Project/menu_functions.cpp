@@ -255,7 +255,7 @@ void menu_functions(void){
 			if(item_select == 5){
 				do_toggle(neverwanted);
 				if(neverwanted){
-				SET_POLICE_IGNORE_PLAYER(pPlayer, true);
+				SET_POLICE_IGNORE_PLAYER(GetPlayerIndex(), true);
 				ALLOW_EMERGENCY_SERVICES(false);
 				SET_MAX_WANTED_LEVEL(0);
 				SET_CHAR_WANTED_BY_POLICE(pPlayer, false);

@@ -157,7 +157,10 @@ void teleport_char(Ped pPed,float x,float y,float z){
 			}
 			WAIT(0);
 		}
+		float s;
+		GET_CAR_SPEED(pveh,&s);
 		SET_CAR_COORDINATES(pveh,x,y,z);
+		SET_CAR_FORWARD_SPEED(pveh,s);
 	}
 	else{
 		SET_CHAR_COORDINATES(pPed,x,y,z);

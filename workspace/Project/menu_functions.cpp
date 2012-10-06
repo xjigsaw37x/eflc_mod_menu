@@ -213,6 +213,30 @@ void spawn_car(uint model){
 	return;
 }
 
+void xmc_teleportinfront(void)
+{
+    if ( IS_PLAYER_PLAYING(GetPlayerIndex()) )
+    {
+        float x, y, z, ch;
+        GET_CHAR_HEADING(GetPlayerPed(), &ch);
+        GET_CHAR_COORDINATES(GetPlayerPed(), &x, &y, &z);
+        teleport_char(pPlayer, x+(10*SIN((-1*ch))), y+(10*COS((-1*ch))), z);
+    }
+}
+
+void xmc_airstrike(void)
+{
+	if(DOES_BLIP_EXIST(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT))){
+	Vector3 pos;
+	float z;
+	GET_BLIP_COORDS(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT),&pos);
+	GET_GROUND_Z_FOR_3D_COORD(pos.x,pos.y,pos.z,&z);
+	create_big_explosion(pos.x,pos.y,z+5.0f);//adding 10.0f isn't tested
+	print("Launching Airstrike!");
+	}
+	else print("You need to set a waypoint!");
+}
+
 void menu_functions(void){
 	if(menu_level == 1){
 		if(last_selected[0] == 1){

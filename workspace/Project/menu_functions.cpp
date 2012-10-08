@@ -1456,7 +1456,7 @@ void looped_functions(void){
 	}
 	
 	if(invisblip){
-		REMOVE_BLIP(GetPlayerPed());
+		REMOVE_BLIP(GetPlayerIndex());
 	}
 	
 	if(forcefield){

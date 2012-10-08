@@ -1106,14 +1106,14 @@ void menu_functions(void){
 									float x,y,z;
 									GET_CHAR_COORDINATES(players[index].ped,&x,&y,&z);
 									ADD_EXPLOSION(x,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x + 3.0,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x,y + 3.0,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x - 3.0,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x,y - 3.0,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x + 6.0,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x,y + 6.0,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x - 6.0,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x,y - 6.0,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
+									ADD_EXPLOSION(x + 1.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
+									ADD_EXPLOSION(x,y + 1.5,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
+									ADD_EXPLOSION(x - 1.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
+									ADD_EXPLOSION(x,y - 1.5,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
+									ADD_EXPLOSION(x + 0.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
+									ADD_EXPLOSION(x,y + 0.5,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
+									ADD_EXPLOSION(x - 0.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
+									ADD_EXPLOSION(x,y - 0.5,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
 									print("Tazed nigga!");
 								}
 								else print("Player must be on foot");

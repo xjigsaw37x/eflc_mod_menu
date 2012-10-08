@@ -84,6 +84,7 @@ Disable menu for now
 			add_item("Delete Vehicle",true);
 			add_item("Flip Vehicle",true);
 			add_toggle("Hydrolics",hydrolics);
+			add_item("Eject from Vehicle",true);
 			return;
 		}
 		if(last_selected[0] == 3){
@@ -266,10 +267,10 @@ Disable menu for now
 					add_item("Taser",true);
 					add_item("Delete Vehicle",true);
 					add_item("Slingshot Vehicle",true);
-					add_item("Fuck Up Vehicle",true);
+					add_item("Immobilize Vehicle",true);
 					add_item("Jail",true);
 					add_item("Kick",true);
-					add_item("freeze",true);
+					add_item("Freeze",true);
 					return;
 				}
 			}

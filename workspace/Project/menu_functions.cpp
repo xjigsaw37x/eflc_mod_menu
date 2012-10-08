@@ -385,7 +385,18 @@ void menu_functions(void){
 				do_toggle(hydrolics);
 				return;
 				}
+			if(item_select == 12){	
+				float x, y, z;
+				if(IS_CHAR_IN_ANY_CAR(pPlayer)){
+					GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
+					z += 1;
+					WARP_CHAR_FROM_CAR_TO_COORD(pPlayer, x, y, z);
+					APPLY_FORCE_TO_PED(pPlayer, 1 ,0.0f ,0.0f ,1000.0f ,0.0f ,0.0f ,0.0f ,1 ,1 ,1 ,1);
+					print("Ejected");
+				}
+			return;
 			}
+		}
 		if(last_selected[0] == 3){
 			if(item_select == 2){
 				do_toggle(ammo);

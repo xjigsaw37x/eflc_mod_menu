@@ -77,7 +77,7 @@ Disable menu for now
 			add_toggle("Vehicle Helper",vhelper);
 			add_item("Slingshot",true);
 			add_toggle("Cars Stick to Ground",carsonground);
-			add_toggle("Need for Speed",nfs);
+			add_toggle("Super Speed",nfs);
 			add_item("Kill Passengers",true);
 			add_item("Fix & Wash Vehicle",true);
 			add_item("Lock Doors",true);
@@ -120,7 +120,7 @@ Disable menu for now
 			add_item("Throwable Objects",false);
 			add_item("Air Strikes",false);
 			add_toggle("Chat name popup",chat_thingy);
-			add_toggle("Danny Darth's Drive Free",drive_free);
+			add_toggle("Remove runway planes",drive_free);
 			add_item("Start New Freemode",true);
 			add_item("Return to Single Player",true);
 			add_item("Get name of host",true);

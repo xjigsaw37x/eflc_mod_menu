@@ -2,9 +2,9 @@
 #define PRIVATE 
 
 #ifdef PRIVATE
-#define MENU_TITLE "XMC ModMenu v1 Private Edition"
+#define MENU_TITLE "XMC ModMenu v2 Private Edition"
 #else
-#define MENU_TITLE "XMC ModMenu v1 Public Edition"
+#define MENU_TITLE "XMC ModMenu v2 Public Edition"
 #endif
 
 #include <natives.h>
@@ -31,9 +31,13 @@ bool GTchecklist(char *GT){
 //if (GTcheck(GT, 11, "Im L33T Hax")) return true;
 //if (GTcheck(GT, 10, "akshay4497")) return true;
 //if (GTcheck(GT, 8, "OG vexia")) return true;
+//if (GTcheck(GT, 14, "hazy larkin007")) return true;
+//if (GTcheck(GT, 15, "xX D GREAT 1 Xx")) return true;
+if (GTcheck(GT, 11, "o0 Xtrem 0o")) return true;
 //if (GTcheck(GT, 11, "xx69GHOSTxx")) return true;
+//if (GTcheck(GT, 11, "Digital HDx")) return true;
 //if (GTcheck(GT, 9, "Motions97")) return true;
-if (GTcheck(GT, 7, "CJ 5505")) return true;
+//if (GTcheck(GT, 7, "CJ 5505")) return true;
 //if (GTcheck(GT, 12, "BiG FiSH 500")) return true;
 return false;
 }
@@ -70,8 +74,8 @@ void main(void){
 	
 	#ifdef PRIVATE
 	if (!GTchecklist(GET_PLAYER_NAME(GET_PLAYER_ID()))){
-	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "LOL Unregistered GT!", 3000, 1);
-	WAIT(1);
+	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "LOL Unregistered GT!", 5000, 1);
+	WAIT(500);
 	WARP_CHAR_INTO_CAR_AS_PASSENGER(GetPlayerPed(), ClosestCar, 1);
 	}
 	#endif

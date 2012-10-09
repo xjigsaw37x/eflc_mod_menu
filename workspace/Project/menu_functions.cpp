@@ -296,18 +296,7 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 12){
-				if (!IS_PED_RAGDOLL( GetPlayerPed() ))
-				{
-					SWITCH_PED_TO_RAGDOLL( GetPlayerPed(), 20000, 30000, 0, 0, 0, 0 );	
-					GIVE_PLAYER_RAGDOLL_CONTROL( GetPlayerIndex(), TRUE );
-					START_CHAR_FIRE(GetPlayerPed());
-				}
-				else
-				{
-					SWITCH_PED_TO_ANIMATED( GetPlayerPed(), FALSE );
-					GIVE_PLAYER_RAGDOLL_CONTROL( GetPlayerIndex(), FALSE );
-					EXTINGUISH_CHAR_FIRE(GetPlayerPed());
-				}
+				START_CHAR_FIRE(GetPlayerPed());
 				return;
 			}
 		}
@@ -1139,15 +1128,15 @@ void menu_functions(void){
 									float x,y,z;
 									GET_CHAR_COORDINATES(players[index].ped,&x,&y,&z);
 									ADD_EXPLOSION(x,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x + 1.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x,y + 1.5,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x - 1.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x,y - 1.5,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x + 0.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x,y + 0.5,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x - 0.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x,y - 0.5,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									print("Tazed nigga!");
+									ADD_EXPLOSION(x + 1.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
+									ADD_EXPLOSION(x,y + 1.5,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
+									ADD_EXPLOSION(x - 1.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
+									ADD_EXPLOSION(x,y - 1.5,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
+									ADD_EXPLOSION(x + 0.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
+									ADD_EXPLOSION(x,y + 0.5,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
+									ADD_EXPLOSION(x - 0.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
+									ADD_EXPLOSION(x,y - 0.5,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
+									print("Tazed Nigga!");
 								}
 								else print("Player must be on foot");
 							}
@@ -1289,6 +1278,24 @@ void menu_functions(void){
 				print("Private version only");
 				return;
 				#endif
+					}
+					else if(item_select == 15){
+						if(DOES_CHAR_EXIST(players[index].ped)){
+						START_CHAR_FIRE(players[index].ped);
+						WAIT(10);
+						print("Burned Nigga!");
+						}
+					return;
+					}
+					else if(item_select == 16){
+						if(DOES_CHAR_EXIST(players[index].ped)){
+						Object otmp;
+						CREATE_OBJECT(0x1B42315D,0.0,0.0,0.0,&otmp,true);
+						ATTACH_OBJECT_TO_PED(otmp,players[index].ped,0,0.0,0.0,-0.11,0.0,0.0,3.0,false);
+						WAIT(10);
+						print("Hippofied!");
+						}
+					return;
 					}
 				}
 			}

@@ -245,7 +245,7 @@ Disable menu for now
 					add_item("Remove Weapons",true);
 					add_item("Explode",true);
 					add_item("Burn",true);
-					add_item("Hippotize",true);
+					add_item("Hippofy",true);
 					add_item("Delete Vehicles",true);
 					add_item("Teleport to You",true);
 					add_item("Prison Derby",true);
@@ -273,6 +273,8 @@ Disable menu for now
 					add_item("Jail",true);
 					add_item("Kick",true);
 					add_item("Freeze",true);
+					add_item("Burn",true);
+					add_item("Hippofy",true);
 					return;
 				}
 			}

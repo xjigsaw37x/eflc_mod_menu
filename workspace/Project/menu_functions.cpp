@@ -146,6 +146,7 @@ void teleport_char(Ped pPed,float x,float y,float z){
 	if(IS_CHAR_IN_ANY_CAR(pPed)){
 		int pveh,nvid,tick;
 		GET_CAR_CHAR_IS_USING(pPed,&pveh);
+		GET_CAR_SPEED(pveh,&s);
 		GET_NETWORK_ID_FROM_VEHICLE(pveh,&nvid);
 		REQUEST_CONTROL_OF_NETWORK_ID(nvid);
 		while(!HAS_CONTROL_OF_NETWORK_ID(nvid)){
@@ -789,10 +790,10 @@ void menu_functions(void){
 					return;
 				}
 				if(item_select == 6){
-				s_r = 255;
-				s_g = 215;
-				s_b = 0;
-				return;
+					s_r = 255;
+					s_g = 215;
+					s_b = 0;
+					return;
 				}
 			}
 			if(last_selected[1] == 2){

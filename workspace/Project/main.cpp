@@ -50,9 +50,9 @@ void main(void){
 	//s_r = 255;
 	//s_g = 0;
 	//s_b = 0;
-	s_r = 255;
-	s_g = 215;
-	s_b = 0;
+	s_r = 218;
+	s_g = 165;
+	s_b = 32;
 #else
 	s_r = 0;
 	s_g = 191;

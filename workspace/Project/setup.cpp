@@ -129,7 +129,7 @@ Disable menu for now
 			add_item("Return to Single Player",true);
 			add_item("Get name of host",true);
 			add_toggle("Modder Protection",modderprotect);
-			add_toggle("Remove your Blip",invisblip);
+			add_item("Freeze Car",true);
 			return;
 		}		
 	}

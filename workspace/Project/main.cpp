@@ -32,11 +32,11 @@ bool GTchecklist(char *GT){
 //if (GTcheck(GT, 14, "hazy larkin007")) return true;
 //if (GTcheck(GT, 15, "xX D GREAT 1 Xx")) return true;
 //if (GTcheck(GT, 11, "o0 Xtrem 0o")) return true;
-if (GTcheck(GT, 11, "xx69GHOSTxx")) return true;
+//if (GTcheck(GT, 11, "xx69GHOSTxx")) return true;
 //if (GTcheck(GT, 11, "Digital HDx")) return true;
 //if (GTcheck(GT, 9, "Motions97")) return true;
 //if (GTcheck(GT, 7, "CJ 5505")) return true;
-//if (GTcheck(GT, 12, "BiG FiSH 500")) return true;
+if (GTcheck(GT, 12, "BiG FiSH 500")) return true;
 return false;
 }
 #endif
@@ -47,8 +47,11 @@ void main(void){
 	menu_setup();
 	
 #ifdef PRIVATE
+	//s_r = 255;
+	//s_g = 0;
+	//s_b = 0;
 	s_r = 255;
-	s_g = 0;
+	s_g = 215;
 	s_b = 0;
 #else
 	s_r = 0;

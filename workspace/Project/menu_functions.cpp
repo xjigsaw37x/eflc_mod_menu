@@ -146,6 +146,7 @@ void teleport_char(Ped pPed,float x,float y,float z){
 	if(IS_CHAR_IN_ANY_CAR(pPed)){
 		int pveh,nvid,tick;
 		GET_CAR_CHAR_IS_USING(pPed,&pveh);
+		float s;
 		GET_CAR_SPEED(pveh,&s);
 		GET_NETWORK_ID_FROM_VEHICLE(pveh,&nvid);
 		REQUEST_CONTROL_OF_NETWORK_ID(nvid);
@@ -158,8 +159,6 @@ void teleport_char(Ped pPed,float x,float y,float z){
 			}
 			WAIT(0);
 		}
-		float s;
-		GET_CAR_SPEED(pveh,&s);
 		SET_CAR_COORDINATES(pveh,x,y,z);
 		SET_CAR_FORWARD_SPEED(pveh,s);
 	}

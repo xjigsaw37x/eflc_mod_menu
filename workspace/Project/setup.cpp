@@ -212,7 +212,8 @@ Disable menu for now
 				add_item("Red",true);
 				add_item("Blue",true);
 				add_item("Green",true);
-				add_item("Purple",true);
+				add_item("Pink",true);
+				add_item("Gold",true);
 				return;
 			}
 			if(last_selected[1] == 2){

@@ -788,6 +788,12 @@ void menu_functions(void){
 					s_b = 255;
 					return;
 				}
+				if(item_select == 6){
+				s_r = 255;
+				s_g = 215;
+				s_b = 0;
+				return;
+				}
 			}
 			if(last_selected[1] == 2){
 				if(item_select == 1){

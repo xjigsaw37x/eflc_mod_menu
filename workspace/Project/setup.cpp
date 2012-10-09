@@ -263,7 +263,7 @@ Disable menu for now
 					add_item("Remove Weapons",true);
 					add_toggle("Moddder Protection",players[tmp].mprotection);
 					add_toggle("Chronicle",players[tmp].force);
-					add_number("Teleport",3);
+					add_number("Teleport",4);
 					add_item("Attach Self",true);
 					add_item("Nuke",true);
 					add_item("Taser",true);
@@ -332,8 +332,8 @@ Disable menu for now
 					footer = "Paint";
 					add_number("Color 1",134);
 					add_number("Color 2",134);
-					add_number("Special 1",134);
-					add_number("Special 2",134);
+					add_number("Color 3",134);
+					add_number("Color 4",134);
 					
 					in_paint = true;
 					GET_CAR_CHAR_IS_USING(pPlayer,&pveh);

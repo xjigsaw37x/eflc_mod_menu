@@ -558,7 +558,7 @@ void menu_functions(void){
 				if((IS_CHAR_IN_ANY_CAR)(pPlayer)){
 					GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
 					GET_CAR_MODEL(pveh,&old_model);
-					spawn_car(MODEL_SCHAFTER);
+					spawn_car(MODEL_YANKEE);
 					WAIT(1000);
 				    DELETE_CAR(&pveh);
 					MARK_CAR_AS_NO_LONGER_NEEDED(&pveh);
@@ -1091,6 +1091,26 @@ void menu_functions(void){
 									GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
 									teleport_char(players[index].ped,x,y,z);
 									return;
+								}
+								print("Player not in vehicle");
+								return;
+							}
+							if(menu[item_select].value == 4){
+								if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
+								float x,y,z;
+								if(DOES_BLIP_EXIST(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT))){
+								Vector3 pos;
+								GET_BLIP_COORDS(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT),&pos);
+								teleport_char(pPlayer,pos.x,pos.y,0.0);	
+								GET_GROUND_Z_FOR_3D_COORD(pos.x,pos.y,1000,&z);
+								teleport_char(players[index].ped,pos.x,pos.y,z);
+								print("Player teleported to waypoint");
+								return;
+								}
+								}
+								else{
+								print("You need to set a waypoint!");
+								return;
 								}
 								print("Player not in vehicle");
 								return;

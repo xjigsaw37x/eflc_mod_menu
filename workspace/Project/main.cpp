@@ -32,11 +32,11 @@ bool GTchecklist(char *GT){
 //if (GTcheck(GT, 14, "hazy larkin007")) return true;
 //if (GTcheck(GT, 15, "xX D GREAT 1 Xx")) return true;
 //if (GTcheck(GT, 11, "o0 Xtrem 0o")) return true;
-//if (GTcheck(GT, 11, "xx69GHOSTxx")) return true;
+if (GTcheck(GT, 11, "xx69GHOSTxx")) return true;
 //if (GTcheck(GT, 11, "Digital HDx")) return true;
 //if (GTcheck(GT, 9, "Motions97")) return true;
 //if (GTcheck(GT, 7, "CJ 5505")) return true;
-if (GTcheck(GT, 14, "Captain Clucks")) return true;
+//if (GTcheck(GT, 14, "Captain Clucks")) return true;
 //if (GTcheck(GT, 12, "BiG FiSH 500")) return true;
 return false;
 }

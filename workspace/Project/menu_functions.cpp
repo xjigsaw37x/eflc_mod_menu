@@ -763,7 +763,7 @@ void menu_functions(void){
 		if(last_selected[0] == 5){
 			if(last_selected[1] == 1){
 				if(item_select == 1){
-					do_toggle(chat_thingy_use_color);
+					print("I said it was a Placeholder!");
 					return;
 				}
 				if(item_select == 2){
@@ -1500,11 +1500,7 @@ void looped_functions(void){
 	if(fastreload){
 		SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), true);
 	}
-	
-	if(invisblip){
-		REMOVE_BLIP(GetPlayerIndex());
-	}
-	
+
 	if(forcefield){
 		float x,y,z;
 		GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
@@ -1646,14 +1642,7 @@ void looped_functions(void){
 			if(!IS_NETWORK_PLAYER_ACTIVE(i)) continue;
 			if(!NETWORK_IS_PLAYER_TALKING(i)) continue;
 			if(NETWORK_IS_PLAYER_MUTED_BY_ME(i)) continue;
-			if(chat_thingy_use_color){
-				GET_PLAYER_RGB_COLOUR(i,&r,&g,&b);
-			}
-			else{
-				r = 255;
-				g = 255;
-				b = 255;
-			}
+			GET_PLAYER_RGB_COLOUR(i,&r,&g,&b);
 			set_up_draw(3,0.3,0.3,r,g,b,255);
 			draw_text("STRING",0.70,pos_y,GET_PLAYER_NAME(i));
 			pos_y -= 0.03;			

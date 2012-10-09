@@ -208,7 +208,7 @@ Disable menu for now
 		if(last_selected[0] == 5){
 			if(last_selected[1] == 1){
 				footer = "Menu Colors";
-				add_toggle("Chat Thingy Color",chat_thingy_use_color);
+				add_item("Placeholder",true);
 				add_item("Red",true);
 				add_item("Blue",true);
 				add_item("Green",true);

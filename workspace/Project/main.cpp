@@ -1,12 +1,3 @@
-//Leave undefined unless you know what your doing
-#define PRIVATE 
-
-#ifdef PRIVATE
-#define MENU_TITLE "XMC ModMenu v2 Private Edition"
-#else
-#define MENU_TITLE "XMC ModMenu v2 Public Edition"
-#endif
-
 #include <natives.h>
 #include <common.h>
 #include <consts.h>
@@ -18,6 +9,13 @@
 #include "setup.cpp"
 #include "menu_functions.cpp"
 #include "core.cpp"
+
+#ifdef PRIVATE
+#define MENU_TITLE "XMC ModMenu v2 Private Edition"
+#else
+#define MENU_TITLE "XMC ModMenu v2 Public Edition"
+#endif
+
 
 void main(void){
 	THIS_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();

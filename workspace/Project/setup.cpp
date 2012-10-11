@@ -170,7 +170,7 @@ Disable menu for now
 				add_item("Pole Dance",true);
 				add_item("Stop Anim",true);
 				add_toggle("Ragdoll",ragdoll);
-				add_item("Car sex",true);
+				add_item("Handjob",true);
 				return;
 			}
 		}

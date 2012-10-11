@@ -61,17 +61,6 @@ typedef struct __data{
 
 _data data[15];
 
-typedef struct _menu_struct{
-	char* item_name;
-	bool action;
-	int type;
-	int value;
-	int extra_val;
-	int maxval;
-} menu_struct;
-
-menu_struct menu[20];
-
 typedef struct _online_players{
 	//index
 	char* gamertag;

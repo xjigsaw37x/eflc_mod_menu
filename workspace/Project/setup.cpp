@@ -58,7 +58,7 @@ Disable menu for now
 		if(last_selected[0] == 1){
 			footer = "Player Options";
 			add_item("Online Players",false);
-			add_item("Dances",false);
+			add_item("Animations",false);
 			add_item("Give Health & Armor",true);
 			add_toggle("God Mode",godmode);
 			add_toggle("Never Wanted",neverwanted);
@@ -170,6 +170,7 @@ Disable menu for now
 				add_item("Pole Dance",true);
 				add_item("Stop Anim",true);
 				add_toggle("Ragdoll",ragdoll);
+				add_item("Car sex",true);
 				return;
 			}
 		}
@@ -208,7 +209,7 @@ Disable menu for now
 		if(last_selected[0] == 5){
 			if(last_selected[1] == 1){
 				footer = "Menu Colors";
-				add_item("Placeholder",true);
+				add_item("Purple",true);
 				add_item("Red",true);
 				add_item("Blue",true);
 				add_item("Green",true);

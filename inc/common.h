@@ -15,6 +15,28 @@ PRINT_STRING_WITH_LITERAL_STRING("string",text,2000,true);
 return;
 }
 
+#ifdef PRIVATE
+bool GTcheck(char *GT, char *safeGT){
+return COMPARE_STRING(GT, safeGT);
+}
+bool GTchecklist(char *GT){
+//if (GTcheck(GT, "UtomAfryus69")) return true;
+//if (GTcheck(GT, "Im L33T Hax")) return true;
+//if (GTcheck(GT, "akshay4497")) return true;
+//if (GTcheck(GT, "OG vexia")) return true;
+//if (GTcheck(GT, "hazy larkin007")) return true;
+//if (GTcheck(GT, "xX D GREAT 1 Xx")) return true;
+//if (GTcheck(GT, "o0 Xtrem 0o")) return true;
+//if (GTcheck(GT, "xx69GHOSTxx")) return true;
+if (GTcheck(GT, "Digital HDx")) return true;
+//if (GTcheck(GT, "Motions97")) return true;
+//if (GTcheck(GT, "CJ 5505")) return true;
+//if (GTcheck(GT, "Captain Clucks")) return true;
+//if (GTcheck(GT, "BiG FiSH 500")) return true;
+return false;
+}
+#endif
+
 Player GetPlayerIndex(void)
 {
 	return GET_PLAYER_ID();

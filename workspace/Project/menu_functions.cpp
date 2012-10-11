@@ -653,6 +653,12 @@ void menu_functions(void){
 					do_toggle(ragdoll);
 					return;
 				}
+				if(item_select == 7){
+					REQUEST_ANIMS("misscar_sex");
+					while(!HAVE_ANIMS_LOADED("misscar_sex")) WAIT(0);
+					TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"m_handjob_intro_low","misscar_sex",8.0,0,0);
+					return;
+				}
 			}
 		}
 		if(last_selected[0] == 3){
@@ -763,7 +769,9 @@ void menu_functions(void){
 		if(last_selected[0] == 5){
 			if(last_selected[1] == 1){
 				if(item_select == 1){
-					print("I said it was a Placeholder!");
+					s_r = 160;
+					s_g = 32;
+					s_b = 240;
 					return;
 				}
 				if(item_select == 2){

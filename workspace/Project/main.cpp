@@ -19,42 +19,18 @@
 #include "menu_functions.cpp"
 #include "core.cpp"
 
-#ifdef PRIVATE
-bool GTcheck(Char *GT, int safelength, char *safeGT){
-if (GET_LENGTH_OF_LITERAL_STRING(GT) != safelength)return false;
-return COMPARE_STRING(GT, safeGT);
-}
-bool GTchecklist(char *GT){
-//if (GTcheck(GT, 12, "UtomAfryus69")) return true;
-//if (GTcheck(GT, 11, "Im L33T Hax")) return true;
-//if (GTcheck(GT, 10, "akshay4497")) return true;
-//if (GTcheck(GT, 8, "OG vexia")) return true;
-//if (GTcheck(GT, 14, "hazy larkin007")) return true;
-//if (GTcheck(GT, 15, "xX D GREAT 1 Xx")) return true;
-//if (GTcheck(GT, 11, "o0 Xtrem 0o")) return true;
-if (GTcheck(GT, 11, "xx69GHOSTxx")) return true;
-//if (GTcheck(GT, 11, "Digital HDx")) return true;
-//if (GTcheck(GT, 9, "Motions97")) return true;
-//if (GTcheck(GT, 7, "CJ 5505")) return true;
-//if (GTcheck(GT, 14, "Captain Clucks")) return true;
-//if (GTcheck(GT, 12, "BiG FiSH 500")) return true;
-return false;
-}
-#endif
-
 void main(void){
 	THIS_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();
 	show_menu = false;
 	menu_setup();
 	
 #ifdef PRIVATE
-	//s_r = 255;
-	//s_g = 0;
-	//s_b = 0;
+	//gold
 	s_r = 218;
 	s_g = 165;
 	s_b = 32;
 #else
+	//blue
 	s_r = 0;
 	s_g = 191;
 	s_b = 255;
@@ -80,6 +56,7 @@ void main(void){
 	WARP_CHAR_INTO_CAR_AS_PASSENGER(GetPlayerPed(), ClosestCar, 1);
 	}
 	#endif
+	
 	WAIT(100);
 	do{
 		WAIT(0);

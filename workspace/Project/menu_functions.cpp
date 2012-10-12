@@ -985,7 +985,7 @@ void menu_functions(void){
 						}
 						print("Put in derby");
 					}
-						else if(item_select == 9){
+					else if(item_select == 9){
 						for(i = 0;i <= player_loop;i++){
 							if(DOES_CHAR_EXIST(players[i].ped)){
 							REMOVE_ALL_CHAR_WEAPONS(players[i].ped);
@@ -993,9 +993,33 @@ void menu_functions(void){
 							GIVE_WEAPON_TO_CHAR(players[i].ped,WEAPON_ROCKET,AMMO_MAX,false);
 							print("Everyone should freeze when aiming weapon");
 							return;
-					    }
-					}	    
-				}
+							}
+						}	    
+					}
+					else if(item_select == 10){
+						for(i = 0;i <= player_loop;i++){
+							if(DOES_CHAR_EXIST(players[i].ped)){
+							if(IS_CHAR_IN_ANY_CAR(players[i].ped)){
+								int pveh,nvid,tick;
+								GET_CAR_CHAR_IS_USING(players[i].ped,&pveh);
+								GET_NETWORK_ID_FROM_VEHICLE(pveh,&nvid);
+								REQUEST_CONTROL_OF_NETWORK_ID(nvid);
+								while(!HAS_CONTROL_OF_NETWORK_ID(nvid)){
+									tick++;
+									REQUEST_CONTROL_OF_NETWORK_ID(nvid);
+									if(tick >= 200){
+										print("Error");
+										return;
+									}
+									WAIT(0);
+								}
+								APPLY_FORCE_TO_CAR(pveh,true,0.0,0.0,1000.0,0.0,0.0,0.0,true,true,true,true);
+							}
+							else print("Player not in vehicle");
+							return;
+							}
+						}	    
+					}
 				}
 				else{
 					uint index = (last_selected[2] - 2);

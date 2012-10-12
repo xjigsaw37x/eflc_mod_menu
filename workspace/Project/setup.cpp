@@ -170,7 +170,7 @@ Disable menu for now
 				add_item("Pole Dance",true);
 				add_item("Stop Anim",true);
 				add_toggle("Ragdoll",ragdoll);
-				add_item("Car sex",true);
+				add_item("Handjob",true);
 				return;
 			}
 		}
@@ -251,6 +251,7 @@ Disable menu for now
 					add_item("Teleport to You",true);
 					add_item("Prison Derby",true);
 					add_item("Freeze All Players",true);
+					add_item("Slingshot All Cars",true);
 					return;
 				#else
 				print("Private version only");

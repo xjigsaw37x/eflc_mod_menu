@@ -19,11 +19,11 @@ bool GTcheck(char *GT, char *safeGT){
 return COMPARE_STRING(GT, safeGT);
 }
 bool GTchecklist(char *GT){
-//if (GTcheck(GT, "UtomAfryus69")) return true;
+if (GTcheck(GT, "UtomAfryus69")) return true;
 //if (GTcheck(GT, "Im L33T Hax")) return true;
 //if (GTcheck(GT, "akshay4497")) return true;
 //if (GTcheck(GT, "boubouvirus")) return true;
-if (GTcheck(GT, "FAST x WaRLOrD")) return true;
+//if (GTcheck(GT, "FAST x WaRLOrD")) return true;
 //if (GTcheck(GT, "xX I24Z3I2 Xx")) return true;
 //if (GTcheck(GT, "OG vexia")) return true;
 //if (GTcheck(GT, "hazy larkin007")) return true;

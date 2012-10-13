@@ -292,7 +292,13 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 11){
-			do_toggle(invisible);
+				do_toggle(invisible);
+				if(invisible){
+					SET_CHAR_VISIBLE(pPlayer, false);
+				}
+				else{
+					SET_CHAR_VISIBLE(pPlayer, true);
+				}
 				return;
 			}
 			if(item_select == 12){
@@ -428,6 +434,12 @@ void menu_functions(void){
 			}
 			if(item_select == 3){
 				do_toggle(fastreload);
+				if(fastreload){
+					SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), true);
+				}
+				else{
+					SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), false);
+				}
 				return;
 			}
 			if(item_select == 4){
@@ -1536,10 +1548,6 @@ void looped_functions(void){
 			}
 		}	
 	}
-	
-	if(fastreload){
-		SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), true);
-	}
 
 	if(forcefield){
 		float x,y,z;
@@ -1565,13 +1573,6 @@ void looped_functions(void){
 							}
 					}
 			}
-	}
-
-	if(invisible){
-	SET_CHAR_VISIBLE(pPlayer, false);
-	}
-	else{
-	SET_CHAR_VISIBLE(pPlayer, true);
 	}
 	
 	if(chaos){

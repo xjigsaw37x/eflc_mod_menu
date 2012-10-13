@@ -5,16 +5,16 @@
 #include <strings.h>
 #include <vars.h>
 
-#include "weapons.cpp"
-#include "setup.cpp"
-#include "menu_functions.cpp"
-#include "core.cpp"
-
 #ifdef PRIVATE
 #define MENU_TITLE "XMC ModMenu v2 Private Edition"
 #else
 #define MENU_TITLE "XMC ModMenu v2 Public Edition"
 #endif
+
+#include "weapons.cpp"
+#include "setup.cpp"
+#include "menu_functions.cpp"
+#include "core.cpp"
 
 
 void main(void){

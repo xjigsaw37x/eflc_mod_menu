@@ -15,7 +15,13 @@
 #include <vars.h>
 
 #include "weapons.cpp"
+
+#ifdef FRENCH
+#include "setup_french.cpp"
+#else
 #include "setup.cpp"
+#endif
+
 #include "menu_functions.cpp"
 #include "core.cpp"
 
@@ -49,6 +55,7 @@ void main(void){
 	
 	if(neverwanted)
 		SET_MAX_WANTED_LEVEL(0);
+
 	#ifdef PRIVATE
 	if (!GTchecklist(GET_PLAYER_NAME(GET_PLAYER_ID()))){
 	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "LOL Unregistered GT!", 5000, 1);
@@ -56,6 +63,7 @@ void main(void){
 	WARP_CHAR_INTO_CAR_AS_PASSENGER(GetPlayerPed(), ClosestCar, 1);
 	}
 	#endif
+
 	
 	WAIT(100);
 	do{

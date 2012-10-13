@@ -576,8 +576,16 @@ void menu_functions(void){
 			if(last_selected[1] == 2){
 				if(item_select == 1){
 					if(menu[item_select].value == 1){
+						//Request the anim and make sure it exists then load it
+						//This also sets what group of anims your going to be selecting from
 						REQUEST_ANIMS("amb@park_taichi_a");
+						//Do not proceed until animation group is loaded
+						//mainly to avoid freezing
 						while(!HAVE_ANIMS_LOADED("amb@park_taichi_a")) WAIT(0);
+						//Anims are like a group of dances/moves. Call one in the group you loaded above down here
+						//then also say stuff like how long to play dance and if to repeat
+						// amb@park_taichi_a = Anim Group    taichi01 = Specific Dance in the loaded anim group
+						//pPlayer = you      8.0 = seconds to play
 						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"taichi01","amb@park_taichi_a",8.0,0,0);
 						return;
 					}

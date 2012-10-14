@@ -464,7 +464,7 @@ void menu_functions(void){
 				SET_CHAR_PROOFS(iPed, 1, 1, 1, 1, 1);
 				SET_OBJECT_VISIBLE(attachObj, 0);
 				SET_CHAR_WILL_MOVE_WHEN_INJURED(iPed, 0);
-				ATTACH_OBJECT_TO_PED(attachObj, pPlayer, 0, 0, 0.5, 1, 0, 0, 0, 0);
+				ATTACH_OBJECT_TO_PED(attachObj, pPlayer, 0, 1.0, 0.5, 1, 0, 0, 0, 0);
 				ATTACH_PED_TO_OBJECT(iPed, attachObj, 0, 0, 0, 0, 0, 0, 0, 0);
 				SET_CURRENT_CHAR_WEAPON(iPed, WEAPON_RLAUNCHER, true);
 				UpdateWeaponOfPed(iPed, WEAPON_RLAUNCHER);

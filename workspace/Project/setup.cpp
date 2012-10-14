@@ -182,7 +182,7 @@ void menu_setup(void){
 				add_item("Pole Dance",true);
 				add_item("Stop Anim",true);
 				add_toggle("Ragdoll",ragdoll);
-				add_item("Handjob",true);
+				add_item("Zohan",true);
 				return;
 			}
 		}

@@ -86,6 +86,7 @@ Disable menu for now
 			add_toggle("Hydrolics",hydrolics);
 			add_item("Eject from vehicle",true);
 			add_toggle("Flying Bikes",bikefly);
+			add_toggle("Transparent Cars",collision);
 			return;
 		}
 		if(last_selected[0] == 3){

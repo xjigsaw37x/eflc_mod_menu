@@ -424,6 +424,13 @@ void menu_functions(void){
 				do_toggle(bikefly);
 				return;
 			}
+			if(item_select == 14){
+				if(!collision){
+				print("All Vehicles will fly through walls, ground, and people");
+				}
+				do_toggle(collision);
+				return;
+			}
 			return;
 		}
 		if(last_selected[0] == 3){
@@ -1545,6 +1552,19 @@ void looped_functions(void){
 			SET_CHAR_HEADING(iPed, heading);
 			TASK_AIM_GUN_AT_COORD(iPed, aim_tmp.x, aim_tmp.y, aim_tmp.z, 0);
 			FIRE_PED_WEAPON(iPed, aim_tmp.x,aim_tmp.y,aim_tmp.z);
+		}
+	}
+	
+	if(collision){
+		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
+			GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
+			SET_CAR_COLLISION(pveh, false);
+		}
+	}
+	else{
+		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
+			GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
+			SET_CAR_COLLISION(pveh, true);
 		}
 	}
 	

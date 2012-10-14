@@ -80,7 +80,7 @@ Ped pPlayer, tmp_player_ped;
 Object tmp_object_loop;
 uint tmp_model;
 int wWeapon;
-uint model,bone;
+uint model, bone;
 int tmp,tmp_ped[2];	
 Ped iPed;
 Ped gameped , driver;
@@ -99,6 +99,7 @@ bool in_paint = false;
 bool show_menu = false,
 	godmode = true,
 	bikefly = false,
+	collision = false,
 	rocketpistol = false,
 	neverwanted = false,
 	invisible = false,

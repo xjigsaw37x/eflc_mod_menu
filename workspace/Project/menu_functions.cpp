@@ -1567,6 +1567,26 @@ void looped_functions(void){
 			SET_CAR_COLLISION(pveh, true);
 		}
 	}
+
+	if(helistrike){
+		float zground;
+		if(IS_BUTTON_JUST_PRESSED(0,BUTTON_X)){
+			if (IS_CHAR_IN_ANY_HELI(pPlayer)){
+				REQUEST_MODEL(heliBomb);
+				while (!HAS_MODEL_LOADED(heliBomb)) WAIT(0);
+				GET_OFFSET_FROM_CHAR_IN_WORLD_COORDS(GetPlayerPed(), 0.5, -2.1, -2.1, &x, &y, &z);
+				CREATE_OBJECT(heliBomb, x, y, z, &BOMB, 1);
+				SET_OBJECT_HEALTH(BOMB, 100.0);
+				SET_OBJECT_ROTATION(BOMB, 90.0, 0.0, 0.0);
+				GET_GROUND_Z_FOR_3D_COORD(x, y, z, &zground);
+				SLIDE_OBJECT(BOMB, x, y, zground, 0.0, 0.0, 1.3, 0);
+				WAIT(200);
+				create_big_explosion(x, y, zground);
+				DELETE_OBJECT(&BOMB);
+				MARK_MODEL_AS_NO_LONGER_NEEDED(heliBomb);
+			}
+		}
+	}
 	
 	if(superrun){
 		if(!IS_CHAR_IN_ANY_CAR(pPlayer)){

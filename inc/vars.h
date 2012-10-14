@@ -80,6 +80,7 @@ Ped pPlayer, tmp_player_ped;
 Object tmp_object_loop;
 uint tmp_model;
 int wWeapon;
+int BOMB;
 uint model, bone;
 int tmp,tmp_ped[2];	
 Ped iPed;
@@ -89,6 +90,7 @@ Camera game_cam;
 Object attachObj;
 Vector3 aim_tmp;
 float heading, x, y, z;
+uint heliBomb = 0x3E3783A1;
 
 char* footer;
 
@@ -104,6 +106,7 @@ bool show_menu = false,
 	neverwanted = false,
 	invisible = false,
 	fastreload = true,
+	helistrike = false,
 	pprotection = false,
 	superrun = false,
 	hydrolics = false,

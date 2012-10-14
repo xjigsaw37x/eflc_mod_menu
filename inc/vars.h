@@ -68,15 +68,6 @@ typedef struct _online_players{
 
 online_players players[18];
 
-Ped iPed;
-Ped gameped , driver;
-Vehicle ClosestCar , PlayerVehicle;
-Camera game_cam;
-Object attachObj;
-Vector3 aim_tmp;
-Camera game_cam;
-float heading, x, y, z;
-
 int item_count = 0,
 	item_select = 1,
 	menu_level = 0,
@@ -84,18 +75,22 @@ int item_count = 0,
 	last_selected[5];
 
 uint r,g,b,a,s_r,s_g,s_b;
-Ped pPlayer,
-	tmp_player_ped;
-	
-char* footer;
+Ped pPlayer, tmp_player_ped;
 
 Object tmp_object_loop;
 uint tmp_model;
-
 int wWeapon;
-
 uint model,bone;
-int tmp,tmp_ped[2];
+int tmp,tmp_ped[2];	
+Ped iPed;
+Ped gameped , driver;
+Vehicle ClosestCar, pveh, PlayerVehicle;
+Camera game_cam;
+Object attachObj;
+Vector3 aim_tmp;
+float heading, x, y, z;
+
+char* footer;
 
 bool grenade_active;
 	

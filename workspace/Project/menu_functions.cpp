@@ -142,7 +142,7 @@ void create_big_explosion(float fX,float fY,float fZ){
 
 }
 
-void teleport_char(Ped pPed,float x,float y,float z){
+void teleport_char(Ped pPed, float x,float y,float z){
 	if(IS_CHAR_IN_ANY_CAR(pPed)){
 		int pveh,nvid,tick;
 		GET_CAR_CHAR_IS_USING(pPed,&pveh);
@@ -185,7 +185,7 @@ void create_throwable_object(uint model){
 
 void spawn_car(uint model){
 	int pveh,driver;
-	float x,y,z,h,s;
+	 float h, s;
 	bool speed = false;
 	REQUEST_MODEL(model);
 	while(!HAS_MODEL_LOADED(model)) WAIT(0);
@@ -220,7 +220,7 @@ void xmc_teleportinfront(void)
 {
     if ( IS_PLAYER_PLAYING(GetPlayerIndex()) )
     {
-        float x, y, z, ch;
+        float ch;
         GET_CHAR_HEADING(GetPlayerPed(), &ch);
         GET_CHAR_COORDINATES(GetPlayerPed(), &x, &y, &z);
         teleport_char(pPlayer, x+(10*SIN((-1*ch))), y+(10*COS((-1*ch))), z);
@@ -343,7 +343,7 @@ void menu_functions(void){
 			}
 			if(item_select == 6){
 				if(IS_CHAR_IN_ANY_CAR(pPlayer)){
-					float x,y,z;
+					// float x,y,z;
 					GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
 					teleport_char(pPlayer,0.0,4000.0,0.0);
 					WAIT(0);
@@ -353,7 +353,6 @@ void menu_functions(void){
 			}
 			if(item_select == 7){
 				if(IS_CHAR_IN_ANY_CAR(pPlayer)){
-					Vehicle pveh;
 					GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
 					FIX_CAR(pveh);
 					SET_VEHICLE_DIRT_LEVEL(pveh,0.0);
@@ -364,7 +363,7 @@ void menu_functions(void){
 			if(item_select == 8){
 				if(IS_CHAR_IN_ANY_CAR(pPlayer)){
 					uint lock;
-					Vehicle pveh;
+					// Vehicle pveh;
 					GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
 					GET_CAR_DOOR_LOCK_STATUS(pveh,&lock);
 					if(lock == VEHICLE_DOOR_UNLOCKED){
@@ -380,7 +379,7 @@ void menu_functions(void){
 			}
 			if(item_select == 9){
 				if(IS_CHAR_IN_ANY_CAR(pPlayer)){
-					Vehicle pveh;
+					// // Vehicle pveh;
 					Ped driver;
 					GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
 					GET_DRIVER_OF_CAR(pveh,&driver);
@@ -394,7 +393,7 @@ void menu_functions(void){
 			}
 			if(item_select == 10){
 				if(IS_CHAR_IN_ANY_CAR(pPlayer)){
-					Vehicle pveh;
+					// Vehicle pveh;
 					GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
 					SET_CAR_ON_GROUND_PROPERLY(pveh);
 				}
@@ -408,7 +407,7 @@ void menu_functions(void){
 				return;
 				}
 			if(item_select == 12){
-				float x, y, z;
+				//// float x, y, z;
 				if(IS_CHAR_IN_ANY_CAR(pPlayer)){
 				GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
 				z += 1;
@@ -479,7 +478,6 @@ void menu_functions(void){
 			if(item_select == 1){
 				if(DOES_BLIP_EXIST(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT))){
 					Vector3 pos;
-					float z;
 					GET_BLIP_COORDS(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT),&pos);
 					teleport_char(pPlayer,pos.x,pos.y,0.0);
 					
@@ -594,7 +592,7 @@ void menu_functions(void){
 			}
 			if(item_select == 10){	
 				uint old_model;
-				Vehicle pveh;
+				// Vehicle pveh;
 				if((IS_CHAR_IN_ANY_CAR)(pPlayer)){
 					GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
 					GET_CAR_MODEL(pveh,&old_model);
@@ -951,7 +949,6 @@ void menu_functions(void){
 						print("Removed everyones weapons");
 					}
 					else if(item_select == 3){
-						float x,y,z;
 						for(i = 0;i <= player_loop;i++){
 							if(DOES_CHAR_EXIST(players[i].ped)){
 								GET_CHAR_COORDINATES(players[i].ped,&x,&y,&z);
@@ -987,7 +984,7 @@ void menu_functions(void){
 							if(DOES_CHAR_EXIST(players[i].ped)){
 								int tick,nvid;
 								if(IS_CHAR_IN_ANY_CAR(players[i].ped)){
-									Vehicle pveh;
+									// Vehicle pveh;
 									GET_CAR_CHAR_IS_USING(players[i].ped,&pveh);
 									GET_NETWORK_ID_FROM_VEHICLE(pveh,&nvid);
 									REQUEST_CONTROL_OF_NETWORK_ID(nvid);
@@ -1010,7 +1007,7 @@ void menu_functions(void){
 						return;
 					}
 					else if(item_select == 7){
-						float x,y,z;
+						//// float x,y,z;
 						GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
 						for(i = 0;i <= player_loop;i++){
 							if(DOES_CHAR_EXIST(players[i].ped)){
@@ -1146,14 +1143,14 @@ void menu_functions(void){
 					else if(item_select == 5){
 						if(DOES_CHAR_EXIST(players[index].ped)){
 							if(menu[item_select].value == 1){
-								float x,y,z;
+								//// float x,y,z;
 								GET_CHAR_COORDINATES(players[index].ped,&x,&y,&z);
 								teleport_char(pPlayer,x,y,z);
 								return;
 							}
 							if(menu[item_select].value == 2){
 								if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
-									Vehicle pveh;
+									// Vehicle pveh;
 									uint i;
 									Ped tmp;
 									GET_CAR_CHAR_IS_USING(players[index].ped,&pveh);
@@ -1167,7 +1164,7 @@ void menu_functions(void){
 							}
 							if(menu[item_select].value == 3){
 								if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
-									float x,y,z;
+									//// float x,y,z;
 									GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
 									teleport_char(players[index].ped,x,y,z);
 									return;
@@ -1177,7 +1174,7 @@ void menu_functions(void){
 							}
 							if(menu[item_select].value == 4){
 								if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
-									float x,y,z;
+									// // float x,y,z;
 									if(DOES_BLIP_EXIST(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT))){
 										Vector3 pos;
 										GET_BLIP_COORDS(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT),&pos);
@@ -1202,7 +1199,7 @@ void menu_functions(void){
 					else if(item_select == 6){
 						if(DOES_CHAR_EXIST(players[index].ped)){
 							if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
-								Vehicle pveh;
+								// Vehicle pveh;
 								GET_CAR_CHAR_IS_USING(players[index].ped,&pveh);
 								ATTACH_PED_TO_CAR(pPlayer,pveh,0,0.00,0.00,1.5,0.00,0.00,1,1);
 							}
@@ -1230,7 +1227,7 @@ void menu_functions(void){
 								SET_CAN_BURST_CAR_TYRES(pveh,true);
 							}
 							print("Whiskey Tango, this is Rubber Ducky comin' in hot!");
-							float x,y,z;
+							// // float x,y,z;
 							GET_CHAR_COORDINATES(players[index].ped,&x,&y,&z);
 							create_big_explosion(x,y,z);						
 						}
@@ -1239,7 +1236,7 @@ void menu_functions(void){
 						if(DOES_CHAR_EXIST(players[index].ped)){
 							if(GET_HOST_ID() != GET_PLAYER_ID()){
 								if(!IS_CHAR_IN_ANY_CAR(players[index].ped)){
-									float x,y,z;
+									// float x,y,z;
 									GET_CHAR_COORDINATES(players[index].ped,&x,&y,&z);
 									ADD_EXPLOSION(x,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
 									ADD_EXPLOSION(x + 1.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
@@ -1417,7 +1414,7 @@ void menu_functions(void){
 		if(last_selected[0] == 2){
 			if(last_selected[1] == 1){
 				if(last_selected[2] == 2){
-					Vehicle pveh;
+					// Vehicle pveh;
 					if(IS_CHAR_IN_ANY_CAR(pPlayer)){
 						GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
 						if(IS_VEHICLE_EXTRA_TURNED_ON(pveh,item_select))
@@ -1431,7 +1428,7 @@ void menu_functions(void){
 					print("You must be in a vehicle");
 				}
 				if(last_selected[2] == 3){
-					Vehicle pveh;
+					// Vehicle pveh;
 					if(IS_CHAR_IN_ANY_CAR(pPlayer)){
 						GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
 						if(item_select == 1){
@@ -1567,7 +1564,7 @@ void looped_functions(void){
 	}
 
 	if(forcefield){
-		float x,y,z;
+		// float x,y,z;
 		GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
 		ADD_EXPLOSION(x,y,z,EXPLOSION_SHIP_DESTROY,10.0,false,true,0.0);
 	}
@@ -1637,7 +1634,7 @@ void looped_functions(void){
 	}
 	
 	//vehicles
-	Vehicle pveh;
+	// Vehicle pveh;
 	if(vhelper){
 		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
 			GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
@@ -1735,7 +1732,7 @@ void better_grenade_loop(void){
 	if(grenade_active){
 		if(!IS_PED_HOLDING_AN_OBJECT(pPlayer)){
 			uint tick;
-			float x,y,z;
+			// float x,y,z;
 			grenade_active = false;
 			while(!HAS_OBJECT_COLLIDED_WITH_ANYTHING(tmp_object_loop)){
 				tick++;
@@ -1760,9 +1757,8 @@ void better_grenade_loop(void){
 
 void do_online_player_loop(void){
 	int i;
-	bool reset_timer = false;
-	uint weapon, armor;
-	float x,y,z;
+	uint armor;
+	// float x,y,z;
 	Ped tmp;
 	for(i = 0;i <= 16;i++){
 		if(!IS_NETWORK_PLAYER_ACTIVE(i)){

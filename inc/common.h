@@ -14,6 +14,13 @@ CLEAR_PRINTS();//Clears already printed text
 PRINT_STRING_WITH_LITERAL_STRING("string",text,2000,true);
 return;
 }
+
+void print_long(char* text){
+CLEAR_PRINTS();//Clears already printed text
+PRINT_STRING_WITH_LITERAL_STRING("string",text,5000,true);
+return;
+}
+
 #ifdef PRIVATE
 bool GTcheck(char *GT, char *safeGT){
 return COMPARE_STRING(GT, safeGT);

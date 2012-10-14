@@ -847,9 +847,9 @@ void menu_functions(void){
 					return;
 				}
 				if(item_select == 6){
-					s_r = 255;
-					s_g = 215;
-					s_b = 0;
+					s_r = 218;
+					s_g = 165;
+					s_b = 32;
 					return;
 				}
 			}
@@ -1761,7 +1761,7 @@ void better_grenade_loop(void){
 void do_online_player_loop(void){
 	int i;
 	bool reset_timer = false;
-	uint ammo,weapon,armor,health;
+	uint weapon, armor;
 	float x,y,z;
 	Ped tmp;
 	for(i = 0;i <= 16;i++){
@@ -1774,25 +1774,19 @@ void do_online_player_loop(void){
 		if(DOES_CHAR_EXIST(tmp)){
 			if(players[i].mprotection){
 				GET_CHAR_ARMOUR(tmp,&armor);
-				GET_CHAR_HEALTH(tmp,&health);
 				if(armor < 99){
 					GIVE_WEAPON_TO_CHAR(tmp,WEAPON_ARMOUR,1,false);
 					ADD_ARMOUR_TO_CHAR(tmp,99);
-					WAIT(1000);
-					GIVE_WEAPON_TO_CHAR(tmp,WEAPON_ARMOUR,1,false);
-					ADD_ARMOUR_TO_CHAR(tmp,99);
 				}
-				if (HAS_CHAR_GOT_WEAPON(tmp, WEAPON_ROCKET)) {
+				if (HAS_CHAR_GOT_WEAPON(tmp, WEAPON_ROCKET)){
 					REMOVE_WEAPON_FROM_CHAR(tmp, WEAPON_ROCKET);
 				}
 			}
-			
 			if(players[i].force){
 				GET_CHAR_COORDINATES(tmp,&x,&y,&z);	  	
 				ADD_EXPLOSION(x,y,z,EXPLOSION_SHIP_DESTROY,10.0,false,true,0.0);
-				}
 			}
-
 		}
-		return;
 	}
+	return;
+}

@@ -4,6 +4,8 @@
 
 **/
 
+#define MODEL_dildo1  0x3675A6C3
+
 //Xbox 360 buttons
 #define BUTTON_SELECT 0xD
 #define BUTTON_START 0xC
@@ -39,27 +41,6 @@
 
 #define pos_x 0.25
 #define start_y 0.14
-
-typedef struct __data{
-	int projectile;
-	int actionid;
-	
-	float aimx;
-	float aimy;
-	float aimz;
-	
-	float playx;
-	float playy;
-	float playz;
-	
-	float velx;
-	float vely;
-	float velz;
-	
-	float dist;
-} _data;
-
-_data data[15];
 
 typedef struct _menu_struct{
 	char* item_name;

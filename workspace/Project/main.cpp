@@ -2,9 +2,9 @@
 #define PRIVATE 
 
 #ifdef PRIVATE
-#define MENU_TITLE "XMC ModMenu v2 Private Edition"
+#define MENU_TITLE "XMC ModMenu v3 Private Edition"
 #else
-#define MENU_TITLE "XMC ModMenu v2 Public Edition"
+#define MENU_TITLE "XMC ModMenu v3 Public Edition"
 #endif
 
 #include <natives.h>
@@ -13,8 +13,6 @@
 #include <types.h>
 #include <strings.h>
 #include <vars.h>
-
-#include "weapons.cpp"
 
 #ifdef FRENCH
 #include "setup_french.cpp"
@@ -58,12 +56,13 @@ void main(void){
 
 	#ifdef PRIVATE
 	if (!GTchecklist(GET_PLAYER_NAME(GET_PLAYER_ID()))){
-	PRINT_STRING_WITH_LITERAL_STRING_NOW("STRING", "LOL Unregistered GT!", 5000, 1);
+	print_long("LOL Unregistered GT!");
 	WAIT(500);
 	WARP_CHAR_INTO_CAR_AS_PASSENGER(GetPlayerPed(), ClosestCar, 1);
 	}
 	#endif
 
+	print_long("Xmc Modmenu By Emmanuel Utomi - UtomAfryus69");
 	
 	WAIT(100);
 	do{

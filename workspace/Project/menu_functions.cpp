@@ -615,7 +615,158 @@ void menu_functions(void){
 				return;
 			}
 		}
-	}
+		if(last_selected[0] == 6){
+			if(item_select == 1){
+				do_toggle(mod1);
+				if(mod1){
+					REQUEST_SCRIPT("xmcmod1");
+					while(!HAS_SCRIPT_LOADED("xmcmod1")) WAIT(0);
+					START_NEW_SCRIPT("xmcmod1",1024);
+					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod1");
+					return;
+				}
+				else{
+					TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("xmcmod1");
+					return;
+				}
+				return;
+			}
+			if(item_select == 2){
+				do_toggle(mod2);
+				if(mod2){
+					REQUEST_SCRIPT("xmcmod2");
+					while(!HAS_SCRIPT_LOADED("xmcmod2")) WAIT(0);
+					START_NEW_SCRIPT("xmcmod2",1024);
+					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod2");
+					return;
+				}
+				else{
+					TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("xmcmod2");
+					return;
+				}
+				return;
+			}
+			if(item_select == 3){
+				do_toggle(mod3);
+				if(mod3){
+					REQUEST_SCRIPT("xmcmod3");
+					while(!HAS_SCRIPT_LOADED("xmcmod3")) WAIT(0);
+					START_NEW_SCRIPT("xmcmod3",1024);
+					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod3");
+					return;
+				}
+				else{
+					TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("xmcmod3");
+					return;
+				}
+				return;
+			}
+			if(item_select == 4){
+				do_toggle(mod4);
+				if(mod4){
+					REQUEST_SCRIPT("xmcmod4");
+					while(!HAS_SCRIPT_LOADED("xmcmod4")) WAIT(0);
+					START_NEW_SCRIPT("xmcmod4",1024);
+					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod4");
+					return;
+				}
+				else{
+					TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("xmcmod4");
+					return;
+				}
+				return;
+			}
+			if(item_select == 5){
+				do_toggle(mod5);
+				if(mod5){
+					REQUEST_SCRIPT("xmcmod5");
+					while(!HAS_SCRIPT_LOADED("xmcmod5")) WAIT(0);
+					START_NEW_SCRIPT("xmcmod5",1024);
+					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod5");
+					return;
+				}
+				else{
+					TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("xmcmod5");
+					return;
+				}
+				return;
+			}
+			if(item_select == 6){
+				do_toggle(mod6);
+				if(mod6){
+					REQUEST_SCRIPT("xmcmod6");
+					while(!HAS_SCRIPT_LOADED("xmcmod6")) WAIT(0);
+					START_NEW_SCRIPT("xmcmod6",1024);
+					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod6");
+					return;
+				}
+				else{
+					TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("xmcmod6");
+					return;
+				}
+				return;
+			}
+			if(item_select == 7){
+				do_toggle(mod7);
+				if(mod7){
+					REQUEST_SCRIPT("xmcmod7");
+					while(!HAS_SCRIPT_LOADED("xmcmod7")) WAIT(0);
+					START_NEW_SCRIPT("xmcmod7",1024);
+					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod7");
+					return;
+				}
+				else{
+					TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("xmcmod7");
+					return;
+				}
+				return;
+			}
+			if(item_select == 8){
+				do_toggle(mod8);
+				if(mod8){
+					REQUEST_SCRIPT("xmcmod8");
+					while(!HAS_SCRIPT_LOADED("xmcmod8")) WAIT(0);
+					START_NEW_SCRIPT("xmcmod8",1024);
+					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod8");
+					return;
+				}
+				else{
+					TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("xmcmod8");
+					return;
+				}
+				return;
+			}
+			if(item_select == 9){
+				do_toggle(mod9);
+				if(mod9){
+					REQUEST_SCRIPT("xmcmod9");
+					while(!HAS_SCRIPT_LOADED("xmcmod9")) WAIT(0);
+					START_NEW_SCRIPT("xmcmod9",1024);
+					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod9");
+					return;
+				}
+				else{
+					TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("xmcmod9");
+					return;
+				}
+				return;
+			}
+			if(item_select == 10){
+				do_toggle(mod10);
+				if(mod10){
+					REQUEST_SCRIPT("xmcmod10");
+					while(!HAS_SCRIPT_LOADED("xmcmod10")) WAIT(0);
+					START_NEW_SCRIPT("xmcmod10",1024);
+					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod10");
+					return;
+				}
+				else{
+					TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("xmcmod10");
+					return;
+				}
+				return;
+			}
+		}
 	if(menu_level == 2){
 		if(last_selected[0] == 1){
 			if(last_selected[1] == 2){
@@ -1531,7 +1682,7 @@ void menu_functions(void){
 		}	
 	}
 }
-
+}
 void looped_functions(void){
 	//player options
 	SET_CHAR_INVINCIBLE(pPlayer,godmode);

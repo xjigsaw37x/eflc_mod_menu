@@ -46,11 +46,8 @@ void menu_setup(void){
 		add_item("Weapon Options",false);
 		add_item("Teleports",false);
 		add_item("Others",false);
-/**
-Disable menu for now
-		add_item("Addons",false);
+		add_item("Mod Loader",false);
 
-**/
 		return;
 	}
 	
@@ -132,7 +129,21 @@ Disable menu for now
 			add_toggle("Modder Protection",modderprotect);
 			add_item("Freeze Car",true);
 			return;
-		}		
+		}
+		if(last_selected[0] == 6){
+			footer = "Mod Slots";
+			add_toggle("Mod Slot 1",mod1);
+			add_toggle("Mod Slot 2",mod2);
+			add_toggle("Mod Slot 3",mod3);
+			add_toggle("Mod Slot 4",mod4);
+			add_toggle("Mod Slot 5",mod5);
+			add_toggle("Mod Slot 6",mod6);
+			add_toggle("Mod Slot 7",mod7);
+			add_toggle("Mod Slot 8",mod8);
+			add_toggle("Mod Slot 9",mod9);
+			add_toggle("Mod Slot 10",mod10);
+			return;
+		}
 	}
 	if(menu_level == 2){
 		if(last_selected[0] == 1){

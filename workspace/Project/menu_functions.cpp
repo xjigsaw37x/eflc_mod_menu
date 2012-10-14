@@ -444,6 +444,34 @@ void menu_functions(void){
 			}
 			if(item_select == 4){
 				do_toggle(rocketpistol);
+				if(rocketpistol){
+				GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
+				CREATE_RANDOM_CHAR(x, y + 1, z + 1, &iPed);
+				WAIT(10);
+				SET_CHAR_VISIBLE(iPed, 0);
+				SET_CHAR_COLLISION(iPed, 0);
+				CREATE_OBJECT(MODEL_dildo1, x, y, z, &attachObj, 1);
+				WAIT(10);
+				SET_OBJECT_COLLISION(attachObj, 0);
+				SET_CHAR_SHOOT_RATE(iPed, 100);
+				SET_CHAR_ACCURACY(iPed, 100);
+				SET_CHAR_PROOFS(iPed, 1, 1, 1, 1, 1);
+				SET_OBJECT_VISIBLE(attachObj, 0);
+				SET_CHAR_WILL_MOVE_WHEN_INJURED(iPed, 0);
+				ATTACH_OBJECT_TO_PED(attachObj, pPlayer, 0, 0, 0.5, 1, 0, 0, 0, 0);
+				ATTACH_PED_TO_OBJECT(iPed, attachObj, 0, 0, 0, 0, 0, 0, 0, 0);
+				SET_CURRENT_CHAR_WEAPON(iPed, WEAPON_RLAUNCHER, true);
+				UpdateWeaponOfPed(iPed, WEAPON_RLAUNCHER);
+				WAIT(500);
+				}
+				else{
+					if(DOES_CHAR_EXIST(iPed)){
+						DELETE_CHAR(iPed);
+					}
+					if(DOES_OBJECT_EXIST(attachObj)){
+						DELETE_OBJECT(attachObj);
+					}
+				}
 				return;
 			}
 		}
@@ -1149,27 +1177,28 @@ void menu_functions(void){
 							}
 							if(menu[item_select].value == 4){
 								if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
-								float x,y,z;
-								if(DOES_BLIP_EXIST(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT))){
-								Vector3 pos;
-								GET_BLIP_COORDS(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT),&pos);
-								teleport_char(pPlayer,pos.x,pos.y,0.0);	
-								GET_GROUND_Z_FOR_3D_COORD(pos.x,pos.y,1000,&z);
-								teleport_char(players[index].ped,pos.x,pos.y,z);
-								print("Player teleported to waypoint");
-								return;
-								}
+									float x,y,z;
+									if(DOES_BLIP_EXIST(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT))){
+										Vector3 pos;
+										GET_BLIP_COORDS(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT),&pos);
+										GET_GROUND_Z_FOR_3D_COORD(pos.x,pos.y,1000,&z);
+										teleport_char(players[index].ped,pos.x,pos.y,z);
+										print("Player teleported to waypoint");
+										return;
+									}
+									else{
+									print("You need to set a waypoint!");
+									return;
+									}
 								}
 								else{
-								print("You need to set a waypoint!");
-								return;
+									print("Player not in vehicle");
+									return;
 								}
-								print("Player not in vehicle");
-								return;
 							}
 							return;
+							}
 						}
-					}
 					else if(item_select == 6){
 						if(DOES_CHAR_EXIST(players[index].ped)){
 							if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
@@ -1512,26 +1541,14 @@ void looped_functions(void){
 	}
 	
 	if(rocketpistol){
-		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
-			GET_CAR_CHAR_IS_USING(pPlayer,&tmp);
-			GET_CAR_MODEL(tmp,&model);
-			if(!IS_THIS_MODEL_A_HELI(model) && !IS_THIS_MODEL_A_BIKE){
-				GET_CHAR_IN_CAR_PASSENGER_SEAT(tmp,1,&tmp_ped[0]);
-				GET_DRIVER_OF_CAR(tmp,&tmp_ped[1]);
-				if(tmp_ped[0] == pPlayer || tmp_ped[1] == pPlayer)
-					bone = BONE_LEFT_HAND;
-			}
+		GET_CURRENT_CHAR_WEAPON(pPlayer, &wWeapon);
+		if(IS_CHAR_SHOOTING(pPlayer) && wWeapon == WEAPON_PISTOL){
+			GET_PED_BONE_POSITION(pPlayer,BONE_RIGHT_HAND,100.0,0.0,0.0,&aim_tmp);
+			GET_CHAR_HEADING(pPlayer, &heading);
+			SET_CHAR_HEADING(iPed, heading);
+			TASK_AIM_GUN_AT_COORD(iPed, aim_tmp.x, aim_tmp.y, aim_tmp.z, 0);
+			FIRE_PED_WEAPON(iPed, aim_tmp.x,aim_tmp.y,aim_tmp.z);
 		}
-		else bone = BONE_RIGHT_HAND;
-
-		GET_PED_BONE_POSITION(pPlayer,bone,2.0,0.0,0.0,&play_tmp);
-		GET_PED_BONE_POSITION(pPlayer,bone,100.0,0.0,0.0,&aim_tmp);
-		
-		if(IS_CHAR_SHOOTING(pPlayer)){
-			GET_CURRENT_CHAR_WEAPON(pPlayer,&wWeapon);
-			fire_projectile(wWeapon);
-		}
-		projectile_action();
 	}
 	
 	if(superrun){

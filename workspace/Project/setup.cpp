@@ -130,6 +130,7 @@ void menu_setup(void){
 			add_item("Freeze Car",true);
 			return;
 		}
+		/**
 		if(last_selected[0] == 6){
 			footer = "Mod Slots";
 			add_toggle("Mod Slot 1",mod1);
@@ -144,6 +145,7 @@ void menu_setup(void){
 			add_toggle("Mod Slot 10",mod10);
 			return;
 		}
+		**/
 	}
 	if(menu_level == 2){
 		if(last_selected[0] == 1){
@@ -193,7 +195,7 @@ void menu_setup(void){
 				add_item("Vehicle Spawner",false);
 				add_item("Upgrades",false);
 				add_item("Paint",false);
-				add_item("Neons",false);
+				//add_item("Neons",false);
 				return;
 			}
 		}
@@ -367,10 +369,12 @@ void menu_setup(void){
 					}
 					return;
 				}
+				/**
 				if(last_selected[2] == 4){
 					footer = "Neons";
 					add_item("Green",true);
 				}
+				**/
 			}
 		}
 		if(last_selected[0] == 3){

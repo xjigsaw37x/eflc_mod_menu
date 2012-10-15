@@ -93,7 +93,7 @@ float heading, x, y, z;
 uint heliBomb = 0x3E3783A1;
 
 char* footer;
-
+/**
 bool mod1 = false,
 	mod2 = false,
 	mod3 = false,
@@ -104,6 +104,7 @@ bool mod1 = false,
 	mod8 = false,
 	mod9 = false,
 	mod10 = false;
+**/
 
 bool grenade_active;
 	

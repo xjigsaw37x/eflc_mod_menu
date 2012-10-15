@@ -231,10 +231,9 @@ void xmc_airstrike(void)
 {
 	if(DOES_BLIP_EXIST(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT))){
 	Vector3 pos;
-	float z;
 	GET_BLIP_COORDS(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT),&pos);
 	GET_GROUND_Z_FOR_3D_COORD(pos.x,pos.y,pos.z,&z);
-	create_big_explosion(pos.x,pos.y,z+5.0f);//adding 10.0f isn't tested
+	create_big_explosion(pos.x,pos.y,z+10.0f);//adding 10.0f isn't tested
 	print("Launching Airstrike!");
 	}
 	else print("You need to set a waypoint!");
@@ -615,6 +614,7 @@ void menu_functions(void){
 				return;
 			}
 		}
+		/**
 		if(last_selected[0] == 6){
 			if(item_select == 1){
 				do_toggle(mod1);
@@ -847,6 +847,7 @@ void menu_functions(void){
 				return;
 			}
 		}
+		**/
 	}
 	if(menu_level == 2){
 		if(last_selected[0] == 1){

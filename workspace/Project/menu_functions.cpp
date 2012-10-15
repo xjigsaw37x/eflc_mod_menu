@@ -452,7 +452,7 @@ void menu_functions(void){
 				do_toggle(rocketpistol);
 				if(rocketpistol){
 				GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
-				CREATE_RANDOM_CHAR(x, y + 1, z + 1, &iPed);
+				CREATE_RANDOM_CHAR(x, y + 2, z + 2, &iPed);
 				WAIT(10);
 				SET_CHAR_VISIBLE(iPed, 0);
 				SET_CHAR_COLLISION(iPed, 0);
@@ -620,7 +620,15 @@ void menu_functions(void){
 				do_toggle(mod1);
 				if(mod1){
 					REQUEST_SCRIPT("xmcmod1");
-					while(!HAS_SCRIPT_LOADED("xmcmod1")) WAIT(0);
+					while(!HAS_SCRIPT_LOADED("xmcmod1")){
+						tick++;
+						if(tick >= 4000){
+							print("Failed to load modslot");
+							mod1 = false;
+							return;
+						}
+						WAIT(0);
+					}
 					START_NEW_SCRIPT("xmcmod1",1024);
 					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod1");
 					return;
@@ -635,7 +643,15 @@ void menu_functions(void){
 				do_toggle(mod2);
 				if(mod2){
 					REQUEST_SCRIPT("xmcmod2");
-					while(!HAS_SCRIPT_LOADED("xmcmod2")) WAIT(0);
+					while(!HAS_SCRIPT_LOADED("xmcmod2")){
+						tick++;
+						if(tick >= 4000){
+							print("Failed to load modslot");
+							mod2 = false;
+							return;
+						}
+						WAIT(0);
+					}
 					START_NEW_SCRIPT("xmcmod2",1024);
 					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod2");
 					return;
@@ -650,7 +666,15 @@ void menu_functions(void){
 				do_toggle(mod3);
 				if(mod3){
 					REQUEST_SCRIPT("xmcmod3");
-					while(!HAS_SCRIPT_LOADED("xmcmod3")) WAIT(0);
+					while(!HAS_SCRIPT_LOADED("xmcmod3")){
+						tick++;
+						if(tick >= 4000){
+							print("Failed to load modslot");
+							mod3 = false;
+							return;
+						}
+						WAIT(0);
+					}
 					START_NEW_SCRIPT("xmcmod3",1024);
 					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod3");
 					return;
@@ -665,7 +689,15 @@ void menu_functions(void){
 				do_toggle(mod4);
 				if(mod4){
 					REQUEST_SCRIPT("xmcmod4");
-					while(!HAS_SCRIPT_LOADED("xmcmod4")) WAIT(0);
+					while(!HAS_SCRIPT_LOADED("xmcmod4")){
+						tick++;
+						if(tick >= 4000){
+							print("Failed to load modslot");
+							mod4 = false;
+							return;
+						}
+						WAIT(0);
+					}
 					START_NEW_SCRIPT("xmcmod4",1024);
 					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod4");
 					return;
@@ -680,7 +712,15 @@ void menu_functions(void){
 				do_toggle(mod5);
 				if(mod5){
 					REQUEST_SCRIPT("xmcmod5");
-					while(!HAS_SCRIPT_LOADED("xmcmod5")) WAIT(0);
+					while(!HAS_SCRIPT_LOADED("xmcmod5")){
+						tick++;
+						if(tick >= 4000){
+							print("Failed to load modslot");
+							mod5 = false;
+							return;
+						}
+						WAIT(0);
+					}
 					START_NEW_SCRIPT("xmcmod5",1024);
 					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod5");
 					return;
@@ -695,7 +735,15 @@ void menu_functions(void){
 				do_toggle(mod6);
 				if(mod6){
 					REQUEST_SCRIPT("xmcmod6");
-					while(!HAS_SCRIPT_LOADED("xmcmod6")) WAIT(0);
+					while(!HAS_SCRIPT_LOADED("xmcmod6")){
+						tick++;
+						if(tick >= 4000){
+							print("Failed to load modslot");
+							mod6 = false;
+							return;
+						}
+						WAIT(0);
+					}
 					START_NEW_SCRIPT("xmcmod6",1024);
 					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod6");
 					return;
@@ -710,7 +758,15 @@ void menu_functions(void){
 				do_toggle(mod7);
 				if(mod7){
 					REQUEST_SCRIPT("xmcmod7");
-					while(!HAS_SCRIPT_LOADED("xmcmod7")) WAIT(0);
+					while(!HAS_SCRIPT_LOADED("xmcmod7")){
+						tick++;
+						if(tick >= 4000){
+							print("Failed to load modslot");
+							mod7 = false;
+							return;
+						}
+						WAIT(0);
+					}
 					START_NEW_SCRIPT("xmcmod7",1024);
 					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod7");
 					return;
@@ -725,7 +781,15 @@ void menu_functions(void){
 				do_toggle(mod8);
 				if(mod8){
 					REQUEST_SCRIPT("xmcmod8");
-					while(!HAS_SCRIPT_LOADED("xmcmod8")) WAIT(0);
+					while(!HAS_SCRIPT_LOADED("xmcmod8")){
+						tick++;
+						if(tick >= 4000){
+							print("Failed to load modslot");
+							mod8 = false;
+							return;
+						}
+						WAIT(0);
+					}
 					START_NEW_SCRIPT("xmcmod8",1024);
 					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod8");
 					return;
@@ -740,7 +804,15 @@ void menu_functions(void){
 				do_toggle(mod9);
 				if(mod9){
 					REQUEST_SCRIPT("xmcmod9");
-					while(!HAS_SCRIPT_LOADED("xmcmod9")) WAIT(0);
+					while(!HAS_SCRIPT_LOADED("xmcmod9")){
+						tick++;
+						if(tick >= 4000){
+							print("Failed to load modslot");
+							mod9 = false;
+							return;
+						}
+						WAIT(0);
+					}
 					START_NEW_SCRIPT("xmcmod9",1024);
 					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod9");
 					return;
@@ -755,7 +827,15 @@ void menu_functions(void){
 				do_toggle(mod10);
 				if(mod10){
 					REQUEST_SCRIPT("xmcmod10");
-					while(!HAS_SCRIPT_LOADED("xmcmod10")) WAIT(0);
+					while(!HAS_SCRIPT_LOADED("xmcmod10")){
+						tick++;
+						if(tick >= 4000){
+							print("Failed to load modslot");
+							mod10 = false;
+							return;
+						}
+						WAIT(0);
+					}
 					START_NEW_SCRIPT("xmcmod10",1024);
 					MARK_SCRIPT_AS_NO_LONGER_NEEDED("xmcmod10");
 					return;
@@ -767,6 +847,7 @@ void menu_functions(void){
 				return;
 			}
 		}
+	}
 	if(menu_level == 2){
 		if(last_selected[0] == 1){
 			if(last_selected[1] == 2){
@@ -1140,7 +1221,6 @@ void menu_functions(void){
 					else if(item_select == 6){
 						for(i = 0;i <= player_loop;i++){
 							if(DOES_CHAR_EXIST(players[i].ped)){
-								int tick,nvid;
 								if(IS_CHAR_IN_ANY_CAR(players[i].ped)){
 									// Vehicle pveh;
 									GET_CAR_CHAR_IS_USING(players[i].ped,&pveh);
@@ -1678,10 +1758,48 @@ void menu_functions(void){
 					spawn_car(menu[item_select].value);
 					return;
 				}
+				//0xCB26803D = blue
+				//0xD20167BE = red
+				//0xFCB32869 = white
+				//0xB3AC6409  = yellow
+				if(last_selected[2] == 4){
+					if(last_selected[3] == 1){
+						if(IS_CHAR_IN_ANY_CAR(pPlayer)){
+							GET_CAR_CHAR_IS_USING(pPlayer, &pveh);
+							Object lights;
+							CREATE_OBJECT(0xD611D7B6, 0.0f, 0.0f, 0.0f, &lights, 1);
+							ATTACH_OBJECT_TO_CAR(lights,pveh,0.0f,0.2,0.2,-0.2,-1,8,160.2);
+							SET_OBJECT_LIGHTS(lights, true);
+							SET_OBJECT_VISIBLE(lights, true);
+							SET_OBJECT_INVINCIBLE(lights, 1);
+							CREATE_OBJECT(0xD611D7B6, 0.0f, 0.0f, 0.0f, &lights, 1);
+							WAIT(1);
+							ATTACH_OBJECT_TO_CAR(lights,pveh,0.0f,0.2,0.2,-0.2,-1,8,160.2);
+							SET_OBJECT_LIGHTS(lights, true);
+							SET_OBJECT_VISIBLE(lights, true);
+							SET_OBJECT_INVINCIBLE(lights, 1);
+							CREATE_OBJECT(0xD611D7B6, 0.0f, 0.0f, 0.0f, &lights, 1);
+							WAIT(1);
+							ATTACH_OBJECT_TO_CAR(lights,pveh,0.0f,0.2,0.2,-0.2,-1,8,160.2);
+							SET_OBJECT_LIGHTS(lights, true);
+							SET_OBJECT_VISIBLE(lights, true);
+							SET_OBJECT_INVINCIBLE(lights, 1);
+							CREATE_OBJECT(0xD611D7B6, 0.0f, 0.0f, 0.0f, &lights, 1);
+							WAIT(1);
+							ATTACH_OBJECT_TO_CAR(lights,pveh,0.0f,0.2,0.2,-0.2,-1,8,160.2);
+							SET_OBJECT_LIGHTS(lights, true);
+							SET_OBJECT_VISIBLE(lights, true);
+							SET_OBJECT_INVINCIBLE(lights, 1);
+							print("Green neons attached to Vehicle");
+							return;
+						}
+						else print("Must be in car");
+					return;
+					}
+				}
 			}
-		}	
-	}
-}
+		}
+	}	
 }
 void looped_functions(void){
 	//player options

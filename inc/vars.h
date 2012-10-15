@@ -109,6 +109,9 @@ bool grenade_active;
 	
 bool in_paint = false;	
 
+uint tick;
+int nvid;
+
 bool show_menu = false,
 	godmode = true,
 	bikefly = false,

@@ -62,7 +62,7 @@ void main(void){
 	}
 	#endif
 
-	print_long("Xmc Modmenu By Emmanuel Utomi - UtomAfryus69");
+	print_long("Xmc Modmenu By Emmanuel Utomi GT: UtomAfryus69");
 	
 	WAIT(100);
 	do{

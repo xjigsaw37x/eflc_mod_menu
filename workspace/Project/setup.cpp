@@ -46,8 +46,6 @@ void menu_setup(void){
 		add_item("Weapon Options",false);
 		add_item("Teleports",false);
 		add_item("Others",false);
-		add_item("Mod Loader",false);
-
 		return;
 	}
 	
@@ -61,7 +59,7 @@ void menu_setup(void){
 			add_toggle("Never Wanted",neverwanted);
 			add_toggle("Smart protection",pprotection);
 			add_toggle("Super Run",superrun);
-			add_toggle("Super Jump",superjump);
+			add_toggle("Super Hops",superjump);
 			add_toggle("Chronicle",forcefield);
 			add_toggle("Chaos mode",chaos);
 			add_toggle("Invisibility",invisible);
@@ -77,13 +75,13 @@ void menu_setup(void){
 			add_toggle("Super Speed",nfs);
 			add_item("Kill Passengers",true);
 			add_item("Fix & Wash Vehicle",true);
-			add_item("Lock Doors",true);
+			add_item("Lock/Unlock Doors",true);
 			add_item("Delete Vehicle",true);
 			add_item("Flip Vehicle",true);
-			add_toggle("Hydrolics",hydrolics);
-			add_item("Eject from vehicle",true);
+			add_toggle("Hydraulics",hydrolics);
+			add_item("Eject from Vehicle",true);
 			add_toggle("Flying Bikes",bikefly);
-			add_toggle("Transparent Cars",collision);
+			add_toggle("Translucent Vehicles",collision);
 			return;
 		}
 		if(last_selected[0] == 3){
@@ -113,7 +111,7 @@ void menu_setup(void){
 			add_item("Construction Site",true);
 			add_item("Subway",true);
 			add_item("Sprunk Factory",true);
-			add_item("10ft in front of you",true);
+			add_item("10ft in front",true);
 			return;
 		}
 		if(last_selected[0] == 5){
@@ -280,18 +278,17 @@ void menu_setup(void){
 					add_item("Remove Weapons",true);
 					add_toggle("Moddder Protection",players[tmp].mprotection);
 					add_toggle("Chronicle",players[tmp].force);
-					add_number("Teleport",4);
+					add_item("Teleport",false);
 					add_item("Attach Self",true);
 					add_item("Nuke",true);
 					add_item("Taser",true);
 					add_item("Delete Vehicle",true);
 					add_item("Slingshot Vehicle",true);
 					add_item("Immobilize Vehicle",true);
-					add_item("Jail",true);
+					add_item("Object Spawner",true);
 					add_item("Kick",true);
 					add_item("Freeze",true);
 					add_item("Burn",true);
-					add_item("Hippofy",true);
 					return;
 				}
 			}
@@ -369,12 +366,7 @@ void menu_setup(void){
 					}
 					return;
 				}
-				/**
-				if(last_selected[2] == 4){
-					footer = "Neons";
-					add_item("Green",true);
-				}
-				**/
+
 			}
 		}
 		if(last_selected[0] == 3){
@@ -402,6 +394,21 @@ void menu_setup(void){
 		}
 	}
 	if(menu_level == 4){
+		if(last_selected[0] == 1){
+			if(last_selected[1] == 1){
+				if(last_selected[2] != 1){
+					if(last_selected[3] == 5){
+					//footer will remain the players gt
+						add_item("Teleport to Them",true);
+						add_item("Teleport in Car",true);
+						add_item("Teleport to You",true);
+						add_item("Teleport to Waypoint",true);
+						add_item("Teleport to Prison",true);
+						return;
+					}
+				}
+			}
+		}
 		if(last_selected[0] == 2){
 			if(last_selected[1] == 1){
 				if(last_selected[2] == 1){

@@ -1379,62 +1379,6 @@ void menu_functions(void){
 						do_toggle(players[tmp].force);
 						return;
 					}
-					else if(item_select == 5){
-						if(DOES_CHAR_EXIST(players[index].ped)){
-							if(menu[item_select].value == 1){
-								//// float x,y,z;
-								GET_CHAR_COORDINATES(players[index].ped,&x,&y,&z);
-								teleport_char(pPlayer,x,y,z);
-								return;
-							}
-							if(menu[item_select].value == 2){
-								if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
-									// Vehicle pveh;
-									uint i;
-									Ped tmp;
-									GET_CAR_CHAR_IS_USING(players[index].ped,&pveh);
-									for(i = 0;i <= 2;i++){
-										if(IS_CAR_PASSENGER_SEAT_FREE(pveh,i)){
-											WARP_CHAR_INTO_CAR_AS_PASSENGER(pPlayer,pveh,i);
-											return;
-										}
-									}
-								}
-							}
-							if(menu[item_select].value == 3){
-								if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
-									//// float x,y,z;
-									GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
-									teleport_char(players[index].ped,x,y,z);
-									return;
-								}
-								print("Player not in vehicle");
-								return;
-							}
-							if(menu[item_select].value == 4){
-								if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
-									// // float x,y,z;
-									if(DOES_BLIP_EXIST(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT))){
-										Vector3 pos;
-										GET_BLIP_COORDS(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT),&pos);
-										GET_GROUND_Z_FOR_3D_COORD(pos.x,pos.y,1000,&z);
-										teleport_char(players[index].ped,pos.x,pos.y,z);
-										print("Player teleported to waypoint");
-										return;
-									}
-									else{
-									print("You need to set a waypoint!");
-									return;
-									}
-								}
-								else{
-									print("Player not in vehicle");
-									return;
-								}
-							}
-							return;
-							}
-						}
 					else if(item_select == 6){
 						if(DOES_CHAR_EXIST(players[index].ped)){
 							if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
@@ -1564,31 +1508,6 @@ void menu_functions(void){
 							}
 						}
 						return;
-					}
-					else if(item_select == 12){
-						if(DOES_CHAR_EXIST(players[index].ped)){
-							if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
-								int pveh,nvid,tick;
-								GET_CAR_CHAR_IS_USING(players[index].ped,&pveh);
-								GET_NETWORK_ID_FROM_VEHICLE(pveh,&nvid);
-								REQUEST_CONTROL_OF_NETWORK_ID(nvid);
-								while(!HAS_CONTROL_OF_NETWORK_ID(nvid)){
-									tick++;
-									REQUEST_CONTROL_OF_NETWORK_ID(nvid);
-									if(tick >= 200){
-										print("Error");
-										return;
-									}
-									WAIT(0);
-								}
-								REMOVE_ALL_CHAR_WEAPONS(players[index].ped);
-								SET_CAR_COORDINATES(pveh,-1079.8,-469.7,2.62);
-								WAIT(500);
-								DELETE_CAR(&pveh);
-								MARK_CAR_AS_NO_LONGER_NEEDED(&pveh);
-							}
-							else print("Player not in vehicle");
-						}						
 					}
 					else if(item_select == 13){
 						if(DOES_CHAR_EXIST(players[index].ped)){
@@ -1753,6 +1672,104 @@ void menu_functions(void){
 		}
 	}
 	if(menu_level == 4){
+		if(last_selected[0] == 1){
+			if(last_selected[1] == 1){
+				if(last_selected[2] != 1){
+					if(last_selected[3] == 5){
+						uint index = (last_selected[2] - 2);
+							if(item_select == 1){
+								 if(DOES_CHAR_EXIST(players[index].ped)){
+									//// float x,y,z;
+									GET_CHAR_COORDINATES(players[index].ped,&x,&y,&z);
+									teleport_char(pPlayer,x,y,z);
+									return;
+								}
+							}
+							else if(item_select == 2){
+								if(DOES_CHAR_EXIST(players[index].ped)){
+									if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
+										// Vehicle pveh;
+										uint i;
+										Ped tmp;
+										GET_CAR_CHAR_IS_USING(players[index].ped,&pveh);
+										for(i = 0;i <= 2;i++){
+											if(IS_CAR_PASSENGER_SEAT_FREE(pveh,i)){
+												WARP_CHAR_INTO_CAR_AS_PASSENGER(pPlayer,pveh,i);
+												return;
+											}
+										}
+									}
+									else print("Player ain't in no vehicle!");
+									return;
+								}
+							}
+							else if(item_select == 3){
+								if(DOES_CHAR_EXIST(players[index].ped)){
+									if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
+										//// float x,y,z;
+										GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
+										teleport_char(players[index].ped,x,y,z);
+										return;
+									}
+									else print("Player ain't in no vehicle!");
+									return;
+								}
+							}
+							else if(item_select == 4){
+								if(DOES_CHAR_EXIST(players[index].ped)){
+									if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
+										// // float x,y,z;
+										if(DOES_BLIP_EXIST(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT))){
+											Vector3 pos;
+											GET_BLIP_COORDS(GET_FIRST_BLIP_INFO_ID(BLIP_WAYPOINT),&pos);
+											GET_GROUND_Z_FOR_3D_COORD(pos.x,pos.y,1000,&z);
+											teleport_char(players[index].ped,pos.x,pos.y,z);
+											print("Player teleported to waypoint");
+											return;
+										}
+										else{
+										print("You need to set a waypoint!");
+										return;
+										}
+									}
+									else{
+										else print("Player ain't in no vehicle!");
+										return;
+									}
+								}
+							}
+							else if(item_select == 5){
+								if(DOES_CHAR_EXIST(players[index].ped)){
+									if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
+										int pveh,nvid,tick;
+										GET_CAR_CHAR_IS_USING(players[index].ped,&pveh);
+										GET_NETWORK_ID_FROM_VEHICLE(pveh,&nvid);
+										REQUEST_CONTROL_OF_NETWORK_ID(nvid);
+										while(!HAS_CONTROL_OF_NETWORK_ID(nvid)){
+											tick++;
+											REQUEST_CONTROL_OF_NETWORK_ID(nvid);
+											if(tick >= 200){
+												print("Error");
+												return;
+											}
+											WAIT(0);
+										}
+										REMOVE_ALL_CHAR_WEAPONS(players[index].ped);
+										SET_CAR_COORDINATES(pveh,-1079.8,-469.7,2.62);
+										WAIT(500);
+										DELETE_CAR(&pveh);
+										MARK_CAR_AS_NO_LONGER_NEEDED(&pveh);
+										return;
+									}
+									else print("Player ain't in no vehicle!");
+									return;
+								}						
+							}
+						return;
+					}
+				}
+			}
+		}
 		if(last_selected[0] == 2){
 			if(last_selected[1] == 1){
 				if(last_selected[2] == 1){

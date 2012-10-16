@@ -62,7 +62,7 @@ void main(void){
 	}
 	#endif
 
-	print_long("Xmc Modmenu By Emmanuel Utomi GT: UtomAfryus69");
+	print_long("Xmc Modmenu - Emmanuel Utomi AKA UtomAfryus69");
 	
 	WAIT(100);
 	do{
@@ -76,8 +76,8 @@ void main(void){
 		
 		//individual freeze protection
 		#ifdef PRIVATE
-		if(modderprotect) {
-			if (HAS_CHAR_GOT_WEAPON(pPlayer, WEAPON_ROCKET)) {
+		if(modderprotect){
+			if(HAS_CHAR_GOT_WEAPON(pPlayer, WEAPON_ROCKET)){
 				REMOVE_WEAPON_FROM_CHAR(pPlayer, WEAPON_ROCKET);
 			}
 		}

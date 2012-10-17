@@ -285,10 +285,11 @@ void menu_setup(void){
 					add_item("Delete Vehicle",true);
 					add_item("Slingshot Vehicle",true);
 					add_item("Immobilize Vehicle",true);
-					add_item("Object Spawner",true);
+					add_item("Placeholder",true);
 					add_item("Kick",true);
 					add_item("Freeze",true);
 					add_item("Burn",true);
+					add_item("Hippo",true);
 					return;
 				}
 			}

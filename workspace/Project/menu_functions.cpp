@@ -1421,15 +1421,15 @@ void menu_functions(void){
 								if(!IS_CHAR_IN_ANY_CAR(players[index].ped)){
 									// float x,y,z;
 									GET_CHAR_COORDINATES(players[index].ped,&x,&y,&z);
-									ADD_EXPLOSION(x,y,z,EXPLOSION_DIR_WATER_HYDRANT,7.5,false,true,0.0);
-									ADD_EXPLOSION(x + 1.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
-									ADD_EXPLOSION(x,y + 1.5,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
-									ADD_EXPLOSION(x - 1.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
-									ADD_EXPLOSION(x,y - 1.5,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
-									ADD_EXPLOSION(x + 0.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
-									ADD_EXPLOSION(x,y + 0.5,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
-									ADD_EXPLOSION(x - 0.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
-									ADD_EXPLOSION(x,y - 0.5,z,EXPLOSION_DIR_WATER_HYDRANT,10.5,false,true,0.0);
+									ADD_EXPLOSION(x,y,z,EXPLOSION_DIR_WATER_HYDRANT,20.5,false,true,0.0);
+									ADD_EXPLOSION(x + 1.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,20.5,false,true,0.0);
+									ADD_EXPLOSION(x,y + 1.5,z,EXPLOSION_DIR_WATER_HYDRANT,20.5,false,true,0.0);
+									ADD_EXPLOSION(x - 1.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,20.5,false,true,0.0);
+									ADD_EXPLOSION(x,y - 1.5,z,EXPLOSION_DIR_WATER_HYDRANT,20.5,false,true,0.0);
+									ADD_EXPLOSION(x + 0.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,20.5,false,true,0.0);
+									ADD_EXPLOSION(x,y + 0.5,z,EXPLOSION_DIR_WATER_HYDRANT,20.5,false,true,0.0);
+									ADD_EXPLOSION(x - 0.5,y,z,EXPLOSION_DIR_WATER_HYDRANT,20.5,false,true,0.0);
+									ADD_EXPLOSION(x,y - 0.5,z,EXPLOSION_DIR_WATER_HYDRANT,20.5,false,true,0.0);
 									print("Tazed Nigga!");
 								}
 								else print("Player must be on foot");
@@ -1733,7 +1733,7 @@ void menu_functions(void){
 										}
 									}
 									else{
-										else print("Player ain't in no vehicle!");
+										print("Player ain't in no vehicle!");
 										return;
 									}
 								}

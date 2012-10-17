@@ -1471,6 +1471,7 @@ void menu_functions(void){
 									}
 									WAIT(0);
 								}
+								FREEZE_CAR_POSITION(pveh,true);
 								SET_CAR_CAN_BE_DAMAGED(pveh,true);
 								SET_CAR_CAN_BE_VISIBLY_DAMAGED(pveh,true);
 								SET_CAN_BURST_CAR_TYRES(pveh,true);
@@ -1479,7 +1480,31 @@ void menu_functions(void){
 								BURST_CAR_TYRE(pveh,4);
 								BURST_CAR_TYRE(pveh,5);
 								SET_ENGINE_HEALTH(pveh,0.0);
-								FREEZE_CAR_POSITION(pveh,true);
+								print("Fucked player's car");
+							}
+						}
+						return;
+					}
+					else if(item_select == 12){
+						if(DOES_CHAR_EXIST(players[index].ped)){
+							if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
+								int pveh,nvid,tick;
+								GET_CAR_CHAR_IS_USING(players[index].ped,&pveh);
+								GET_NETWORK_ID_FROM_VEHICLE(pveh,&nvid);
+								REQUEST_CONTROL_OF_NETWORK_ID(nvid);
+								while(!HAS_CONTROL_OF_NETWORK_ID(nvid)){
+									tick++;
+									REQUEST_CONTROL_OF_NETWORK_ID(nvid);
+									if(tick >= 200){
+										print("Error");
+										return;
+									}
+									WAIT(0);
+								}
+								SET_CAR_CAN_BE_DAMAGED(pveh,false);
+								SET_CAR_CAN_BE_VISIBLY_DAMAGED(pveh,false);
+								SET_CAN_BURST_CAR_TYRES(pveh,false);
+								print("Made player's car Invincible");
 							}
 						}
 						return;
@@ -1532,13 +1557,13 @@ void menu_functions(void){
 					return;
 					}
 					else if(item_select == 16){
-						if(DOES_CHAR_EXIST(players[index].ped)){
+					if(DOES_CHAR_EXIST(players[index].ped)){
 						Object otmp;
 						CREATE_OBJECT(0x1B42315D,0.0,0.0,0.0,&otmp,true);
 						ATTACH_OBJECT_TO_PED(otmp,players[index].ped,0,0.0,0.0,-0.11,0.0,0.0,3.0,false);
 						WAIT(10);
-						print("Hippofied!");
-						}
+						print("Get Hippoed Nigga");
+					}
 					return;
 					}
 				}
@@ -1805,6 +1830,47 @@ void looped_functions(void){
 		else
 			FREEZE_CHAR_POSITION(pPlayer,false);
 	}
+	/**
+	if(rocketpistol){
+		GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
+		CREATE_RANDOM_CHAR(x, y + 2, z + 2, &iPed);
+		WAIT(10);
+		SET_CHAR_VISIBLE(iPed, 0);
+		SET_CHAR_COLLISION(iPed, 0);
+		CREATE_OBJECT(MODEL_dildo1, x, y, z, &attachObj, 1);
+		WAIT(10);
+		SET_OBJECT_COLLISION(attachObj, 0);
+		SET_CHAR_SHOOT_RATE(iPed, 100);
+		SET_CHAR_ACCURACY(iPed, 100);
+		SET_CHAR_PROOFS(iPed, 1, 1, 1, 1, 1);
+		SET_OBJECT_VISIBLE(attachObj, 0);
+		SET_CHAR_WILL_MOVE_WHEN_INJURED(iPed, 0);
+		ATTACH_OBJECT_TO_PED(attachObj, pPlayer, 0, 2.0, 2.0, 0, 0, 0, 0, 0);
+		ATTACH_PED_TO_OBJECT(iPed, attachObj, 0, 0, 0, 0, 0, 0, 0, 0);
+		SET_CURRENT_CHAR_WEAPON(iPed, WEAPON_RLAUNCHER, true);
+		UpdateWeaponOfPed(iPed, WEAPON_RLAUNCHER);
+		WAIT(500);
+	}
+	else{
+		if(DOES_CHAR_EXIST(iPed)){
+			DELETE_CHAR(&iPed);
+		}
+		if(DOES_OBJECT_EXIST(attachObj)){
+			DELETE_OBJECT(&attachObj);
+		}
+	}
+	
+	if(rocketpistol){
+		GET_CURRENT_CHAR_WEAPON(pPlayer, &wWeapon);
+		if(IS_CHAR_SHOOTING(pPlayer) && wWeapon == WEAPON_PISTOL){
+			GET_PED_BONE_POSITION(pPlayer,BONE_RIGHT_HAND,100.0,0.0,0.0,&aim_tmp);
+			GET_CHAR_HEADING(pPlayer, &heading);
+			SET_CHAR_HEADING(iPed, heading);
+			TASK_AIM_GUN_AT_COORD(iPed, aim_tmp.x, aim_tmp.y, aim_tmp.z, 0);
+			FIRE_PED_WEAPON(iPed, aim_tmp.x,aim_tmp.y,aim_tmp.z);
+		}
+	}
+	**/
 	
 	if(dildogun){
 		dildo_getaim();
@@ -1814,6 +1880,7 @@ void looped_functions(void){
 	if(collision){
 		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
 			GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
+			SET_CAR_ON_GROUND_PROPERLY(pveh);
 			SET_CAR_COLLISION(pveh, false);
 		}
 	}
@@ -2012,7 +2079,7 @@ void better_grenade_loop(void){
 			grenade_active = false;
 			while(!HAS_OBJECT_COLLIDED_WITH_ANYTHING(tmp_object_loop)){
 				tick++;
-				if(tick > 1000) return;
+				if(tick > 2000) return;
 				WAIT(0);
 			}
 			GET_OBJECT_COORDINATES(tmp_object_loop,&x,&y,&z);

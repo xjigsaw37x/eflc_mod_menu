@@ -59,7 +59,6 @@ typedef struct _online_players{
 	Ped ped;
 	int id;
 	bool connected;
-	
 	//id
 	bool mprotection;
 	bool force;

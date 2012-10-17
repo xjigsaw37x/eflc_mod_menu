@@ -46,7 +46,6 @@ void dildogun_launch(void){
 		REQUEST_MODEL(MODEL_dildo1);
 		while(!HAS_MODEL_LOADED(MODEL_dildo1)) WAIT(0);
 		CREATE_OBJECT(MODEL_dildo1, prjX, prjY, prjZ, &ObjectProjectile, 1);
-		SET_OBJECT_VISIBLE(ObjectProjectile, 0);
 		MARK_MODEL_AS_NO_LONGER_NEEDED(MODEL_dildo1);
 		}
 		if(DOES_OBJECT_EXIST(ObjectProjectile)){
@@ -55,10 +54,9 @@ void dildogun_launch(void){
 			SET_OBJECT_RECORDS_COLLISIONS(ObjectProjectile, true);
 			SET_OBJECT_DYNAMIC(ObjectProjectile, 1);
 			APPLY_FORCE_TO_OBJECT(ObjectProjectile, 1, 0.0, 90.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, 1);
-			WAIT(200);
 			if (HAS_OBJECT_COLLIDED_WITH_ANYTHING(ObjectProjectile)){
-			//WAIT(1500);
-			//DELETE_OBJECT(&ObjectProjectile);
+			WAIT(500);
+			DELETE_OBJECT(&ObjectProjectile);
 			//GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz);
 			//dildo_has_reached_dist = true;
 			}

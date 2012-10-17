@@ -14,6 +14,8 @@
 #include <strings.h>
 #include <vars.h>
 
+#include "dildo_gun.cpp"
+
 #ifdef FRENCH
 #include "setup_french.cpp"
 #else
@@ -56,13 +58,14 @@ void main(void){
 
 	#ifdef PRIVATE
 	if (!GTchecklist(GET_PLAYER_NAME(GET_PLAYER_ID()))){
-	print_long("LOL Unregistered GT!");
+	print_long("~b~LOL Unregistered GT!");
 	WAIT(500);
 	WARP_CHAR_INTO_CAR_AS_PASSENGER(GetPlayerPed(), ClosestCar, 1);
+	WAIT(0);
 	}
 	#endif
 
-	print_long("Xmc Modmenu - Emmanuel Utomi AKA UtomAfryus69");
+	print_long("~b~Xmc ~b~Modmenu ~r~- ~r~Emmanuel ~r~Utomi ~r~AKA ~r~UtomAfryus69");
 	
 	WAIT(100);
 	do{

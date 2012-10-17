@@ -89,7 +89,7 @@ void menu_setup(void){
 			add_item("Weapon Selector",false);
 			add_toggle("Unlimited Ammo",ammo);
 			add_toggle("Fast Reload",fastreload);
-			add_toggle("Rocket Glock",rocketpistol);
+			add_toggle("Dildo Gun",dildogun);
 			return;
 		}
 		if(last_selected[0] == 4){

@@ -1819,7 +1819,7 @@ void menu_functions(void){
 				//0xFCB32869 = white
 				//0xB3AC6409  = yellow
 				if(last_selected[2] == 4){
-					if(last_selected[3] == 1){
+					if(item_select == 1){
 						if(IS_CHAR_IN_ANY_CAR(pPlayer)){
 							GET_CAR_CHAR_IS_USING(pPlayer, &pveh);
 							Object lights;

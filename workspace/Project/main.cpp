@@ -14,8 +14,6 @@
 #include <strings.h>
 #include <vars.h>
 
-#include "dildo_gun.cpp"
-
 #ifdef FRENCH
 #include "setup_french.cpp"
 #else

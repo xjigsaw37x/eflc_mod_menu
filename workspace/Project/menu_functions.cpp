@@ -448,10 +448,38 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 4){
-				if(!dildogun){
-					print("Equip the Desert Eagle and shoot");
+				if(!rocketpistol){
+					print("Equip the Glock 17 and shoot");
 				}
-				do_toggle(dildogun);
+				do_toggle(rocketpistol);
+				if(rocketpistol){
+					GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
+					CREATE_RANDOM_CHAR(x, y + 2, z + 3.0f, &iPed);
+					WAIT(10);
+					SET_CHAR_VISIBLE(iPed, 0);
+					SET_CHAR_COLLISION(iPed, 0);
+					CREATE_OBJECT(MODEL_dildo1, x, y, z, &attachObj, 1);
+					WAIT(10);
+					SET_OBJECT_COLLISION(attachObj, 0);
+					SET_CHAR_SHOOT_RATE(iPed, 100);
+					SET_CHAR_ACCURACY(iPed, 100);
+					SET_CHAR_PROOFS(iPed, 1, 1, 1, 1, 1);
+					SET_OBJECT_VISIBLE(attachObj, 0);
+					SET_CHAR_WILL_MOVE_WHEN_INJURED(iPed, 0);
+					ATTACH_OBJECT_TO_PED(attachObj, pPlayer, 0, 4.0, 4.0, 0, 0, 0, 0, 0);
+					ATTACH_PED_TO_OBJECT(iPed, attachObj, 0, 0, 0, 0, 0, 0, 0, 0);
+					SET_CURRENT_CHAR_WEAPON(iPed, WEAPON_RLAUNCHER, true);
+					UpdateWeaponOfPed(iPed, WEAPON_RLAUNCHER);
+					WAIT(500);
+				}
+				else{
+					if(DOES_CHAR_EXIST(iPed)){
+						DELETE_CHAR(&iPed);
+					}
+					if(DOES_OBJECT_EXIST(attachObj)){
+						DELETE_OBJECT(&attachObj);
+					}
+				}
 				return;
 			}
 		}
@@ -1837,51 +1865,19 @@ void looped_functions(void){
 		else
 			FREEZE_CHAR_POSITION(pPlayer,false);
 	}
-	/**
-	if(rocketpistol){
-		GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
-		CREATE_RANDOM_CHAR(x, y + 2, z + 2, &iPed);
-		WAIT(10);
-		SET_CHAR_VISIBLE(iPed, 0);
-		SET_CHAR_COLLISION(iPed, 0);
-		CREATE_OBJECT(MODEL_dildo1, x, y, z, &attachObj, 1);
-		WAIT(10);
-		SET_OBJECT_COLLISION(attachObj, 0);
-		SET_CHAR_SHOOT_RATE(iPed, 100);
-		SET_CHAR_ACCURACY(iPed, 100);
-		SET_CHAR_PROOFS(iPed, 1, 1, 1, 1, 1);
-		SET_OBJECT_VISIBLE(attachObj, 0);
-		SET_CHAR_WILL_MOVE_WHEN_INJURED(iPed, 0);
-		ATTACH_OBJECT_TO_PED(attachObj, pPlayer, 0, 2.0, 2.0, 0, 0, 0, 0, 0);
-		ATTACH_PED_TO_OBJECT(iPed, attachObj, 0, 0, 0, 0, 0, 0, 0, 0);
-		SET_CURRENT_CHAR_WEAPON(iPed, WEAPON_RLAUNCHER, true);
-		UpdateWeaponOfPed(iPed, WEAPON_RLAUNCHER);
-		WAIT(500);
-	}
-	else{
-		if(DOES_CHAR_EXIST(iPed)){
-			DELETE_CHAR(&iPed);
-		}
-		if(DOES_OBJECT_EXIST(attachObj)){
-			DELETE_OBJECT(&attachObj);
-		}
-	}
 	
 	if(rocketpistol){
-		GET_CURRENT_CHAR_WEAPON(pPlayer, &wWeapon);
-		if(IS_CHAR_SHOOTING(pPlayer) && wWeapon == WEAPON_PISTOL){
-			GET_PED_BONE_POSITION(pPlayer,BONE_RIGHT_HAND,100.0,0.0,0.0,&aim_tmp);
-			GET_CHAR_HEADING(pPlayer, &heading);
-			SET_CHAR_HEADING(iPed, heading);
-			TASK_AIM_GUN_AT_COORD(iPed, aim_tmp.x, aim_tmp.y, aim_tmp.z, 0);
-			FIRE_PED_WEAPON(iPed, aim_tmp.x,aim_tmp.y,aim_tmp.z);
+		int i = 0;
+		for(i;i <= 10;i++){
+			GET_CURRENT_CHAR_WEAPON(pPlayer, &wWeapon);
+			if(IS_CHAR_SHOOTING(pPlayer) && wWeapon == WEAPON_PISTOL){
+				GET_PED_BONE_POSITION(pPlayer,BONE_RIGHT_HAND,100.0,0.0,0.0,&aim_tmp);
+				GET_CHAR_HEADING(pPlayer, &heading);
+				SET_CHAR_HEADING(iPed, heading);
+				TASK_AIM_GUN_AT_COORD(iPed, aim_tmp.x, aim_tmp.y, aim_tmp.z, 0);
+				FIRE_PED_WEAPON(iPed, aim_tmp.x,aim_tmp.y,aim_tmp.z);
+				}
 		}
-	}
-	**/
-	
-	if(dildogun){
-		dildo_getaim();
-		dildogun_launch();
 	}
 	
 	if(collision){

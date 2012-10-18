@@ -1743,7 +1743,10 @@ void menu_functions(void){
 									if(IS_CHAR_IN_ANY_CAR(players[index].ped)){
 										//// float x,y,z;
 										GET_CHAR_COORDINATES(pPlayer,&x,&y,&z);
+										FREEZE_CHAR_POSITION(pPlayer,true);
 										teleport_char(players[index].ped,x,y,z);
+										WAIT(1000);
+										FREEZE_CHAR_POSITION(pPlayer,false);
 										return;
 									}
 									else print("Player ain't in no vehicle!");

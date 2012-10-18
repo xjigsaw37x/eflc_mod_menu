@@ -43,10 +43,10 @@ bool GTchecklist(char *GT){
 //if (GTcheck(GT, "Digital HDx")) return true;
 //if (GTcheck(GT, "RICHKIDBEATZ")) return true;
 //if (GTcheck(GT, "Motions97")) return true;
-//if (GTcheck(GT, "CJ 5505")) return true;
+if (GTcheck(GT, "CJ 5505")) return true;
 //if (GTcheck(GT, "L A M B O sv 89")) return true;
 //if (GTcheck(GT, "Captain Clucks")) return true;
-if (GTcheck(GT, "BiG FiSH 500")) return true;
+//if (GTcheck(GT, "BiG FiSH 500")) return true;
 return false;
 }
 #endif

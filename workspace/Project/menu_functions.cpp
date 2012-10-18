@@ -1153,6 +1153,7 @@ void menu_functions(void){
 							}
 						}
 						print("Gave everyone weapons");
+						return;
 					}
 					else if(item_select == 2){
 						for(i = 0;i <= player_loop;i++){
@@ -1162,6 +1163,7 @@ void menu_functions(void){
 							}
 						}
 						print("Removed everyones weapons");
+						return;
 					}
 					else if(item_select == 3){
 						for(i = 0;i <= player_loop;i++){
@@ -1172,6 +1174,7 @@ void menu_functions(void){
 							}
 						}
 						print("Everyone was exploded");
+						return;
 					}
 					else if(item_select == 4){
 						for(i = 0;i <= player_loop;i++){
@@ -1181,6 +1184,7 @@ void menu_functions(void){
 							}
 						}
 						print("Everyone was set on fire");
+						return;
 					}
 					else if(item_select == 5){
 						for(i = 0;i <= player_loop;i++){
@@ -1193,6 +1197,7 @@ void menu_functions(void){
 							}
 						}
 						print("Hippoed everyone");
+						return;
 					}
 					else if(item_select == 6){
 						for(i = 0;i <= player_loop;i++){
@@ -1232,6 +1237,7 @@ void menu_functions(void){
 							}
 						}
 						print("Party time!");
+						return;
 					}
 					else if(item_select == 8){
 						for(i = 0;i <= player_loop;i++){
@@ -1243,6 +1249,7 @@ void menu_functions(void){
 							}
 						}
 						print("Put in derby");
+						return;
 					}
 					else if(item_select == 9){
 						for(i = 0;i <= player_loop;i++){
@@ -1253,7 +1260,7 @@ void menu_functions(void){
 							print("Everyone should freeze when aiming weapon");
 							return;
 							}
-						}	    
+						}	   
 					}
 					else if(item_select == 10){
 						for(i = 0;i <= player_loop;i++){
@@ -1274,10 +1281,10 @@ void menu_functions(void){
 								}
 								APPLY_FORCE_TO_CAR(pveh,true,0.0,0.0,1000.0,0.0,0.0,0.0,true,true,true,true);
 							}
-							else print("Player not in vehicle");
-							return;
 							}
-						}	    
+						}
+					print("Slingshoted everyones cars");
+					return;
 					}
 				}
 				else{

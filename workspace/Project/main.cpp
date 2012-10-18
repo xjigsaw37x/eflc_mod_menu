@@ -65,7 +65,7 @@ void main(void){
 	}
 	#endif
 
-	print_long("~b~Xmc ~b~Modmenu ~r~- ~r~Emmanuel ~r~Utomi ~r~AKA ~r~UtomAfryus69");
+	print_long("~b~Xmc ~b~Modmenu ~b~- ~g~Emmanuel ~g~Utomi ~b~AKA ~g~UtomAfryus69");
 	
 	WAIT(100);
 	do{

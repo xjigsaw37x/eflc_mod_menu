@@ -64,6 +64,7 @@ void menu_setup(void){
 			add_toggle("Chaos mode",chaos);
 			add_toggle("Invisibility",invisible);
 			add_item("Set yourself on fire",true);
+			add_item("Bodyguards",false);
 			return;
 		}
 		if(last_selected[0] == 2){
@@ -183,6 +184,13 @@ void menu_setup(void){
 				add_item("Stop Anim",true);
 				add_toggle("Ragdoll",ragdoll);
 				add_item("Zohan",true);
+				return;
+			}
+			if(last_selected[1] == 13){
+				footer = "Bodyguards menu";
+				add_item("Disband All Bodyguards",true);
+				add_item("Dwayne",true);
+				add_item("Brucie",true);
 				return;
 			}
 		}

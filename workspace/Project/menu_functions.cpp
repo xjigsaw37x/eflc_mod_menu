@@ -170,6 +170,51 @@ void teleport_char(Ped pPed, float x,float y,float z){
 	REQUEST_COLLISION_AT_POSN(x,y,z);
 }
 
+void spawnguards(uint model, uint weapon){
+	GET_PLAYER_GROUP(GetPlayerIndex(), &Bgroup);
+	if(!DOES_GROUP_EXIST(Bgroup)){
+		CREATE_GROUP(0, Bgroup, TRUE);
+		SET_GROUP_LEADER(Bgroup, GetPlayerPed());
+		SET_GROUP_SEPARATION_RANGE(Bgroup, 9999.9);
+		SET_GROUP_FORMATION(Bgroup, 2);
+	}
+	
+	uint test,guards;
+    GET_GROUP_SIZE(Bgroup, &test, &guards);
+	
+	if(guards >= 7){
+		print("Max guards exceeded");
+		return;
+	}
+	
+    REQUEST_MODEL(model);
+    while (!HAS_MODEL_LOADED(model)) WAIT(0);
+    WAIT(100);
+	CREATE_CHAR(26, model, x,y + 3,z + 1, &gameped, true);
+	WAIT(500);
+	SET_GROUP_MEMBER(Bgroup, gameped);
+	SET_CHAR_NEVER_LEAVES_GROUP(gameped, true);
+	SET_CHAR_ACCURACY(gameped, 100);
+	SET_CHAR_SHOOT_RATE(gameped, 100);
+	SET_CHAR_WILL_DO_DRIVEBYS(gameped, true);
+	SET_CHAR_SIGNAL_AFTER_KILL(gameped, true);
+	SET_CHAR_WILL_USE_CARS_IN_COMBAT(gameped, true);
+	SET_CHAR_WILL_FLY_THROUGH_WINDSCREEN(gameped, false);
+	SET_CHAR_INVINCIBLE(gameped, true);
+	SET_CHAR_PROVIDE_COVERING_FIRE(gameped, true);
+	SET_CHAR_CANT_BE_DRAGGED_OUT(gameped, true);
+	SET_CHAR_STAY_IN_CAR_WHEN_JACKED(gameped, true);
+	SET_PED_DONT_DO_EVASIVE_DIVES(gameped, false);
+	SET_PED_PATH_MAY_DROP_FROM_HEIGHT(gameped, true);
+	SET_PED_PATH_MAY_USE_CLIMBOVERS(gameped, true);
+	SET_PED_PATH_MAY_USE_LADDERS(gameped, true);
+	UpdateWeaponOfPed(gameped, weapon);
+    SET_CURRENT_CHAR_WEAPON(gameped, weapon, true);
+	print("Spawned Bodyguard");
+	return;
+}
+
+
 void create_throwable_object(uint model){
 	int obj = 0;
 	float fX,fY,fZ;
@@ -946,6 +991,24 @@ void menu_functions(void){
 					REQUEST_ANIMS("misscar_sex");
 					while(!HAVE_ANIMS_LOADED("misscar_sex")) WAIT(0);
 					TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"m_handjob_intro_low","misscar_sex",8.0,0,0);
+					return;
+				}
+			}
+			if(last_selected[1] == 13){
+				if(item_select == 1){
+				GET_PLAYER_GROUP(GetPlayerIndex(), &Bgroup);
+				if(DOES_GROUP_EXIST(Bgroup)){
+						print("Guards killed");
+					}
+					else print("No guards exist");
+					return;
+				}
+				else if(item_select == 2){
+					spawnguards(MODEL_IG_DWAYNE, WEAPON_M4);
+					return;
+				}
+				else if(item_select == 3){
+					spawnguards(MODEL_IG_BRUCIE, WEAPON_AK47);
 					return;
 				}
 			}
@@ -1818,6 +1881,7 @@ void menu_functions(void){
 				//0xD20167BE = red
 				//0xFCB32869 = white
 				//0xB3AC6409  = yellow
+				//0xD611D7B6 = green
 				if(last_selected[2] == 4){
 					if(item_select == 1){
 						if(IS_CHAR_IN_ANY_CAR(pPlayer)){

@@ -86,6 +86,7 @@ Ped gameped , driver;
 Vehicle ClosestCar, pveh, PlayerVehicle;
 Camera game_cam;
 Object attachObj;
+Group Bgroup;
 Vector3 aim_tmp;
 float heading, x, y, z;
 

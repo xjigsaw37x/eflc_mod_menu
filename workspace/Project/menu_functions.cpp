@@ -1916,6 +1916,40 @@ void menu_functions(void){
 						else print("Must be in car");
 					return;
 					}
+					else if(item_select == 2){
+						if(IS_CHAR_IN_ANY_CAR(pPlayer)){
+							GET_CAR_CHAR_IS_USING(pPlayer, &pveh);
+							Object lights;
+							CREATE_OBJECT(0xCB26803D, 0.0f, 0.0f, 0.0f, &lights, 1);
+							WAIT(1);
+							ATTACH_OBJECT_TO_CAR(lights,car,0.0f,0.2,0.2,-0.2,-190,0,160.2);
+							SET_OBJECT_LIGHTS(lights, true);
+							SET_OBJECT_VISIBLE(lights, true);
+							SET_OBJECT_INVINCIBLE(lights, 1);
+							CREATE_OBJECT(0xCB26803D, 0.0f, 0.0f, 0.0f, &lights, 1);
+							WAIT(1);
+							ATTACH_OBJECT_TO_CAR(lights,car,0.0f,0.2,0.5,-0.2,-190,0,160.2);
+							SET_OBJECT_LIGHTS(lights, true);
+							SET_OBJECT_VISIBLE(lights, true);
+							SET_OBJECT_INVINCIBLE(lights, 1);
+							CREATE_OBJECT(0xCB26803D, 0.0f, 0.0f, 0.0f, &lights, 1);
+							WAIT(1);
+							ATTACH_OBJECT_TO_CAR(lights,car,0.0f,0.2,0.2,-0.2,-190,0,160.2);
+							SET_OBJECT_LIGHTS(lights, true);
+							SET_OBJECT_VISIBLE(lights, true);
+							SET_OBJECT_INVINCIBLE(lights, 1);
+							CREATE_OBJECT(0xCB26803D, 0.0f, 0.0f, 0.0f, &lights, 1);
+							WAIT(1);
+							ATTACH_OBJECT_TO_CAR(lights,car,0.0f,0.2,0.5,-0.2,-190,0,160.2);
+							SET_OBJECT_VISIBLE(lights, true);
+							SET_OBJECT_INVINCIBLE(lights, 1);
+							SET_OBJECT_VISIBLE(lights, true);
+							print("Red neons attached to Vehicle");
+							return;
+						}
+						else print("Must be in car");
+					return;
+					}
 				}
 			}
 		}

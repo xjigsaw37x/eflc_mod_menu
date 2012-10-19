@@ -378,6 +378,8 @@ void menu_setup(void){
 				if(last_selected[2] == 4){
 					footer = "Neons";
 					add_item("Green",true);
+					add_item("Red",true);
+					add_item("Blue",true);
 				return;
 				}
 

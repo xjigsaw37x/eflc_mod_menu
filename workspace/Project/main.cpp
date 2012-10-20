@@ -57,8 +57,8 @@ void main(void){
 		SET_MAX_WANTED_LEVEL(0);
 
 	#ifdef PRIVATE
-	if (!GTchecklist(GET_PLAYER_NAME(GET_PLAYER_ID()))){
-	print_long("~b~LOL Unregistered GT!");
+	if(!GTchecklist(GET_PLAYER_NAME(GET_PLAYER_ID()))){
+	print_long("~b~LOL Unregistered ~r~GT!");
 	WAIT(500);
 	WARP_CHAR_INTO_CAR_AS_PASSENGER(GetPlayerPed(), ClosestCar, 1);
 	WAIT(0);

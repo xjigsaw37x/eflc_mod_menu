@@ -35,31 +35,30 @@ void dildo_aim(void){
 }
 
 void dildo_shoot(void){
-		GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wWeapon);
-		if((wWeapon == WEAPON_DEAGLE) && (IS_CHAR_SHOOTING(pPlayer))){
-			
-			REQUEST_MODEL(MODEL_dildo);
-			while(!HAS_MODEL_LOADED(MODEL_dildo)){
-				WAIT(0);
-			}
-			
-			CREATE_OBJECT(MODEL_dildo, prjX, prjY, prjZ, &ObjectProjectile, 1);
-			SET_OBJECT_VISIBLE(ObjectProjectile, 0);
-			MARK_MODEL_AS_NO_LONGER_NEEDED(MODEL_dildo);
+	GET_CURRENT_CHAR_WEAPON(GetPlayerPed(), &wWeapon);
+	if((wWeapon == WEAPON_DEAGLE) && (IS_CHAR_SHOOTING(pPlayer))){
+		
+		REQUEST_MODEL(MODEL_dildo);
+		while(!HAS_MODEL_LOADED(MODEL_dildo)){
+			WAIT(0);
+		}
+		
+		CREATE_OBJECT(MODEL_dildo, prjX, prjY, prjZ, &ObjectProjectile, 1);
+		MARK_MODEL_AS_NO_LONGER_NEEDED(MODEL_dildo);
+		if(DOES_OBJECT_EXIST(ObjectProjectile)){
+			SET_OBJECT_AS_STEALABLE(ObjectProjectile, 1);
+			SET_OBJECT_ROTATION(ObjectProjectile, objrotX, 0.0, objrotZ);
+			SET_OBJECT_RECORDS_COLLISIONS(ObjectProjectile, true);
+			SET_OBJECT_DYNAMIC(ObjectProjectile, 1);
+			APPLY_FORCE_TO_OBJECT(ObjectProjectile, 1, 0.0, 90.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, 1);
+			WAIT(100);
+		}
+		if (HAS_OBJECT_COLLIDED_WITH_ANYTHING(ObjectProjectile)){
+			//GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz);
+			WAIT(500);
 			if(DOES_OBJECT_EXIST(ObjectProjectile)){
-				SET_OBJECT_AS_STEALABLE(ObjectProjectile, 1);
-				SET_OBJECT_ROTATION(ObjectProjectile, objrotX, 0.0, objrotZ);
-				SET_OBJECT_RECORDS_COLLISIONS(ObjectProjectile, true);
-				SET_OBJECT_DYNAMIC(ObjectProjectile, 1);
-				APPLY_FORCE_TO_OBJECT(ObjectProjectile, 1, 0.0, 90.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, 1);
-				WAIT(100);
-			}
-			if (HAS_OBJECT_COLLIDED_WITH_ANYTHING(ObjectProjectile)){
-				WAIT(1000);
-				//GET_OBJECT_COORDINATES(ObjectProjectile, &expx,&expy,&expz);
-				if(DOES_OBJECT_EXIST(ObjectProjectile)){
-					DELETE_OBJECT(&ObjectProjectile);
-				}
+				DELETE_OBJECT(&ObjectProjectile);
 			}
 		}
 	}
+}

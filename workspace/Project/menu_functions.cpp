@@ -190,7 +190,10 @@ void spawnguards(uint model, uint weapon){
     REQUEST_MODEL(model);
     while (!HAS_MODEL_LOADED(model)) WAIT(0);
     WAIT(100);
-	CREATE_CHAR(26, model, x,y + 3,z + 1, &gameped, true);
+	
+	GET_OFFSET_FROM_CHAR_IN_WORLD_COORDS(pPlayer, 0, 2, 0, &x, &y, &z);
+	
+	CREATE_CHAR(26, model, x,y,z, &gameped, true);
 	WAIT(500);
 	SET_GROUP_MEMBER(Bgroup, gameped);
 	SET_CHAR_NEVER_LEAVES_GROUP(gameped, true);
@@ -346,7 +349,12 @@ void menu_functions(void){
 				return;
 			}
 			if(item_select == 12){
-				START_CHAR_FIRE(GetPlayerPed());
+				if(!IS_CHAR_ON_FIRE(pPlayer)){
+					START_CHAR_FIRE(pPlayer);
+				}
+				else{
+					EXTINGUISH_CHAR_FIRE(pPlayer);
+				}
 				return;
 			}
 		}
@@ -445,7 +453,7 @@ void menu_functions(void){
 			}
 			if(item_select == 11){
 				if(!hydrolics){
-				print("Hold X for hydrolics");
+					print("Hold X for hydrolics");
 				}
 				do_toggle(hydrolics);
 				return;
@@ -453,12 +461,12 @@ void menu_functions(void){
 			if(item_select == 12){
 				//// float x, y, z;
 				if(IS_CHAR_IN_ANY_CAR(pPlayer)){
-				GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
-				z += 1;
-				WARP_CHAR_FROM_CAR_TO_COORD(pPlayer, x, y, z);
-				APPLY_FORCE_TO_PED(pPlayer, 1 ,0.0f ,0.0f ,1000.0f ,0.0f ,0.0f ,0.0f ,1 ,1 ,1 ,1);
-				print("Ejected");
-				return;
+					GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
+					z += 1;
+					WARP_CHAR_FROM_CAR_TO_COORD(pPlayer, x, y, z);
+					APPLY_FORCE_TO_PED(pPlayer, 1 ,0.0f ,0.0f ,1000.0f ,0.0f ,0.0f ,0.0f ,1 ,1 ,1 ,1);
+					print("Ejected");
+					return;
 				}
 			}
 			if(item_select == 13){
@@ -470,7 +478,7 @@ void menu_functions(void){
 			}
 			if(item_select == 14){
 				if(!collision){
-				print("All Vehicles will fly through walls, ground, and people");
+				print("All Vehicles will fly through walls, objects, and people");
 				}
 				do_toggle(collision);
 				return;
@@ -1985,13 +1993,13 @@ void looped_functions(void){
 		int i = 0;
 		for(i;i <= 10;i++){
 			GET_CURRENT_CHAR_WEAPON(pPlayer, &wWeapon);
-			if(IS_CHAR_SHOOTING(pPlayer) && wWeapon == WEAPON_PISTOL){
+			if((IS_CHAR_SHOOTING(pPlayer)) && (wWeapon == WEAPON_PISTOL) && (!IS_CHAR_IN_ANY_CAR(pPlayer)) && (DOES_CHAR_EXIST(iPed))){
 				GET_PED_BONE_POSITION(pPlayer,BONE_RIGHT_HAND,100.0,0.0,0.0,&aim_tmp);
 				GET_CHAR_HEADING(pPlayer, &heading);
 				SET_CHAR_HEADING(iPed, heading);
 				TASK_AIM_GUN_AT_COORD(iPed, aim_tmp.x, aim_tmp.y, aim_tmp.z, 0);
 				FIRE_PED_WEAPON(iPed, aim_tmp.x,aim_tmp.y,aim_tmp.z);
-				}
+			}
 		}
 	}
 	
@@ -2031,23 +2039,16 @@ void looped_functions(void){
 	}
 	
 	if(hydrolics){
-		if(IS_BUTTON_PRESSED(0,BUTTON_X))
-			{
-				Vehicle PlayerVehicle;
-				if (IS_CHAR_IN_ANY_CAR(GetPlayerPed()))
-					{
-						GET_CAR_CHAR_IS_USING(GetPlayerPed(), &PlayerVehicle);	
-						if((!IS_CHAR_IN_ANY_BOAT(GetPlayerPed())) && (!IS_CHAR_IN_ANY_HELI(GetPlayerPed())))
-							{
-								if (IS_VEHICLE_ON_ALL_WHEELS( PlayerVehicle ))
-									{
-										APPLY_FORCE_TO_CAR(PlayerVehicle, 0.0f, 0.0f, 0.0f, 60.0f , 0.0f,0.0f,-60.0f, 0, 1, 1, 1 );
-										//APPLY_FORCE_TO_CAR(PlayerVehicle, 0, x,y, z, spinX,  spinY,  spinZ,  0, 1, 1, 1);	
-									}
-			
-							}
+		if(IS_BUTTON_PRESSED(0,BUTTON_X)){
+			if (IS_CHAR_IN_ANY_CAR(GetPlayerPed())){
+				GET_CAR_CHAR_IS_USING(GetPlayerPed(), &pveh);	
+				if((!IS_CHAR_IN_ANY_BOAT(pPlayer)) && (!IS_CHAR_IN_ANY_HELI(pPlayer))){
+					if (IS_VEHICLE_ON_ALL_WHEELS(pveh)){
+						APPLY_FORCE_TO_CAR(PlayerVehicle, 0.0f, 0.0f, 0.0f, 60.0f , 0.0f,0.0f,-60.0f, 0, 1, 1, 1 );
 					}
+				}
 			}
+		}
 	}
 	
 	if(chaos){
@@ -2133,7 +2134,7 @@ void looped_functions(void){
 			else{
 				GET_CAR_SPEED(pveh,&speed);
 				SET_CAR_FORWARD_SPEED(pveh,(speed * 1.02));
-				}
+			}
 		}
 	}
 	

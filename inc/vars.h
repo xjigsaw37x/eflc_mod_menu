@@ -4,7 +4,7 @@
 
 **/
 
-#define MODEL_dildo1  0x3675A6C3
+#define MODEL_dildo  0x3675A6C3
 
 //Xbox 360 buttons
 #define BUTTON_SELECT 0xD
@@ -110,7 +110,7 @@ bool show_menu = false,
 	neverwanted = false,
 	invisible = false,
 	fastreload = true,
-	helistrike = false,
+	dildogun = false,
 	pprotection = false,
 	superrun = false,
 	hydrolics = false,

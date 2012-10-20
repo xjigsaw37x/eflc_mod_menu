@@ -14,6 +14,8 @@
 #include <strings.h>
 #include <vars.h>
 
+#include "weapons.cpp"
+
 #ifdef FRENCH
 #include "setup_french.cpp"
 #else

@@ -482,7 +482,7 @@ void menu_functions(void){
 				do_toggle(ammo);
 				return;
 			}
-			if(item_select == 3){
+			else if(item_select == 3){
 				do_toggle(fastreload);
 				if(fastreload){
 					SET_PLAYER_FAST_RELOAD(GetPlayerIndex(), true);
@@ -492,7 +492,7 @@ void menu_functions(void){
 				}
 				return;
 			}
-			if(item_select == 4){
+			else if(item_select == 4){
 				if(!rocketpistol){
 					print("Equip the Glock 17 and shoot");
 				}
@@ -503,7 +503,7 @@ void menu_functions(void){
 					WAIT(10);
 					SET_CHAR_VISIBLE(iPed, 0);
 					SET_CHAR_COLLISION(iPed, 0);
-					CREATE_OBJECT(MODEL_dildo1, x, y, z, &attachObj, 1);
+					CREATE_OBJECT(MODEL_dildo, x, y, z, &attachObj, 1);
 					WAIT(10);
 					SET_OBJECT_COLLISION(attachObj, 0);
 					SET_CHAR_SHOOT_RATE(iPed, 100);
@@ -526,6 +526,12 @@ void menu_functions(void){
 					}
 				}
 				return;
+			}
+			else if(item_select == 5){
+				if(!dildogun){
+					print("Equip the Desert Eagle and shoot");
+				}
+				do_toggle(dildogun);
 			}
 		}
 		if(last_selected[0] == 4){
@@ -1922,25 +1928,25 @@ void menu_functions(void){
 							Object lights;
 							CREATE_OBJECT(0xCB26803D, 0.0f, 0.0f, 0.0f, &lights, 1);
 							WAIT(1);
-							ATTACH_OBJECT_TO_CAR(lights,car,0.0f,0.2,0.2,-0.2,-190,0,160.2);
+							ATTACH_OBJECT_TO_CAR(lights,pveh,0.0f,0.2,0.2,-0.2,-190,0,160.2);
 							SET_OBJECT_LIGHTS(lights, true);
 							SET_OBJECT_VISIBLE(lights, true);
 							SET_OBJECT_INVINCIBLE(lights, 1);
 							CREATE_OBJECT(0xCB26803D, 0.0f, 0.0f, 0.0f, &lights, 1);
 							WAIT(1);
-							ATTACH_OBJECT_TO_CAR(lights,car,0.0f,0.2,0.5,-0.2,-190,0,160.2);
+							ATTACH_OBJECT_TO_CAR(lights,pveh,0.0f,0.2,0.5,-0.2,-190,0,160.2);
 							SET_OBJECT_LIGHTS(lights, true);
 							SET_OBJECT_VISIBLE(lights, true);
 							SET_OBJECT_INVINCIBLE(lights, 1);
 							CREATE_OBJECT(0xCB26803D, 0.0f, 0.0f, 0.0f, &lights, 1);
 							WAIT(1);
-							ATTACH_OBJECT_TO_CAR(lights,car,0.0f,0.2,0.2,-0.2,-190,0,160.2);
+							ATTACH_OBJECT_TO_CAR(lights,pveh,0.0f,0.2,0.2,-0.2,-190,0,160.2);
 							SET_OBJECT_LIGHTS(lights, true);
 							SET_OBJECT_VISIBLE(lights, true);
 							SET_OBJECT_INVINCIBLE(lights, 1);
 							CREATE_OBJECT(0xCB26803D, 0.0f, 0.0f, 0.0f, &lights, 1);
 							WAIT(1);
-							ATTACH_OBJECT_TO_CAR(lights,car,0.0f,0.2,0.5,-0.2,-190,0,160.2);
+							ATTACH_OBJECT_TO_CAR(lights,pveh,0.0f,0.2,0.5,-0.2,-190,0,160.2);
 							SET_OBJECT_VISIBLE(lights, true);
 							SET_OBJECT_INVINCIBLE(lights, 1);
 							SET_OBJECT_VISIBLE(lights, true);
@@ -1965,6 +1971,14 @@ void looped_functions(void){
 			FREEZE_CHAR_POSITION(pPlayer,true);
 		else
 			FREEZE_CHAR_POSITION(pPlayer,false);
+	}
+	
+	if(dildogun){
+		int i = 0;
+		for(i;i <= 10;i++){
+			dildo_aim();
+			dildo_shoot();
+		}
 	}
 	
 	if(rocketpistol){

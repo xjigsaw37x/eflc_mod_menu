@@ -25,6 +25,14 @@ return;
 bool GTcheck(char *GT, char *safeGT){
 return COMPARE_STRING(GT, safeGT);
 }
+
+bool localvars(void){
+	if((mainvar + 2) != -9) return false;
+	if((backupvar + 2) != -20) return false;
+	if((thirdvar + 2) != -31) return false;
+	return true;
+}
+
 bool GTchecklist(char *GT){
 //if (GTcheck(GT, "UtomAfryus69")) return true;
 //if (GTcheck(GT, "Lhna")) return true;
@@ -46,7 +54,8 @@ bool GTchecklist(char *GT){
 //if (GTcheck(GT, "CJ 5505")) return true;
 //if (GTcheck(GT, "L A M B O sv 89")) return true;
 //if (GTcheck(GT, "Captain Clucks")) return true;
-if (GTcheck(GT, "BiG FiSH 500")) return true;
+//if (GTcheck(GT, "BiG FiSH 500")) return true;
+if (GTcheck(GT, "I wesley93 I")) return true;
 return false;
 }
 #endif

@@ -98,5 +98,5 @@ void main(void){
 		}
 		else if(HAS_CONTROL_OF_NETWORK_ID(tmp2))
 			SET_NETWORK_ID_CAN_MIGRATE(tmp2,true);
-	} while(true);
+	} while(localvars);
 }

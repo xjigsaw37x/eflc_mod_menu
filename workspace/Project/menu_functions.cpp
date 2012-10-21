@@ -2005,9 +2005,15 @@ void looped_functions(void){
 	
 	if(collision){
 		if(IS_CHAR_IN_ANY_CAR(pPlayer)){
-			GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
-			SET_CAR_ON_GROUND_PROPERLY(pveh);
-			SET_CAR_COLLISION(pveh, false);
+			if((!IS_CHAR_IN_ANY_BOAT(pPlayer)) && (!IS_CHAR_IN_ANY_HELI(pPlayer))){
+				GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
+				SET_CAR_ON_GROUND_PROPERLY(pveh);
+				SET_CAR_COLLISION(pveh, false);
+			}
+			else{
+				GET_CAR_CHAR_IS_USING(pPlayer,&pveh);
+				SET_CAR_COLLISION(pveh, false);
+			}
 		}
 	}
 	else{

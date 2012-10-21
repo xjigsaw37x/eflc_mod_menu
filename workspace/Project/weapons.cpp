@@ -49,7 +49,7 @@ void dildo_shoot(void){
 			SET_OBJECT_AS_STEALABLE(ObjectProjectile, 1);
 			SET_OBJECT_ROTATION(ObjectProjectile, objrotX, 0.0, objrotZ);
 			SET_OBJECT_RECORDS_COLLISIONS(ObjectProjectile, true);
-			SET_OBJECT_DYNAMIC(ObjectProjectile, 1);
+			//SET_OBJECT_DYNAMIC(ObjectProjectile, 1);
 			APPLY_FORCE_TO_OBJECT(ObjectProjectile, 1, 0.0, 90.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, 1);
 			WAIT(100);
 		}

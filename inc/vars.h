@@ -82,13 +82,15 @@ int wWeapon;
 uint model, bone;
 int tmp,tmp_ped[2];	
 Ped iPed;
-Ped gameped , driver;
+Ped driver;
 Vehicle ClosestCar, pveh, PlayerVehicle;
 Camera game_cam;
 Object attachObj;
 Group Bgroup;
 Vector3 aim_tmp;
 float heading, x, y, z;
+
+Ped gameped[7];
 
 float prjX, prjY, prjZ, prjT, gcX, gcY, gcZ, gcrotX, gcrotY, gcrotZ, objrotX, objrotZ;
 Object ObjectProjectile;
@@ -110,7 +112,7 @@ bool show_menu = false,
 	neverwanted = false,
 	invisible = false,
 	fastreload = true,
-	dildogun = false,
+	//dildogun = false,
 	pprotection = false,
 	superrun = false,
 	hydrolics = false,

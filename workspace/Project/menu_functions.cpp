@@ -171,50 +171,57 @@ void teleport_char(Ped pPed, float x,float y,float z){
 }
 
 void spawnguards(uint model, uint weapon){
-	GET_PLAYER_GROUP(GetPlayerIndex(), &Bgroup);
-	if(!DOES_GROUP_EXIST(Bgroup)){
-		CREATE_GROUP(0, Bgroup, TRUE);
-		SET_GROUP_LEADER(Bgroup, GetPlayerPed());
-		SET_GROUP_SEPARATION_RANGE(Bgroup, 9999.9);
-		SET_GROUP_FORMATION(Bgroup, 2);
+	int i = 0;
+	for(i;i <= 7;i++){
+		if(!DOES_CHAR_EXIST(gameped[i])){
+			GET_PLAYER_GROUP(GetPlayerIndex(), &Bgroup);
+			if(!DOES_GROUP_EXIST(Bgroup)){
+				CREATE_GROUP(0, Bgroup, TRUE);
+				SET_GROUP_LEADER(Bgroup, GetPlayerPed());
+				SET_GROUP_SEPARATION_RANGE(Bgroup, 9999.9);
+				SET_GROUP_FORMATION(Bgroup, 2);
+			}
+			
+			uint test,guards;
+			GET_GROUP_SIZE(Bgroup, &test, &guards);
+			
+			if(guards >= 7){
+				print("Max guards exceeded");
+				return;
+			}
+			
+			REQUEST_MODEL(model);
+			while (!HAS_MODEL_LOADED(model)) WAIT(0);
+			WAIT(100);
+			
+			GET_OFFSET_FROM_CHAR_IN_WORLD_COORDS(pPlayer, 0, 2, 0, &x, &y, &z);
+			
+			CREATE_CHAR(26, model, x,y,z, &gameped[i], true);
+			WAIT(500);
+			SET_GROUP_MEMBER(Bgroup, gameped[i]);
+			SET_CHAR_NEVER_LEAVES_GROUP(gameped[i], true);
+			SET_CHAR_ACCURACY(gameped[i], 100);
+			SET_SENSE_RANGE(gameped[i], 50.0);
+			SET_PED_GENERATES_DEAD_BODY_EVENTS(gameped[i], true);
+			SET_CHAR_SHOOT_RATE(gameped[i], 100);
+			SET_CHAR_WILL_DO_DRIVEBYS(gameped[i], true);
+			SET_CHAR_SIGNAL_AFTER_KILL(gameped[i], true);
+			SET_CHAR_WILL_USE_CARS_IN_COMBAT(gameped[i], true);
+			SET_CHAR_WILL_FLY_THROUGH_WINDSCREEN(gameped[i], false);
+			SET_CHAR_INVINCIBLE(gameped[i], true);
+			SET_CHAR_PROVIDE_COVERING_FIRE(gameped[i], true);
+			SET_CHAR_CANT_BE_DRAGGED_OUT(gameped[i], true);
+			SET_CHAR_STAY_IN_CAR_WHEN_JACKED(gameped[i], true);
+			SET_PED_DONT_DO_EVASIVE_DIVES(gameped[i], false);
+			SET_PED_PATH_MAY_DROP_FROM_HEIGHT(gameped[i], true);
+			SET_PED_PATH_MAY_USE_CLIMBOVERS(gameped[i], true);
+			SET_PED_PATH_MAY_USE_LADDERS(gameped[i], true);
+			UpdateWeaponOfPed(gameped[i], weapon);
+			SET_CURRENT_CHAR_WEAPON(gameped[i], weapon, true);
+			print("Spawned Bodyguard");
+			return;
+		}
 	}
-	
-	uint test,guards;
-    GET_GROUP_SIZE(Bgroup, &test, &guards);
-	
-	if(guards >= 7){
-		print("Max guards exceeded");
-		return;
-	}
-	
-    REQUEST_MODEL(model);
-    while (!HAS_MODEL_LOADED(model)) WAIT(0);
-    WAIT(100);
-	
-	GET_OFFSET_FROM_CHAR_IN_WORLD_COORDS(pPlayer, 0, 2, 0, &x, &y, &z);
-	
-	CREATE_CHAR(26, model, x,y,z, &gameped, true);
-	WAIT(500);
-	SET_GROUP_MEMBER(Bgroup, gameped);
-	SET_CHAR_NEVER_LEAVES_GROUP(gameped, true);
-	SET_CHAR_ACCURACY(gameped, 100);
-	SET_CHAR_SHOOT_RATE(gameped, 100);
-	SET_CHAR_WILL_DO_DRIVEBYS(gameped, true);
-	SET_CHAR_SIGNAL_AFTER_KILL(gameped, true);
-	SET_CHAR_WILL_USE_CARS_IN_COMBAT(gameped, true);
-	SET_CHAR_WILL_FLY_THROUGH_WINDSCREEN(gameped, false);
-	SET_CHAR_INVINCIBLE(gameped, true);
-	SET_CHAR_PROVIDE_COVERING_FIRE(gameped, true);
-	SET_CHAR_CANT_BE_DRAGGED_OUT(gameped, true);
-	SET_CHAR_STAY_IN_CAR_WHEN_JACKED(gameped, true);
-	SET_PED_DONT_DO_EVASIVE_DIVES(gameped, false);
-	SET_PED_PATH_MAY_DROP_FROM_HEIGHT(gameped, true);
-	SET_PED_PATH_MAY_USE_CLIMBOVERS(gameped, true);
-	SET_PED_PATH_MAY_USE_LADDERS(gameped, true);
-	UpdateWeaponOfPed(gameped, weapon);
-    SET_CURRENT_CHAR_WEAPON(gameped, weapon, true);
-	print("Spawned Bodyguard");
-	return;
 }
 
 
@@ -505,42 +512,16 @@ void menu_functions(void){
 					print("Equip the Glock 17 and shoot");
 				}
 				do_toggle(rocketpistol);
-				if(rocketpistol){
-					GET_CHAR_COORDINATES(pPlayer, &x, &y, &z);
-					CREATE_RANDOM_CHAR(x, y + 2, z + 3.0f, &iPed);
-					WAIT(10);
-					SET_CHAR_VISIBLE(iPed, 0);
-					SET_CHAR_COLLISION(iPed, 0);
-					CREATE_OBJECT(MODEL_dildo, x, y, z, &attachObj, 1);
-					WAIT(10);
-					SET_OBJECT_COLLISION(attachObj, 0);
-					SET_CHAR_SHOOT_RATE(iPed, 100);
-					SET_CHAR_ACCURACY(iPed, 100);
-					SET_CHAR_PROOFS(iPed, 1, 1, 1, 1, 1);
-					SET_OBJECT_VISIBLE(attachObj, 0);
-					SET_CHAR_WILL_MOVE_WHEN_INJURED(iPed, 0);
-					ATTACH_OBJECT_TO_PED(attachObj, pPlayer, 0, 4.0, 4.0, 0, 0, 0, 0, 0);
-					ATTACH_PED_TO_OBJECT(iPed, attachObj, 0, 0, 0, 0, 0, 0, 0, 0);
-					SET_CURRENT_CHAR_WEAPON(iPed, WEAPON_RLAUNCHER, true);
-					UpdateWeaponOfPed(iPed, WEAPON_RLAUNCHER);
-					WAIT(500);
-				}
-				else{
-					if(DOES_CHAR_EXIST(iPed)){
-						DELETE_CHAR(&iPed);
-					}
-					if(DOES_OBJECT_EXIST(attachObj)){
-						DELETE_OBJECT(&attachObj);
-					}
-				}
 				return;
 			}
+			/**
 			else if(item_select == 5){
 				if(!dildogun){
 					print("Equip the Desert Eagle and shoot");
 				}
 				do_toggle(dildogun);
 			}
+			**/
 		}
 		if(last_selected[0] == 4){
 			if(item_select == 1){
@@ -1980,7 +1961,7 @@ void looped_functions(void){
 		else
 			FREEZE_CHAR_POSITION(pPlayer,false);
 	}
-	
+	/**
 	if(dildogun){
 		int i = 0;
 		for(i;i <= 10;i++){
@@ -1988,18 +1969,12 @@ void looped_functions(void){
 			dildo_shoot();
 		}
 	}
-	
+	**/
 	if(rocketpistol){
 		int i = 0;
 		for(i;i <= 10;i++){
-			GET_CURRENT_CHAR_WEAPON(pPlayer, &wWeapon);
-			if((IS_CHAR_SHOOTING(pPlayer)) && (wWeapon == WEAPON_PISTOL) && (!IS_CHAR_IN_ANY_CAR(pPlayer)) && (DOES_CHAR_EXIST(iPed))){
-				GET_PED_BONE_POSITION(pPlayer,BONE_RIGHT_HAND,100.0,0.0,0.0,&aim_tmp);
-				GET_CHAR_HEADING(pPlayer, &heading);
-				SET_CHAR_HEADING(iPed, heading);
-				TASK_AIM_GUN_AT_COORD(iPed, aim_tmp.x, aim_tmp.y, aim_tmp.z, 0);
-				FIRE_PED_WEAPON(iPed, aim_tmp.x,aim_tmp.y,aim_tmp.z);
-			}
+			rocket_aim();
+			rocket_shoot();
 		}
 	}
 	
@@ -2059,6 +2034,7 @@ void looped_functions(void){
 	
 	if(chaos){
 		float dX,dY,dZ;
+		Ped gameped;
 		GET_CHAR_COORDINATES(GetPlayerPed(),&dX, &dY, &dZ);
 		ClosestCar = GET_CLOSEST_CAR(dX,dY,dZ, 15, false, 70);
 		

@@ -91,7 +91,7 @@ void menu_setup(void){
 			add_toggle("Unlimited Ammo",ammo);
 			add_toggle("Fast Reload",fastreload);
 			add_toggle("Rocket Glock",rocketpistol);
-			add_toggle("Dildo Deagle",dildogun);
+			//add_toggle("Dildo Deagle",dildogun);
 			return;
 		}
 		if(last_selected[0] == 4){

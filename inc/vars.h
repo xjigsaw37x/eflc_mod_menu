@@ -80,7 +80,7 @@ Object tmp_object_loop;
 uint tmp_model;
 int wWeapon;
 uint model, bone;
-int tmp,tmp_ped[2];	
+int tmp, tmp_ped[2];	
 Ped iPed;
 Ped driver;
 Vehicle ClosestCar, pveh, PlayerVehicle;
@@ -102,6 +102,7 @@ bool grenade_active;
 bool in_paint = false;	
 
 uint tick;
+int i;
 int nvid;
 
 bool show_menu = false,

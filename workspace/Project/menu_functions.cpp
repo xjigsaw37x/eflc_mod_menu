@@ -169,11 +169,57 @@ void teleport_char(Ped pPed, float x,float y,float z){
 	}
 	REQUEST_COLLISION_AT_POSN(x,y,z);
 }
+int i = 0;
+
+void delete_spawnguards(void){
+	GET_PLAYER_GROUP(GetPlayerIndex(), &Bgroup);
+	if(DOES_GROUP_EXIST(Bgroup)){				
+		for(i;i <= 7; i++){
+				
+			if(DOES_CHAR_EXIST(gameped[i])){
+				DELETE_CHAR(&gameped[i]);
+			}
+				
+			/**
+			if(DOES_CHAR_EXIST(gameped[0])){
+				DELETE_CHAR(&gameped[0]);
+			}
+			if(DOES_CHAR_EXIST(gameped[1])){
+				DELETE_CHAR(&gameped[1]);
+			}
+			if(DOES_CHAR_EXIST(gameped[2])){
+				DELETE_CHAR(&gameped[2]);
+			}
+			if(DOES_CHAR_EXIST(gameped[3])){
+				DELETE_CHAR(&gameped[3]);
+			}
+			if(DOES_CHAR_EXIST(gameped[4])){
+				DELETE_CHAR(&gameped[4]);
+			}
+			if(DOES_CHAR_EXIST(gameped[5])){
+				DELETE_CHAR(&gameped[5]);
+			}
+			if(DOES_CHAR_EXIST(gameped[6])){
+				DELETE_CHAR(&gameped[6]);
+			}
+			**/
+			/**
+			if(i = 0){
+				print("Guards Deleted");
+				return;
+			}
+			**/
+		}
+		print("Guards Deleted");					
+		return;					
+	}
+	else print("No guards exist");			
+}	
 
 void spawnguards(uint model, uint weapon){
-	int i = 0;
-	for(i;i <= 7;i++){
-		if(!DOES_CHAR_EXIST(gameped[i])){
+	//for(i;i <= 7; i++){
+
+		//if(!DOES_CHAR_EXIST(gameped[i])){
 			GET_PLAYER_GROUP(GetPlayerIndex(), &Bgroup);
 			if(!DOES_GROUP_EXIST(Bgroup)){
 				CREATE_GROUP(0, Bgroup, TRUE);
@@ -189,6 +235,8 @@ void spawnguards(uint model, uint weapon){
 				print("Max guards (7) exceeded");
 				return;
 			}
+			
+			i = guards;
 			
 			REQUEST_MODEL(model);
 			while (!HAS_MODEL_LOADED(model)) WAIT(0);
@@ -218,10 +266,15 @@ void spawnguards(uint model, uint weapon){
 			SET_PED_PATH_MAY_USE_LADDERS(gameped[i], true);
 			UpdateWeaponOfPed(gameped[i], weapon);
 			SET_CURRENT_CHAR_WEAPON(gameped[i], weapon, true);
+			
 			print("Spawned Bodyguard");
+			
+			//if(i >= 7) return;
+			//i += 1;
 			return;
-		}
-	}
+		//}
+	//}
+	return;
 }
 
 
@@ -896,11 +949,7 @@ void menu_functions(void){
 		if(last_selected[0] == 1){
 			if(last_selected[1] == 13){
 				if(item_select == 1){
-				GET_PLAYER_GROUP(GetPlayerIndex(), &Bgroup);
-				if(DOES_GROUP_EXIST(Bgroup)){
-						print("Guards killed");
-					}
-					else print("No guards exist");
+					delete_spawnguards();
 					return;
 				}
 				else if(item_select == 2){
@@ -1113,9 +1162,11 @@ void menu_functions(void){
 					WAIT(500);
 					create_big_explosion(2234.6369,456.6962,5.4562);
 					print("Launching strike at Aiport parking!");
+					return;
 				}
 				if(item_select == 4){
 					xmc_airstrike();
+					return;
 				}
 			}
 		}

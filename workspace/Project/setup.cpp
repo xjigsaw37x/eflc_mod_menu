@@ -40,7 +40,8 @@ void menu_setup(void){
 	item_count = 0;
 	footer = " ";
 	if(menu_level == 0){
-		footer = "Main Menu";
+		//footer = "Main Menu";
+		footer = MENU_TITLE;
 		add_item("Player Options",false);
 		add_item("Vehicle Options",false);
 		add_item("Weapon Options",false);
@@ -184,7 +185,7 @@ void menu_setup(void){
 			}
 			if(last_selected[1] == 13){
 				footer = "Bodyguards";
-				add_item("Disband All Bodyguards",true);
+				add_item("Delete All Guards",true);
 				add_item("Dwayne",true);
 				add_item("Brucie",true);
 				return;

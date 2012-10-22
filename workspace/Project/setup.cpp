@@ -188,7 +188,7 @@ void menu_setup(void){
 				return;
 			}
 			if(last_selected[1] == 13){
-				footer = "Bodyguards menu";
+				footer = "Bodyguards";
 				add_item("Disband All Bodyguards",true);
 				add_item("Dwayne",true);
 				add_item("Brucie",true);
@@ -308,7 +308,7 @@ void menu_setup(void){
 				if(last_selected[2] == 1){
 					footer = "Vehicle Spawner";
 					add_item("Sports",false);
-					add_item("Vintige",false);
+					add_item("Muscle",false);
 					add_item("Two Door",false);
 					add_item("Four Door",false);
 					add_item("Four Door (2)",false);
@@ -449,7 +449,7 @@ void menu_setup(void){
 						return;
 					}
 					if(last_selected[3] == 2){
-						footer = "Vintige";
+						footer = "Muscle";
 						add_gxt_hash(MODEL_BUCCANEER);
 						add_gxt_hash(MODEL_DUKES);
 						add_gxt_hash(MODEL_FACTION);

@@ -894,101 +894,6 @@ void menu_functions(void){
 	}
 	if(menu_level == 2){
 		if(last_selected[0] == 1){
-			if(last_selected[1] == 2){
-				if(item_select == 1){
-					if(menu[item_select].value == 1){
-						//Request the anim and make sure it exists then load it
-						//This also sets what group of anims your going to be selecting from
-						REQUEST_ANIMS("amb@park_taichi_a");
-						//Do not proceed until animation group is loaded
-						//mainly to avoid freezing
-						while(!HAVE_ANIMS_LOADED("amb@park_taichi_a")) WAIT(0);
-						//Anims are like a group of dances/moves. Call one in the group you loaded above down here
-						//then also say stuff like how long to play dance and if to repeat
-						// amb@park_taichi_a = Anim Group    taichi01 = Specific Dance in the loaded anim group
-						//pPlayer = you      8.0 = seconds to play
-						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"taichi01","amb@park_taichi_a",8.0,0,0);
-						return;
-					}
-					if(menu[item_select].value == 2){
-						REQUEST_ANIMS("amb@park_taichi_b");
-						while(!HAVE_ANIMS_LOADED("amb@park_taichi_b")) WAIT(0);
-						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"taichi02","amb@park_taichi_b",8.0,0,0);
-						return;
-					}					
-				}
-				if(item_select == 2){
-					if(menu[item_select].value == 1){
-						REQUEST_ANIMS("amb@dance_maleidl_a");
-						while(!HAVE_ANIMS_LOADED("amb@dance_maleidl_a")) WAIT(0);
-						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_a","amb@dance_maleidl_a",8.0,0,0);
-						return;
-					}
-					if(menu[item_select].value == 2){
-						REQUEST_ANIMS("amb@dance_maleidl_b");
-						while(!HAVE_ANIMS_LOADED("amb@dance_maleidl_b")) WAIT(0);
-						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_b","amb@dance_maleidl_b",8.0,0,0);
-						return;
-					}
-					if(menu[item_select].value == 3){
-						REQUEST_ANIMS("amb@dance_maleidl_c");
-						while(!HAVE_ANIMS_LOADED("amb@dance_maleidl_c")) WAIT(0);
-						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_c","amb@dance_maleidl_c",8.0,0,0);
-						return;
-					}
-					if(menu[item_select].value == 4){
-						REQUEST_ANIMS("amb@dance_maleidl_b");
-						while(!HAVE_ANIMS_LOADED("amb@dance_maleidl_b")) WAIT(0);
-						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_b","amb@dance_maleidl_b",8.0,0,0);
-						return;
-					}
-				}
-				if(item_select == 3){
-					if(menu[item_select].value == 1){
-						REQUEST_ANIMS("amb@dance_femidl_a");
-						while(!HAVE_ANIMS_LOADED("amb@dance_femidl_a")) WAIT(0);
-						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_a","amb@dance_femidl_a",8.0,0,0);
-						return;
-					}
-					if(menu[item_select].value == 2){
-						REQUEST_ANIMS("amb@dance_femidl_b");
-						while(!HAVE_ANIMS_LOADED("amb@dance_femidl_b")) WAIT(0);
-						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_b","amb@dance_femidl_b",8.0,0,0);
-						return;
-					}
-					if(menu[item_select].value == 3){
-						REQUEST_ANIMS("amb@dance_femidl_c");
-						while(!HAVE_ANIMS_LOADED("amb@dance_femidl_c")) WAIT(0);
-						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_c","amb@dance_femidl_c",8.0,0,0);
-						return;
-					}					
-				}
-				if(item_select == 4){
-					REQUEST_ANIMS("missstripclublo");
-					while(!HAVE_ANIMS_LOADED("missstripclublo")) WAIT(0);
-					TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"pole_dance_a","missstripclublo",8.0,0,0);
-					return;
-				}
-				if(item_select == 5){
-					SWITCH_PED_TO_RAGDOLL(pPlayer,20,30,false,false,false,false);
-					SWITCH_PED_TO_ANIMATED(pPlayer,true);
-					GIVE_PLAYER_RAGDOLL_CONTROL(GET_PLAYER_ID(),true);
-					WAIT(30);
-					SWITCH_PED_TO_ANIMATED(pPlayer,false);
-					GIVE_PLAYER_RAGDOLL_CONTROL(GET_PLAYER_ID(),false);
-					return;
-				}
-				if(item_select == 6){
-					do_toggle(ragdoll);
-					return;
-				}
-				if(item_select == 7){
-					REQUEST_ANIMS("misscar_sex");
-					while(!HAVE_ANIMS_LOADED("misscar_sex")) WAIT(0);
-					TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"m_handjob_intro_low","misscar_sex",8.0,0,0);
-					return;
-				}
-			}
 			if(last_selected[1] == 13){
 				if(item_select == 1){
 				GET_PLAYER_GROUP(GetPlayerIndex(), &Bgroup);
@@ -1658,6 +1563,105 @@ void menu_functions(void){
 						print("Get Hippoed Nigga");
 					}
 					return;
+					}
+				}
+			}
+		}
+		if(last_selected[0] == 1){
+			if(last_selected[1] == 2){
+				if(last_selected[2] == 1){
+					if(item_select == 1){
+						if(menu[item_select].value == 1){
+							//Request the anim and make sure it exists then load it
+							//This also sets what group of anims your going to be selecting from
+							REQUEST_ANIMS("amb@park_taichi_a");
+							//Do not proceed until animation group is loaded
+							//mainly to avoid freezing
+							while(!HAVE_ANIMS_LOADED("amb@park_taichi_a")) WAIT(0);
+							//Anims are like a group of dances/moves. Call one in the group you loaded above down here
+							//then also say stuff like how long to play dance and if to repeat
+							// amb@park_taichi_a = Anim Group    taichi01 = Specific Dance in the loaded anim group
+							//pPlayer = you      8.0 = seconds to play
+							TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"taichi01","amb@park_taichi_a",8.0,0,0);
+							return;
+						}
+						if(menu[item_select].value == 2){
+							REQUEST_ANIMS("amb@park_taichi_b");
+							while(!HAVE_ANIMS_LOADED("amb@park_taichi_b")) WAIT(0);
+							TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"taichi02","amb@park_taichi_b",8.0,0,0);
+							return;
+						}					
+					}
+					if(item_select == 2){
+						if(menu[item_select].value == 1){
+							REQUEST_ANIMS("amb@dance_maleidl_a");
+							while(!HAVE_ANIMS_LOADED("amb@dance_maleidl_a")) WAIT(0);
+							TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_a","amb@dance_maleidl_a",8.0,0,0);
+							return;
+						}
+						if(menu[item_select].value == 2){
+							REQUEST_ANIMS("amb@dance_maleidl_b");
+							while(!HAVE_ANIMS_LOADED("amb@dance_maleidl_b")) WAIT(0);
+							TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_b","amb@dance_maleidl_b",8.0,0,0);
+							return;
+						}
+						if(menu[item_select].value == 3){
+							REQUEST_ANIMS("amb@dance_maleidl_c");
+							while(!HAVE_ANIMS_LOADED("amb@dance_maleidl_c")) WAIT(0);
+							TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_c","amb@dance_maleidl_c",8.0,0,0);
+							return;
+						}
+						if(menu[item_select].value == 4){
+							REQUEST_ANIMS("amb@dance_maleidl_b");
+							while(!HAVE_ANIMS_LOADED("amb@dance_maleidl_b")) WAIT(0);
+							TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_b","amb@dance_maleidl_b",8.0,0,0);
+							return;
+						}
+					}
+					if(item_select == 3){
+						if(menu[item_select].value == 1){
+							REQUEST_ANIMS("amb@dance_femidl_a");
+							while(!HAVE_ANIMS_LOADED("amb@dance_femidl_a")) WAIT(0);
+							TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_a","amb@dance_femidl_a",8.0,0,0);
+							return;
+						}
+						if(menu[item_select].value == 2){
+							REQUEST_ANIMS("amb@dance_femidl_b");
+							while(!HAVE_ANIMS_LOADED("amb@dance_femidl_b")) WAIT(0);
+							TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_b","amb@dance_femidl_b",8.0,0,0);
+							return;
+						}
+						if(menu[item_select].value == 3){
+							REQUEST_ANIMS("amb@dance_femidl_c");
+							while(!HAVE_ANIMS_LOADED("amb@dance_femidl_c")) WAIT(0);
+							TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"loop_c","amb@dance_femidl_c",8.0,0,0);
+							return;
+						}					
+					}
+					if(item_select == 4){
+						REQUEST_ANIMS("missstripclublo");
+						while(!HAVE_ANIMS_LOADED("missstripclublo")) WAIT(0);
+						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"pole_dance_a","missstripclublo",8.0,0,0);
+						return;
+					}
+					if(item_select == 5){
+						SWITCH_PED_TO_RAGDOLL(pPlayer,20,30,false,false,false,false);
+						SWITCH_PED_TO_ANIMATED(pPlayer,true);
+						GIVE_PLAYER_RAGDOLL_CONTROL(GET_PLAYER_ID(),true);
+						WAIT(30);
+						SWITCH_PED_TO_ANIMATED(pPlayer,false);
+						GIVE_PLAYER_RAGDOLL_CONTROL(GET_PLAYER_ID(),false);
+						return;
+					}
+					if(item_select == 6){
+						do_toggle(ragdoll);
+						return;
+					}
+					if(item_select == 7){
+						REQUEST_ANIMS("misscar_sex");
+						while(!HAVE_ANIMS_LOADED("misscar_sex")) WAIT(0);
+						TASK_PLAY_ANIM_WITH_FLAGS(pPlayer,"m_handjob_intro_low","misscar_sex",8.0,0,0);
+						return;
 					}
 				}
 			}

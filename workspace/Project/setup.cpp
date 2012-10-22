@@ -53,7 +53,7 @@ void menu_setup(void){
 		if(last_selected[0] == 1){
 			footer = "Player Options";
 			add_item("Online Players",false);
-			add_item("Animations",false);
+			add_item("Interact",false);
 			add_item("Give Health & Armor",true);
 			add_toggle("God Mode",godmode);
 			add_toggle("Never Wanted",neverwanted);
@@ -177,14 +177,9 @@ void menu_setup(void){
 				return;
 			}
 			if(last_selected[1] == 2){
-				footer = "Animations";
-				add_number("Taichi",2);
-				add_number("Male Dance",4);
-				add_number("Female Dance",3);
-				add_item("Pole Dance",true);
-				add_item("Stop Anim",true);
-				add_toggle("Ragdoll",ragdoll);
-				add_item("Zohan",true);
+				footer = "Interact";
+				add_item("Dances",false);
+				add_item("Speeches",false);
 				return;
 			}
 			if(last_selected[1] == 13){
@@ -300,6 +295,22 @@ void menu_setup(void){
 					add_item("Burn",true);
 					add_item("Hippo",true);
 					return;
+				}
+			}
+			if(last_selected[1] == 2){
+				if(last_selected[2] == 1){
+					footer = "Dances";
+					add_number("Taichi",2);
+					add_number("Male Dance",4);
+					add_number("Female Dance",3);
+					add_item("Pole Dance",true);
+					add_item("Stop Anim",true);
+					add_toggle("Ragdoll",ragdoll);
+					add_item("Zohan",true);
+				}
+				if(last_selected[2] == 2){
+					footer = "Speech";
+					add_item("Plaveholder",true);
 				}
 			}
 		}

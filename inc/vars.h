@@ -4,6 +4,25 @@
 
 **/
 
+typedef struct _menu_struct{
+ 
+    char* item_name;
+ 
+    bool action;
+ 
+    int type;
+ 
+    int value;
+ 
+    int extra_val;
+ 
+    int maxval;
+ 
+} menu_struct;
+ 
+ 
+ 
+menu_struct menu[20];
 //Xbox 360 buttons
 #define BUTTON_SELECT 0xD
 #define BUTTON_START 0xC

@@ -21,7 +21,25 @@
 #define BUTTON_RB 0x6
 #define STICK_LEFT 0x12
 #define STICK_RIGHT 0x13
-
+typedef struct _menu_struct{
+ 
+    char* item_name;
+ 
+    bool action;
+ 
+    int type;
+ 
+    int value;
+ 
+    int extra_val;
+ 
+    int maxval;
+ 
+} menu_struct;
+ 
+ 
+ 
+menu_struct menu[20];
 //PS3 Buttons
 #define L3  0x12
 #define L2  0x5
